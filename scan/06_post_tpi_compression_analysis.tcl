@@ -52,7 +52,7 @@ analyze_scan_compressibility \
     -library $ATPG_LIB \
     -scanins 2 \
     -scanouts 2 \
-    -ratios "70 80" \
+    -ratios {70 80} \
     -compression_method compress_scan_chains \
     -compressor xor \
     -decompressor broadcast \
