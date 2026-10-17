@@ -29,29 +29,21 @@ if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
 }
 
 # ------------------------------------------------------------------------------
-# User-Configurable Compression & Scan Channel Parameters
-# Can be overridden at execution time via shell environment variables:
-#   COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh 7
+# Fixed DFT Compression & Scan Channel Parameters
+# - Analysis Ratios: 70 and 80
+# - Insertion Ratio:  80
+# - Scan Channels:    2 (fixed: scan_in_0/1, scan_out_0/1)
 # ------------------------------------------------------------------------------
-if {[info exists ::env(COMPRESSION_RATIO)]} {
-    set COMPRESSION_RATIO $::env(COMPRESSION_RATIO)
-} else {
-    set COMPRESSION_RATIO 70
-}
-
-if {[info exists ::env(NUM_SCAN_CHANNELS)]} {
-    set NUM_SCAN_CHANNELS $::env(NUM_SCAN_CHANNELS)
-} else {
-    set NUM_SCAN_CHANNELS 1
-}
-
-set NUM_SCAN_INS  $NUM_SCAN_CHANNELS
-set NUM_SCAN_OUTS $NUM_SCAN_CHANNELS
+set COMPRESSION_RATIO 80
+set ANALYSIS_RATIOS   [list 70 80]
+set NUM_SCAN_CHANNELS 2
+set NUM_SCAN_INS      2
+set NUM_SCAN_OUTS     2
 
 puts "=================================================================="
 puts " DFT Configuration Parameters:"
-puts "   Target Design:     $DESIGN"
-puts "   Compression Ratio: $COMPRESSION_RATIO"
-puts "   Scan In Channels:  $NUM_SCAN_INS"
-puts "   Scan Out Channels: $NUM_SCAN_OUTS"
+puts "   Target Design:       $DESIGN"
+puts "   Scan Channels:       $NUM_SCAN_CHANNELS (Fixed)"
+puts "   Insertion Ratio:     $COMPRESSION_RATIO (Fixed)"
+puts "   Analysis Ratios:     $ANALYSIS_RATIOS"
 puts "=================================================================="

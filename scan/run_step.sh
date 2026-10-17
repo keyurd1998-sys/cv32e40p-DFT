@@ -5,9 +5,6 @@
 #   ./run_step.sh 1
 #   ./run_step.sh 1 2 3
 #   ./run_step.sh all
-#
-# Custom runtime configuration:
-#   COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all
 # ==============================================================================
 set -euo pipefail
 
@@ -16,8 +13,6 @@ ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "$SCRIPT_DIR"
 
 export CADENCE_DFT_LIB="/home/admin/DFT/Library"
-export COMPRESSION_RATIO="${COMPRESSION_RATIO:-70}"
-export NUM_SCAN_CHANNELS="${NUM_SCAN_CHANNELS:-1}"
 
 mkdir -p logs reports dbs netlists "${ROOT_DIR}/atpg" "${ROOT_DIR}/gls"
 
@@ -25,14 +20,14 @@ if [ $# -eq 0 ] || [ "$1" = "help" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; 
     echo "Usage: $0 <step_number(s) | all>"
     echo "Steps: 1 to 8"
     echo ""
-    echo "Runtime options (set via environment variables):"
-    echo "  COMPRESSION_RATIO   Target compression ratio (default: 70)"
-    echo "  NUM_SCAN_CHANNELS   Number of scan-in and scan-out channels (default: 1)"
+    echo "Fixed DFT Architecture:"
+    echo "  Scan Channels:    2 (scan_in_0/1, scan_out_0/1)"
+    echo "  Insertion Ratio:  80"
+    echo "  Analysis Ratios:  70, 80"
     echo ""
     echo "Examples:"
     echo "  ./run_step.sh all"
-    echo "  COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all"
-    echo "  COMPRESSION_RATIO=60 ./run_step.sh 7"
+    echo "  ./run_step.sh 7"
     exit 0
 fi
 
@@ -43,9 +38,10 @@ fi
 
 echo "=================================================================="
 echo " Starting CV32E40P Scan Synthesis Flow (Genus)"
-echo " Configuration:"
-echo "   - Compression Ratio: ${COMPRESSION_RATIO}"
-echo "   - Scan Channels:     ${NUM_SCAN_CHANNELS} (Scan-in/out)"
+echo " Fixed Configuration:"
+echo "   - Scan Channels:    2 (scan_in_0/1, scan_out_0/1)"
+echo "   - Insertion Ratio:  80"
+echo "   - Analysis Ratios:  70, 80"
 echo "=================================================================="
 
 run_step() {

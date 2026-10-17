@@ -2,7 +2,7 @@
 
 Complete, fully self-contained Design-for-Test (DFT) flow for the standalone OpenHW Group **CV32E40P** 32-bit RISC-V core (`cv32e40p_core`).
 
-The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided Test Point Insertion (TPI)**, featuring full pre-TPI and post-TPI compression analysis.
+The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided Test Point Insertion (TPI)**, featuring full pre-TPI and post-TPI compression analysis on **2 scan channels** with target **80x compression**.
 
 ---
 
@@ -14,7 +14,7 @@ The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided T
    - Dedicated primary test shift enable (`SCAN_ENABLE`).
 
 2. **Pre-TPI Compression Analysis:**
-   - Structural preview via `compress_scan_chains -preview` across compression ratios 50, 60, 70, 80.
+   - Structural preview via `compress_scan_chains -preview` across compression ratios **70 and 80** on 2 scan channels.
    - ATPG-guided scan compressibility evaluation (`analyze_scan_compressibility`) measuring baseline coverage and test data volume reduction (TDVR).
 
 3. **Modus ATPG-Guided Test Point Insertion (TPI):**
@@ -22,18 +22,18 @@ The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided T
    - Inserted into the mapped netlist to resolve random-pattern resistant faults and eliminate compression bottlenecks.
 
 4. **Post-TPI Compression Analysis:**
-   - Evaluates compression configurations (ratios 50, 60, 70, 80) on the design with test points inserted.
+   - Evaluates compression configurations (ratios **70 and 80**) on the design with test points inserted across 2 scan channels.
    - Quantifies the test coverage boost, pattern count reduction, and compression scalability achieved by TPI.
 
 5. **Final Scan Compression Insertion:**
-   - Single scan-in (`scan_in`) and scan-out (`scan_out`) external channel.
+   - **2 Scan Channels:** `scan_in_0`, `scan_in_1`, `scan_out_0`, `scan_out_1`.
    - Broadcast decompressor and XOR compressor with wide1 channel masking.
-   - Configured with target ratio (default 70).
+   - Configured with fixed target compression ratio **80**.
 
 6. **Timing & ATPG Export:**
    - Post-DFT QoR and slack timing reports.
-   - Exported compressed gate-level Verilog netlist (`netlists/cv32e40p_core_compressed.v`).
-   - Automated export of Modus Compressed ATPG workspace (`atpg/compressed_atpg`).
+   - Exported compressed gate-level Verilog netlist (`scan/netlists/cv32e40p_core_compressed.v`).
+   - Automated export of Modus Compressed ATPG workspaces (`atpg/stuck_at` & `atpg/delay`).
 
 ---
 
@@ -52,14 +52,14 @@ cv32e40p-DFT/
 │
 ├── scan/                                   # Scan Synthesis & Compression Flow (Genus)
 │   ├── run_step.sh                         # Step runner for Genus DFT flow (steps 1-8 or all)
-│   ├── 00_setup_env.tcl                    # Environment paths and library configurations
+│   ├── 00_setup_env.tcl                    # Environment paths, library, 2 scan channels & ratio 80
 │   ├── 01_elaborate.tcl                    # Step 1: RTL elaboration and health check
 │   ├── 02_dft_setup_tdrc.tcl               # Step 2: Test clocks, scan enable & pre-DFT TDRC
 │   ├── 03_scan_mapping.tcl                 # Step 3: Generic synthesis and scan flop mapping
-│   ├── 04_pre_tpi_compression_analysis.tcl # Step 4: Pre-TPI compression preview & analysis (ratios 50-80)
+│   ├── 04_pre_tpi_compression_analysis.tcl # Step 4: Pre-TPI compression preview & analysis (ratios 70, 80)
 │   ├── 05_test_point_insertion.tcl         # Step 5: Modus ATPG-guided test point insertion (max 100 TPs)
-│   ├── 06_post_tpi_compression_analysis.tcl# Step 6: Post-TPI compression preview & analysis (ratios 50-80)
-│   ├── 07_insert_compression.tcl           # Step 7: Scan compression insertion (Ratio 70)
+│   ├── 06_post_tpi_compression_analysis.tcl# Step 6: Post-TPI compression preview & analysis (ratios 70, 80)
+│   ├── 07_insert_compression.tcl           # Step 7: Scan compression insertion (Ratio 80, 2 Channels)
 │   ├── 08_export.tcl                       # Step 8: Export netlists, SDC, reports & ATPG scripts
 │   ├── dbs/                                # Checkpoint databases (01 through 08)
 │   ├── logs/                               # Execution logs for each step
@@ -87,20 +87,17 @@ cv32e40p-DFT/
 ### Step 1: Run Scan Synthesis in Genus (`scan/`)
 You can run directly from the root using `./run_step.sh` or from `scan/`:
 ```bash
-# Run all steps with default settings (Ratio 70, 1 scan channel):
+# Run all steps (Fixed: 2 scan channels, Ratio 80, Analysis 70 & 80):
 ./run_step.sh all
-
-# Or run with custom parameters:
-COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all
 
 # Or run individual steps sequentially:
 ./run_step.sh 1    # Elaboration & Checkpoint 01_elaborated.db
 ./run_step.sh 2    # DFT Setup & Pre-DFT TDRC
 ./run_step.sh 3    # Generic Synthesis & Scan Mapping
-./run_step.sh 4    # Pre-TPI Compression Analysis
+./run_step.sh 4    # Pre-TPI Compression Analysis (Ratios 70, 80)
 ./run_step.sh 5    # Modus Test Point Insertion (TPI)
-./run_step.sh 6    # Post-TPI Compression Analysis
-./run_step.sh 7    # Scan Compression Insertion
+./run_step.sh 6    # Post-TPI Compression Analysis (Ratios 70, 80)
+./run_step.sh 7    # Scan Compression Insertion (Ratio 80, 2 Channels)
 ./run_step.sh 8    # Export Netlist, SDC, SCANDEF, Reports & Modus ATPG
 ```
 

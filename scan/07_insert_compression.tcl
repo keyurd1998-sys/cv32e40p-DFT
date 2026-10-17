@@ -12,19 +12,16 @@ define_test_mode -name test_mode -active high -create_port test_mode
 set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
 
-# 1. Define Core Scan Chain(s) based on NUM_SCAN_CHANNELS
-puts "INFO: Defining $NUM_SCAN_CHANNELS scan channel(s)..."
-for {set i 0} {$i < $NUM_SCAN_CHANNELS} {incr i} {
-    set sdi_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_in" : "scan_in_${i}"}]
-    set sdo_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_out" : "scan_out_${i}"}]
-    define_scan_chain -name "chain${i}" -sdi $sdi_name -sdo $sdo_name -create_ports -shift_enable scan_en
-}
+# 1. Define Core Scan Chains (Fixed: 2 Channels)
+puts "INFO: Defining 2 scan channels (chain0: scan_in_0/scan_out_0, chain1: scan_in_1/scan_out_1)..."
+define_scan_chain -name chain0 -sdi scan_in_0 -sdo scan_out_0 -create_ports -shift_enable scan_en
+define_scan_chain -name chain1 -sdi scan_in_1 -sdo scan_out_1 -create_ports -shift_enable scan_en
 
-# 2. Stitch scan chain(s)
+# 2. Stitch scan chains
 connect_scan_chains -auto_create_chains
 
-# 3. Insert Scan Compression (Ratio $COMPRESSION_RATIO across $NUM_SCAN_CHANNELS channel(s))
-puts "INFO: Inserting Scan Compression on $NUM_SCAN_CHANNELS channel(s) (Ratio $COMPRESSION_RATIO)..."
+# 3. Insert Scan Compression (Fixed Ratio 80 across 2 channels)
+puts "INFO: Inserting Scan Compression on 2 channels (Ratio $COMPRESSION_RATIO)..."
 compress_scan_chains \
     -chains [get_db actual_scan_chains chain*] \
     -ratio $COMPRESSION_RATIO \

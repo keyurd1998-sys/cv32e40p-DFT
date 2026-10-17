@@ -14,27 +14,24 @@ define_test_mode -name test_mode -active high -create_port test_mode
 set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
 
-# Define temporary scan chain(s) based on NUM_SCAN_CHANNELS (including TPI flops)
-puts "INFO: Defining $NUM_SCAN_CHANNELS scan channel(s) for Post-TPI analysis..."
-for {set i 0} {$i < $NUM_SCAN_CHANNELS} {incr i} {
-    set sdi_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_in" : "scan_in_${i}"}]
-    set sdo_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_out" : "scan_out_${i}"}]
-    define_scan_chain -name "chain${i}" -sdi $sdi_name -sdo $sdo_name -create_ports -shift_enable scan_en
-}
+# Define 2 scan channels for Post-TPI analysis (including TPI flops)
+puts "INFO: Defining 2 scan channels (chain0: scan_in_0/scan_out_0, chain1: scan_in_1/scan_out_1) for Post-TPI analysis..."
+define_scan_chain -name chain0 -sdi scan_in_0 -sdo scan_out_0 -create_ports -shift_enable scan_en
+define_scan_chain -name chain1 -sdi scan_in_1 -sdo scan_out_1 -create_ports -shift_enable scan_en
 connect_scan_chains -auto_create_chains
 
 # ------------------------------------------------------------------------------
-# 1. Structural Compression Architecture Preview
+# 1. Structural Compression Architecture Preview (Ratios 70, 80)
 # ------------------------------------------------------------------------------
-set ratio_list [lsort -unique -integer [list 50 60 70 80 $COMPRESSION_RATIO]]
+set ratio_list $ANALYSIS_RATIOS
 puts "=================================================================="
-puts " Post-TPI Compression Previews (Ratios: $ratio_list, Channels: $NUM_SCAN_CHANNELS):"
+puts " Post-TPI Compression Previews (Ratios: $ratio_list, Channels: 2):"
 puts "=================================================================="
 set rpt_fp [open "$STEP_RPT_DIR/${DESIGN}_post_tpi_preview.rpt" w]
 foreach ratio $ratio_list {
-    puts "--- Ratio $ratio Preview ($NUM_SCAN_CHANNELS channel(s)) ---"
+    puts "--- Ratio $ratio Preview (2 channels) ---"
     puts $rpt_fp "=================================================================="
-    puts $rpt_fp " Post-TPI Compression Preview (Ratio $ratio, Channels $NUM_SCAN_CHANNELS):"
+    puts $rpt_fp " Post-TPI Compression Preview (Ratio $ratio, Channels: 2):"
     puts $rpt_fp "=================================================================="
     compress_scan_chains \
         -chains [get_db actual_scan_chains chain*] \

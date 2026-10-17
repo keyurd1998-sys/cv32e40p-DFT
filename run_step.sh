@@ -4,7 +4,6 @@
 # Usage:
 #   ./run_step.sh 1
 #   ./run_step.sh all
-#   COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all
 # ==============================================================================
 set -euo pipefail
 
