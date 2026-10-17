@@ -26,8 +26,6 @@ connect_scan_chains -auto_create_chains
 puts "INFO: Running Pre-TPI scan compressibility analysis across ratios 70 and 80..."
 analyze_scan_compressibility \
     -library $ATPG_LIB \
-    -scanins 2 \
-    -scanouts 2 \
     -ratios {70 80} \
     -compression_method compress_scan_chains \
     -compressor xor \
