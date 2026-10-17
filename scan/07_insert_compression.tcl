@@ -23,7 +23,6 @@ connect_scan_chains -auto_create_chains
 # 3. Insert Scan Compression (Fixed Ratio 80 across 2 channels)
 puts "INFO: Inserting Scan Compression on 2 channels (Ratio 80)..."
 compress_scan_chains \
-    -chains [get_db actual_scan_chains chain*] \
     -ratio 80 \
     -compressor xor \
     -decompressor broadcast \
