@@ -2,18 +2,18 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source "$SCRIPT_DIR/00_setup_env.tcl"
 
 set STEP_RPT_DIR [file normalize "$REPORTS_DIR/08_atpg"]
-set SA_DIR       [file normalize "$ATPG_DIR/stuck_at"]
-set DELAY_DIR    [file normalize "$ATPG_DIR/delay"]
+set ATPG_WORK    [file normalize "$ATPG_DIR/compressed_atpg"]
 
 file mkdir $STEP_RPT_DIR
-file mkdir $SA_DIR
-file mkdir $DELAY_DIR
+file mkdir $ATPG_WORK
 file mkdir $NETLISTS_DIR
 file mkdir $DBS_DIR
 
 read_db "$DBS_DIR/07_compressed.db"
 
-# Post-DFT Timing & QoR Analysis
+# ------------------------------------------------------------------------------
+# 1. Post-DFT Timing & QoR Analysis
+# ------------------------------------------------------------------------------
 set STEP_TIMING_DIR [file normalize "$REPORTS_DIR/08_timing"]
 file mkdir $STEP_TIMING_DIR
 
@@ -29,37 +29,27 @@ puts " Post-DFT QoR & Timing Summary:"
 puts "=================================================================="
 report_qor
 
-# Export final compressed gate-level Verilog netlist
+# ------------------------------------------------------------------------------
+# 2. Export Final Compressed Gate-Level Verilog Netlist
+# ------------------------------------------------------------------------------
 set FINAL_NETLIST [file normalize "$NETLISTS_DIR/${DESIGN}_compressed.v"]
 write_hdl > $FINAL_NETLIST
 puts "INFO: Exported compressed netlist: $FINAL_NETLIST"
 
-# Export Stuck-At ATPG workspace for Modus (including IEEE 1500 serial testmodes)
-puts "INFO: Generating Modus Stuck-At ATPG scripts..."
+# ------------------------------------------------------------------------------
+# 3. Export Modus Compressed ATPG Workspace
+# ------------------------------------------------------------------------------
+puts "INFO: Generating Modus Compressed ATPG scripts..."
 write_dft_atpg \
-    -directory $SA_DIR \
+    -directory $ATPG_WORK \
     -library $ATPG_LIB \
     -compression \
-    -serial \
     -build_model_options "-allowmissingmodules yes" \
     -run_from_directory \
     -force
 
-# Export Transition Delay (At-Speed OCC) ATPG workspace for Modus
-puts "INFO: Generating Modus Transition Delay (OPCG At-Speed) ATPG scripts..."
-write_dft_atpg \
-    -directory $DELAY_DIR \
-    -library $ATPG_LIB \
-    -compression \
-    -delay \
-    -build_model_options "-allowmissingmodules yes" \
-    -run_from_directory \
-    -force
-
-puts "INFO: Modus Stuck-At ATPG script exported to: $SA_DIR/runmodus.atpg.tcl"
-puts "INFO: Modus Transition Delay ATPG script exported to: $DELAY_DIR/runmodus.atpg.tcl"
-puts "INFO: To run ATPG manually with Modus:"
-puts "INFO:   cd $SA_DIR && modus -file runmodus.atpg.tcl"
-puts "INFO:   cd $DELAY_DIR && modus -file runmodus.atpg.tcl"
+puts "INFO: Modus ATPG run script exported to: $ATPG_WORK/runmodus.atpg.tcl"
+puts "INFO: To run ATPG with Modus:"
+puts "INFO:   cd $ATPG_WORK && modus -file runmodus.atpg.tcl"
 puts "INFO: Step 8 Timing analysis and ATPG script export completed successfully."
 exit

@@ -1,22 +1,20 @@
 set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source "$SCRIPT_DIR/00_setup_env.tcl"
 
-set STEP_RPT_DIR [file normalize "$REPORTS_DIR/06_tpi"]
+set STEP_RPT_DIR [file normalize "$REPORTS_DIR/05_tpi"]
 set TPI_DIR      [file normalize "$STEP_RPT_DIR/modus_tpi_work"]
 file mkdir $STEP_RPT_DIR
 file mkdir $TPI_DIR
 file mkdir $DBS_DIR
 
-read_db "$DBS_DIR/05_wrapper.db"
+read_db "$DBS_DIR/03_mapped.db"
 
-# PASS 1: Build temporary scan chains for Modus ATPG analysis
+# PASS 1: Build temporary scan chain for Modus ATPG test point analysis
 define_test_mode -name test_mode -active high -create_port test_mode
 set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
 define_scan_chain -name chain0 -sdi scan_in -sdo scan_out -create_ports -shift_enable scan_en
-
-connect_scan_chains -auto_create_chains -include_opcg_segments
-connect_opcg_segments -side_scan_only
+connect_scan_chains -auto_create_chains
 
 # Write Modus compression test point analysis setup
 set_db / .dft_generate_atpg_no_testpoint_file auto
@@ -34,7 +32,7 @@ shell modus -file "$TPI_DIR/runmodus.compression_testpoints.tcl"
 
 # PASS 2: Reload clean mapped netlist without temporary chains
 delete_obj [get_db designs *]
-read_db "$DBS_DIR/05_wrapper.db"
+read_db "$DBS_DIR/03_mapped.db"
 
 # Define test mode signal on clean netlist
 define_test_mode -name test_mode -active high -create_port test_mode
@@ -58,8 +56,8 @@ check_dft_rules                 > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
 report_dft_analyzed_test_points > "$STEP_RPT_DIR/${DESIGN}_test_points.rpt"
 
 # Save checkpoint database
-set DB_FILE [file normalize "$DBS_DIR/06_tpi.db"]
+set DB_FILE [file normalize "$DBS_DIR/05_tpi.db"]
 write_db -all_root_attributes -to_file $DB_FILE
 
-puts "INFO: Step 6 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: $DB_FILE"
+puts "INFO: Step 5 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: $DB_FILE"
 exit

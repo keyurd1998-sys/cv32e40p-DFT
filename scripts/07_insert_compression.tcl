@@ -12,32 +12,20 @@ if {[info exists ::env(COMPRESSION_RATIO)]} {
     set COMP_RATIO 70
 }
 
-read_db "$DBS_DIR/06_tpi.db"
+read_db "$DBS_DIR/05_tpi.db"
 
-# Configure scan chain attributes
+# Configure test mode and scan chain attributes
+define_test_mode -name test_mode -active high -create_port test_mode
 set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
 
-# 1. Define Core Scan Chain (to be compressed with Ratio $COMP_RATIO)
+# 1. Define Core Scan Chain (1 scan-in, 1 scan-out channel)
 define_scan_chain -name chain0 -sdi scan_in -sdo scan_out -create_ports -shift_enable scan_en
 
-# 2. Define Separate Dedicated Wrapper Scan Chain (Uncompressed WSI -> WSO)
-define_scan_chain -name wrap_chain -sdi WSI -sdo WSO -create_ports -shift_enable scan_en
+# 2. Stitch scan chain
+connect_scan_chains -auto_create_chains
 
-# 3. Stitch chains
-# First, connect wrapper segments into separate wrap_chain
-set wrap_segs [get_db scan_segments -if {.core_wrapper == true}]
-if {[llength $wrap_segs] > 0} {
-    puts "INFO: Connecting [llength $wrap_segs] wrapper segments to wrap_chain (WSI -> WSO)..."
-    connect_scan_chains -chains wrap_chain -elements $wrap_segs
-}
-
-# Second, connect core flops, TPI flops, and OPCG segments into chain0 incrementally
-# -incremental prevents Genus from disconnecting or modifying wrap_chain
-connect_scan_chains -chains chain0 -auto_create_chains -include_opcg_segments -incremental
-connect_opcg_segments -side_scan_only
-
-# 4. Insert Scan Compression ONLY on Core Chain (chain0)
+# 3. Insert Scan Compression (Ratio $COMP_RATIO)
 puts "INFO: Inserting Scan Compression on core chain0 (Ratio $COMP_RATIO)..."
 compress_scan_chains \
     -chains [get_db actual_scan_chains chain0] \

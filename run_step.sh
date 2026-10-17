@@ -31,14 +31,14 @@ run_step() {
     local desc=""
 
     case "$step" in
-        1) script="01_elaborate.tcl";                desc="Elaboration & Health Check" ;;
-        2) script="02_dft_setup_tdrc.tcl";          desc="DFT Setup & Pre-DFT DRC" ;;
-        3) script="03_scan_mapping.tcl";            desc="Generic Synthesis & Scan Mapping" ;;
-        4) script="04_insert_opcg.tcl";             desc="OPCG Insertion" ;;
-        5) script="05_insert_dedicated_wrapper.tcl"; desc="Dedicated Wrapper Insertion" ;;
-        6) script="06_test_point_insertion.tcl";    desc="Test Point Insertion" ;;
-        7) script="07_insert_compression.tcl";      desc="Scan Compression Insertion" ;;
-        8) script="08_timing_and_atpg_export.tcl";  desc="Timing Analysis & ATPG Script Export" ;;
+        1) script="01_elaborate.tcl";                     desc="Elaboration & Health Check" ;;
+        2) script="02_dft_setup_tdrc.tcl";               desc="DFT Setup & Pre-DFT DRC" ;;
+        3) script="03_scan_mapping.tcl";                 desc="Generic Synthesis & Scan Mapping" ;;
+        4) script="04_pre_tpi_compression_analysis.tcl"; desc="Pre-TPI Compression Analysis (Ratios 50-80)" ;;
+        5) script="05_test_point_insertion.tcl";         desc="Modus Test Point Insertion (TPI)" ;;
+        6) script="06_post_tpi_compression_analysis.tcl";desc="Post-TPI Compression Analysis (Ratios 50-80)" ;;
+        7) script="07_insert_compression.tcl";           desc="Scan Compression Insertion" ;;
+        8) script="08_timing_and_atpg_export.tcl";       desc="Timing Analysis & ATPG Script Export" ;;
         *)
             echo "ERROR: Invalid step '$step'. Valid steps are 1 through 8, or 'all'."
             exit 1
