@@ -90,5 +90,9 @@ Or execute individual steps sequentially:
 ### Step 2: Run ATPG in Cadence Modus
 Once Step 8 completes:
 ```bash
-cd atpg/compressed_atpg && modus -file runmodus.atpg.tcl
+# 1. Run Stuck-At ATPG:
+cd atpg/stuck_at && modus -file runmodus.atpg.tcl
+
+# 2. Run Transition Delay ATPG:
+cd atpg/delay && modus -file runmodus.atpg.tcl
 ```
