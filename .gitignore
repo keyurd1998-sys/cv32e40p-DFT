@@ -1,0 +1,22 @@
+# Genus checkpoints and databases
+dbs/*
+!dbs/.gitkeep
+
+# Logs and command transcripts
+logs/*
+!logs/.gitkeep
+
+# Netlists
+netlists/*
+!netlists/.gitkeep
+
+# ATPG working directories and results
+atpg/*
+!atpg/.gitkeep
+
+# Reports
+reports/*
+!reports/.gitkeep
+
+# Cloned RTL sources (downloaded via get_sources.sh)
+rtl_src/
