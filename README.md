@@ -1,6 +1,8 @@
 # CV32E40P Core - Advanced DFT Flow (Cadence Genus & Modus)
 
-Complete, automated Design-for-Test (DFT) flow for the standalone OpenHW Group **CV32E40P** 32-bit RISC-V core (`cv32e40p_core`).
+Complete, fully self-contained Design-for-Test (DFT) flow for the standalone OpenHW Group **CV32E40P** 32-bit RISC-V core (`cv32e40p_core`).
+
+All RTL source files are permanently included directly in the repository with zero external dependencies or re-sourcing required.
 
 ---
 
@@ -36,12 +38,14 @@ Complete, automated Design-for-Test (DFT) flow for the standalone OpenHW Group *
 
 ```
 cv32e40p-DFT/
-├── get_sources.sh                  # Fetches strictly required RTL files from OpenHW Group
 ├── run_step.sh                     # Step runner for Genus DFT flow (steps 1-8 or all)
 ├── filelists/
 │   └── cv32e40p_core.flist         # RTL filelist and include directories
 ├── constraints/
 │   └── cv32e40p_core.sdc           # Timing constraints
+├── rtl/                            # Self-contained core RTL files + include/ packages
+│   └── include/                    # cv32e40p packages & fpnew_pkg.sv
+├── bhv/                            # Simulation clock gating cell (cv32e40p_sim_clock_gate.sv)
 ├── scripts/
 │   ├── 00_setup_env.tcl            # Environment paths and library configurations
 │   ├── 01_elaborate.tcl            # Step 1: RTL elaboration and health check
@@ -52,9 +56,6 @@ cv32e40p-DFT/
 │   ├── 06_test_point_insertion.tcl # Step 6: Modus ATPG-guided test point insertion
 │   ├── 07_insert_compression.tcl   # Step 7: Ratio 70 scan compression insertion
 │   └── 08_timing_and_atpg_export.tcl # Step 8: Post-DFT timing & Modus ATPG script export
-├── rtl/                            # 24 core RTL files + include/ (4 packages)
-│   └── include/                    # cv32e40p packages & fpnew_pkg.sv
-├── bhv/                            # Simulation clock gating cell (cv32e40p_sim_clock_gate.sv)
 ├── dbs/                            # Saved Genus checkpoint databases (01 through 07)
 ├── logs/                           # Execution logs for each step
 ├── reports/                        # TDRC, gate count, scan chain, and timing reports
@@ -66,17 +67,7 @@ cv32e40p-DFT/
 
 ## Quick Start Guide
 
-### Step 1: Fetch RTL Sources (Optional - Already Provided)
-Run the automated source fetcher script to retrieve or refresh ONLY the 29 required RTL files from OpenHW Group:
-```bash
-./get_sources.sh
-```
-Or check existing sources:
-```bash
-./get_sources.sh --check
-```
-
-### Step 2: Run the DFT Flow
+### Step 1: Run the DFT Flow in Genus
 Run all steps from Elaboration to ATPG export:
 ```bash
 ./run_step.sh all
@@ -93,7 +84,7 @@ Or execute individual steps sequentially:
 ./run_step.sh 8    # Timing Analysis & Modus ATPG Export
 ```
 
-### Step 3: Run ATPG in Cadence Modus
+### Step 2: Run ATPG in Cadence Modus
 Once Step 8 completes:
 ```bash
 # Run Stuck-At ATPG:
