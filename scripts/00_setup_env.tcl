@@ -24,3 +24,31 @@ if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
     puts "ERROR: CV32E40P RTL source files not found under $RTL_DIR."
     exit 1
 }
+
+# ------------------------------------------------------------------------------
+# User-Configurable Compression & Scan Channel Parameters
+# Can be overridden at execution time via shell environment variables:
+#   COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh 7
+# ------------------------------------------------------------------------------
+if {[info exists ::env(COMPRESSION_RATIO)]} {
+    set COMPRESSION_RATIO $::env(COMPRESSION_RATIO)
+} else {
+    set COMPRESSION_RATIO 70
+}
+
+if {[info exists ::env(NUM_SCAN_CHANNELS)]} {
+    set NUM_SCAN_CHANNELS $::env(NUM_SCAN_CHANNELS)
+} else {
+    set NUM_SCAN_CHANNELS 1
+}
+
+set NUM_SCAN_INS  $NUM_SCAN_CHANNELS
+set NUM_SCAN_OUTS $NUM_SCAN_CHANNELS
+
+puts "=================================================================="
+puts " DFT Configuration Parameters:"
+puts "   Target Design:     $DESIGN"
+puts "   Compression Ratio: $COMPRESSION_RATIO"
+puts "   Scan In Channels:  $NUM_SCAN_INS"
+puts "   Scan Out Channels: $NUM_SCAN_OUTS"
+puts "=================================================================="

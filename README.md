@@ -71,19 +71,30 @@ cv32e40p-DFT/
 ## Quick Start Guide
 
 ### Step 1: Run the DFT Flow in Genus
-Run all steps from Elaboration to ATPG export:
+Run all steps with default settings (Ratio 70, 1 scan channel):
 ```bash
 ./run_step.sh all
 ```
+
+#### Customizing at Execution Time:
+You can override the target compression ratio and the number of scan channels without editing any script:
+```bash
+# Run with 2 scan channels and Ratio 80:
+COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all
+
+# Or run individual steps with custom settings:
+COMPRESSION_RATIO=60 NUM_SCAN_CHANNELS=1 ./run_step.sh 7
+```
+
 Or execute individual steps sequentially:
 ```bash
 ./run_step.sh 1    # Elaboration & Checkpoint 01_elaborated.db
 ./run_step.sh 2    # DFT Setup & Pre-DFT TDRC
 ./run_step.sh 3    # Generic Synthesis & Scan Mapping
-./run_step.sh 4    # Pre-TPI Compression Analysis (Ratios 50, 60, 70, 80)
+./run_step.sh 4    # Pre-TPI Compression Analysis
 ./run_step.sh 5    # Modus Test Point Insertion (TPI)
-./run_step.sh 6    # Post-TPI Compression Analysis (Ratios 50, 60, 70, 80)
-./run_step.sh 7    # Scan Compression Insertion (Ratio 70)
+./run_step.sh 6    # Post-TPI Compression Analysis
+./run_step.sh 7    # Scan Compression Insertion
 ./run_step.sh 8    # Export Netlist, SDC, SCANDEF, Reports & Modus ATPG
 ```
 
