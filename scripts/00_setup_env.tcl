@@ -17,11 +17,11 @@ set ATPG_LIB   "$LIB_DIR/atpg/stdcell.v"
 set FLIST    "$BLOCK_DIR/filelists/cv32e40p_core.flist"
 set SDC_FILE "$BLOCK_DIR/constraints/cv32e40p_core.sdc"
 
-if {![info exists CV32E40P_DIR]} {
-    set CV32E40P_DIR [file normalize "$BLOCK_DIR/rtl_src/cv32e40p"]
-    if {![file exists $CV32E40P_DIR]} {
-        puts "ERROR: CV32E40P RTL source not found at $CV32E40P_DIR."
-        puts "Please run ./get_sources.sh first to download the RTL."
-        exit 1
-    }
+set RTL_DIR  "$BLOCK_DIR/rtl"
+set BHV_DIR  "$BLOCK_DIR/bhv"
+
+if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
+    puts "ERROR: CV32E40P RTL source files not found under $RTL_DIR."
+    puts "Please run ./get_sources.sh first to download the required files."
+    exit 1
 }

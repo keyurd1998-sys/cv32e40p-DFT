@@ -36,7 +36,7 @@ Complete, automated Design-for-Test (DFT) flow for the standalone OpenHW Group *
 
 ```
 cv32e40p-DFT/
-├── get_sources.sh                  # Clones and verifies CV32E40P RTL from OpenHW Group
+├── get_sources.sh                  # Fetches strictly required RTL files from OpenHW Group
 ├── run_step.sh                     # Step runner for Genus DFT flow (steps 1-8 or all)
 ├── filelists/
 │   └── cv32e40p_core.flist         # RTL filelist and include directories
@@ -52,7 +52,9 @@ cv32e40p-DFT/
 │   ├── 06_test_point_insertion.tcl # Step 6: Modus ATPG-guided test point insertion
 │   ├── 07_insert_compression.tcl   # Step 7: Ratio 70 scan compression insertion
 │   └── 08_timing_and_atpg_export.tcl # Step 8: Post-DFT timing & Modus ATPG script export
-├── rtl_src/                        # Cloned RTL sources (downloaded via get_sources.sh)
+├── rtl/                            # 24 core RTL files + include/ (4 packages)
+│   └── include/                    # cv32e40p packages & fpnew_pkg.sv
+├── bhv/                            # Simulation clock gating cell (cv32e40p_sim_clock_gate.sv)
 ├── dbs/                            # Saved Genus checkpoint databases (01 through 07)
 ├── logs/                           # Execution logs for each step
 ├── reports/                        # TDRC, gate count, scan chain, and timing reports
@@ -64,10 +66,14 @@ cv32e40p-DFT/
 
 ## Quick Start Guide
 
-### Step 1: Fetch RTL Sources
-Run the automated source fetcher script to clone the official CV32E40P repository from OpenHW Group:
+### Step 1: Fetch RTL Sources (Optional - Already Provided)
+Run the automated source fetcher script to retrieve or refresh ONLY the 29 required RTL files from OpenHW Group:
 ```bash
 ./get_sources.sh
+```
+Or check existing sources:
+```bash
+./get_sources.sh --check
 ```
 
 ### Step 2: Run the DFT Flow

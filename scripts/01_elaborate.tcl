@@ -37,7 +37,8 @@ while {[gets $fp line] >= 0} {
     if {$line eq "" || [string match "//*" $line] || [string match "#*" $line]} {
         continue
     }
-    regsub -all {\$\{CV32E40P_DIR\}} $line $CV32E40P_DIR line
+    regsub -all {\$\{BLOCK_DIR\}} $line $BLOCK_DIR line
+    regsub -all {\$\{CV32E40P_DIR\}} $line $BLOCK_DIR line
     if {[string match "+incdir+*" $line]} {
         regsub {^\+incdir\+} $line "" dir_path
         lappend inc_dirs $dir_path
