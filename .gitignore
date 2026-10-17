@@ -1,22 +1,28 @@
-# Genus checkpoints and databases
+# Genus checkpoints and binary databases
+dbs/*.db
 dbs/*
 !dbs/.gitkeep
 
-# Logs and command transcripts
-logs/*
-!logs/.gitkeep
+# Modus ATPG binary testbench data and simulation results
+atpg/**/tbdata/
+atpg/**/testresults/
+**/tbdata/
+**/testresults/
 
-# Netlists
-netlists/*
-!netlists/.gitkeep
+# Cadence tool runtime clutter
+fv/
+fvl_work/
+*.cmd*
+*.log[0-9]*
+.cadence/
+.genus/
+.modus/
+modus_work/
 
-# ATPG working directories and results
-atpg/*
-!atpg/.gitkeep
-
-# Reports
-reports/*
-!reports/.gitkeep
-
-# Cloned RTL sources (downloaded via get_sources.sh)
-rtl_src/
+# System and temporary editor files
+*.tmp
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
