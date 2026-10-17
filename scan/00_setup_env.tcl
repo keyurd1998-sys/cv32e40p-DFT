@@ -1,13 +1,16 @@
 set DESIGN "cv32e40p_core"
 
-set SCRIPTS_DIR  [file dirname [file normalize [info script]]]
-set BLOCK_DIR    [file normalize "$SCRIPTS_DIR/.."]
+set SCAN_DIR     [file dirname [file normalize [info script]]]
+set ROOT_DIR     [file normalize "$SCAN_DIR/.."]
+set BLOCK_DIR    $ROOT_DIR
 
-set DBS_DIR      "$BLOCK_DIR/dbs"
-set REPORTS_DIR  "$BLOCK_DIR/reports"
-set NETLISTS_DIR "$BLOCK_DIR/netlists"
-set LOGS_DIR     "$BLOCK_DIR/logs"
-set ATPG_DIR     "$BLOCK_DIR/atpg"
+set DBS_DIR      "$SCAN_DIR/dbs"
+set REPORTS_DIR  "$SCAN_DIR/reports"
+set NETLISTS_DIR "$SCAN_DIR/netlists"
+set LOGS_DIR     "$SCAN_DIR/logs"
+
+set ATPG_DIR     "$ROOT_DIR/atpg"
+set GLS_DIR      "$ROOT_DIR/gls"
 
 set LIB_DIR "/home/admin/DFT/Library"
 set TIMING_LIB "$LIB_DIR/timing/slow.lib"

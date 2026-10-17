@@ -41,7 +41,7 @@ The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided T
 
 ```
 cv32e40p-DFT/
-├── run_step.sh                             # Step runner for Genus DFT flow (steps 1-8 or all)
+├── run_step.sh                             # Top-level runner (delegates to scan/run_step.sh)
 ├── filelists/
 │   └── cv32e40p_core.flist                 # RTL filelist and include directories
 ├── constraints/
@@ -49,7 +49,9 @@ cv32e40p-DFT/
 ├── rtl/                                    # Self-contained core RTL files + include/ packages
 │   └── include/                            # cv32e40p packages & fpnew_pkg.sv
 ├── bhv/                                    # Simulation clock gating cell (cv32e40p_sim_clock_gate.sv)
-├── scripts/
+│
+├── scan/                                   # Scan Synthesis & Compression Flow (Genus)
+│   ├── run_step.sh                         # Step runner for Genus DFT flow (steps 1-8 or all)
 │   ├── 00_setup_env.tcl                    # Environment paths and library configurations
 │   ├── 01_elaborate.tcl                    # Step 1: RTL elaboration and health check
 │   ├── 02_dft_setup_tdrc.tcl               # Step 2: Test clocks, scan enable & pre-DFT TDRC
@@ -58,36 +60,40 @@ cv32e40p-DFT/
 │   ├── 05_test_point_insertion.tcl         # Step 5: Modus ATPG-guided test point insertion (max 100 TPs)
 │   ├── 06_post_tpi_compression_analysis.tcl# Step 6: Post-TPI compression preview & analysis (ratios 50-80)
 │   ├── 07_insert_compression.tcl           # Step 7: Scan compression insertion (Ratio 70)
-│   └── 08_export.tcl                       # Step 8: Export reports, SDC, netlist, SCANDEF & ATPG
-├── dbs/                                    # Saved Genus checkpoint databases (01 through 07)
-├── logs/                                   # Execution logs for each step
-├── reports/                                # TDRC, gate count, scan chain, preview, and timing reports
-├── netlists/                               # Gate-level netlists
-└── atpg/                                   # Modus ATPG workspaces
+│   ├── 08_export.tcl                       # Step 8: Export netlists, SDC, reports & ATPG scripts
+│   ├── dbs/                                # Checkpoint databases (01 through 08)
+│   ├── logs/                               # Execution logs for each step
+│   ├── reports/                            # DRC, area, timing, preview, and scan reports
+│   └── netlists/                           # Final gate-level netlists & SCANDEF
+│
+├── atpg/                                   # Automatic Test Pattern Generation (Modus)
+│   ├── run_atpg.sh                         # Modus ATPG runner script
+│   ├── stuck_at/                           # Stuck-At ATPG workspace (exported by Step 8)
+│   ├── delay/                              # Transition Delay ATPG workspace (exported by Step 8)
+│   ├── logs/                               # ATPG execution logs
+│   └── reports/                            # ATPG coverage & fault reports
+│
+└── gls/                                    # Gate-Level Simulation (Xcelium / VCS / Icarus)
+    ├── run_gls.sh                          # Gate-level simulation runner
+    ├── tb/                                 # Testbenches
+    ├── logs/                               # Simulation logs
+    └── waves/                              # Simulation waveform databases
 ```
 
 ---
 
 ## Quick Start Guide
 
-### Step 1: Run the DFT Flow in Genus
-Run all steps with default settings (Ratio 70, 1 scan channel):
+### Step 1: Run Scan Synthesis in Genus (`scan/`)
+You can run directly from the root using `./run_step.sh` or from `scan/`:
 ```bash
+# Run all steps with default settings (Ratio 70, 1 scan channel):
 ./run_step.sh all
-```
 
-#### Customizing at Execution Time:
-You can override the target compression ratio and the number of scan channels without editing any script:
-```bash
-# Run with 2 scan channels and Ratio 80:
+# Or run with custom parameters:
 COMPRESSION_RATIO=80 NUM_SCAN_CHANNELS=2 ./run_step.sh all
 
-# Or run individual steps with custom settings:
-COMPRESSION_RATIO=60 NUM_SCAN_CHANNELS=1 ./run_step.sh 7
-```
-
-Or execute individual steps sequentially:
-```bash
+# Or run individual steps sequentially:
 ./run_step.sh 1    # Elaboration & Checkpoint 01_elaborated.db
 ./run_step.sh 2    # DFT Setup & Pre-DFT TDRC
 ./run_step.sh 3    # Generic Synthesis & Scan Mapping
@@ -98,12 +104,28 @@ Or execute individual steps sequentially:
 ./run_step.sh 8    # Export Netlist, SDC, SCANDEF, Reports & Modus ATPG
 ```
 
-### Step 2: Run ATPG in Cadence Modus
-Once Step 8 completes:
-```bash
-# 1. Run Stuck-At ATPG:
-cd atpg/stuck_at && modus -file runmodus.atpg.tcl
+---
 
-# 2. Run Transition Delay ATPG:
-cd atpg/delay && modus -file runmodus.atpg.tcl
+### Step 2: Run ATPG in Cadence Modus (`atpg/`)
+Step 8 automatically exports the Modus ATPG scripts to `atpg/stuck_at/` and `atpg/delay/`. Run them via:
+```bash
+cd atpg
+
+# Run Stuck-At ATPG:
+./run_atpg.sh stuck_at
+
+# Run Transition Delay ATPG:
+./run_atpg.sh delay
+
+# Run both:
+./run_atpg.sh all
+```
+
+---
+
+### Step 3: Run Gate-Level Simulation (`gls/`)
+Verify the post-scan compressed netlist with testbenches using:
+```bash
+cd gls
+./run_gls.sh [tb/cv32e40p_core_tb.v]
 ```

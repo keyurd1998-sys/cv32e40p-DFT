@@ -1,4 +1,7 @@
 # Genus checkpoints and binary databases
+scan/dbs/*.db
+scan/dbs/*
+!scan/dbs/.gitkeep
 dbs/*.db
 dbs/*
 !dbs/.gitkeep
@@ -8,6 +11,14 @@ atpg/**/tbdata/
 atpg/**/testresults/
 **/tbdata/
 **/testresults/
+
+# Simulation artifacts (GLS)
+gls/xcelium.d/
+gls/simv*
+gls/*.vcd
+gls/*.shm/
+gls/waves/*
+!gls/waves/.gitkeep
 
 # Cadence tool runtime clutter
 fv/
