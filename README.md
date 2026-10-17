@@ -14,15 +14,14 @@ The architecture focuses exclusively on **Scan Compression** and **ATPG-Guided T
    - Dedicated primary test shift enable (`SCAN_ENABLE`).
 
 2. **Pre-TPI Compression Analysis:**
-   - Structural preview via `compress_scan_chains -preview` across compression ratios **70 and 80** on 2 scan channels.
-   - ATPG-guided scan compressibility evaluation (`analyze_scan_compressibility`) measuring baseline coverage and test data volume reduction (TDVR).
+   - ATPG-guided scan compressibility evaluation (`analyze_scan_compressibility`) measuring baseline coverage and test data volume reduction (TDVR) across ratios **70 and 80** on 2 scan channels.
 
 3. **Modus ATPG-Guided Test Point Insertion (TPI):**
    - Modus fault analysis identifies up to 100 control and observe test points.
    - Inserted into the mapped netlist to resolve random-pattern resistant faults and eliminate compression bottlenecks.
 
 4. **Post-TPI Compression Analysis:**
-   - Evaluates compression configurations (ratios **70 and 80**) on the design with test points inserted across 2 scan channels.
+   - Evaluates compression configurations (ratios **70 and 80**) via `analyze_scan_compressibility` on the design with test points inserted across 2 scan channels.
    - Quantifies the test coverage boost, pattern count reduction, and compression scalability achieved by TPI.
 
 5. **Final Scan Compression Insertion:**
