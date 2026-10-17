@@ -23,9 +23,9 @@ connect_scan_chains -auto_create_chains
 # ------------------------------------------------------------------------------
 # 1. Structural Compression Architecture Preview (Ratios 70, 80)
 # ------------------------------------------------------------------------------
-set ratio_list $ANALYSIS_RATIOS
+set ratio_list [list 70 80]
 puts "=================================================================="
-puts " Pre-TPI Compression Previews (Ratios: $ratio_list, Channels: 2):"
+puts " Pre-TPI Compression Previews (Ratios: 70, 80, Channels: 2):"
 puts "=================================================================="
 set rpt_fp [open "$STEP_RPT_DIR/${DESIGN}_pre_tpi_preview.rpt" w]
 foreach ratio $ratio_list {
@@ -47,12 +47,12 @@ close $rpt_fp
 # ------------------------------------------------------------------------------
 # 2. ATPG-Guided Scan Compressibility Analysis (Coverage & TDVR)
 # ------------------------------------------------------------------------------
-puts "INFO: Running Pre-TPI scan compressibility analysis across ratios: $ratio_list..."
+puts "INFO: Running Pre-TPI scan compressibility analysis across ratios 70 and 80..."
 analyze_scan_compressibility \
     -library $ATPG_LIB \
-    -scanins $NUM_SCAN_INS \
-    -scanouts $NUM_SCAN_OUTS \
-    -ratios [join $ratio_list " "] \
+    -scanins 2 \
+    -scanouts 2 \
+    -ratios "70 80" \
     -compression_method compress_scan_chains \
     -compressor xor \
     -decompressor broadcast \

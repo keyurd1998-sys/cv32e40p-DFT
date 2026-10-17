@@ -21,10 +21,10 @@ define_scan_chain -name chain1 -sdi scan_in_1 -sdo scan_out_1 -create_ports -shi
 connect_scan_chains -auto_create_chains
 
 # 3. Insert Scan Compression (Fixed Ratio 80 across 2 channels)
-puts "INFO: Inserting Scan Compression on 2 channels (Ratio $COMPRESSION_RATIO)..."
+puts "INFO: Inserting Scan Compression on 2 channels (Ratio 80)..."
 compress_scan_chains \
     -chains [get_db actual_scan_chains chain*] \
-    -ratio $COMPRESSION_RATIO \
+    -ratio 80 \
     -compressor xor \
     -decompressor broadcast \
     -mask wide1 \
@@ -38,5 +38,5 @@ report_scan_chains > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
 set DB_FILE [file normalize "$DBS_DIR/07_compressed.db"]
 write_db -all_root_attributes -to_file $DB_FILE
 
-puts "INFO: Step 7 compression insertion (Ratio $COMPRESSION_RATIO, Channels $NUM_SCAN_CHANNELS) completed. Checkpoint saved: $DB_FILE"
+puts "INFO: Step 7 compression insertion (Ratio 80, 2 Channels) completed. Checkpoint saved: $DB_FILE"
 exit

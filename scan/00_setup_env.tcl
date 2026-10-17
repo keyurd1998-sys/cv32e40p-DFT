@@ -28,22 +28,9 @@ if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
     exit 1
 }
 
-# ------------------------------------------------------------------------------
-# Fixed DFT Compression & Scan Channel Parameters
-# - Analysis Ratios: 70 and 80
-# - Insertion Ratio:  80
-# - Scan Channels:    2 (fixed: scan_in_0/1, scan_out_0/1)
-# ------------------------------------------------------------------------------
-set COMPRESSION_RATIO 80
-set ANALYSIS_RATIOS   [list 70 80]
-set NUM_SCAN_CHANNELS 2
-set NUM_SCAN_INS      2
-set NUM_SCAN_OUTS     2
-
 puts "=================================================================="
-puts " DFT Configuration Parameters:"
-puts "   Target Design:       $DESIGN"
-puts "   Scan Channels:       $NUM_SCAN_CHANNELS (Fixed)"
-puts "   Insertion Ratio:     $COMPRESSION_RATIO (Fixed)"
-puts "   Analysis Ratios:     $ANALYSIS_RATIOS"
+puts " DFT Environment Setup:"
+puts "   Target Design:  $DESIGN"
+puts "   Scan Directory: $SCAN_DIR"
+puts "   Library:        $TIMING_LIB"
 puts "=================================================================="

@@ -14,11 +14,8 @@ define_test_mode -name test_mode -active high -create_port test_mode
 set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
 
-for {set i 0} {$i < $NUM_SCAN_CHANNELS} {incr i} {
-    set sdi_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_in" : "scan_in_${i}"}]
-    set sdo_name [expr {$NUM_SCAN_CHANNELS == 1 ? "scan_out" : "scan_out_${i}"}]
-    define_scan_chain -name "chain${i}" -sdi $sdi_name -sdo $sdo_name -create_ports -shift_enable scan_en
-}
+define_scan_chain -name chain0 -sdi scan_in_0 -sdo scan_out_0 -create_ports -shift_enable scan_en
+define_scan_chain -name chain1 -sdi scan_in_1 -sdo scan_out_1 -create_ports -shift_enable scan_en
 connect_scan_chains -auto_create_chains
 
 # Write Modus compression test point analysis setup
