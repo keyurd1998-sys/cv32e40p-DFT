@@ -38,7 +38,7 @@ run_step() {
         5) script="05_test_point_insertion.tcl";         desc="Modus Test Point Insertion (TPI)" ;;
         6) script="06_post_tpi_compression_analysis.tcl";desc="Post-TPI Compression Analysis (Ratios 50-80)" ;;
         7) script="07_insert_compression.tcl";           desc="Scan Compression Insertion" ;;
-        8) script="08_timing_and_atpg_export.tcl";       desc="Timing Analysis & ATPG Script Export" ;;
+        8) script="08_export.tcl";                       desc="Export Netlist, SDC, SCANDEF, Reports & ATPG" ;;
         *)
             echo "ERROR: Invalid step '$step'. Valid steps are 1 through 8, or 'all'."
             exit 1

@@ -58,7 +58,7 @@ cv32e40p-DFT/
 │   ├── 05_test_point_insertion.tcl         # Step 5: Modus ATPG-guided test point insertion (max 100 TPs)
 │   ├── 06_post_tpi_compression_analysis.tcl# Step 6: Post-TPI compression preview & analysis (ratios 50-80)
 │   ├── 07_insert_compression.tcl           # Step 7: Scan compression insertion (Ratio 70)
-│   └── 08_timing_and_atpg_export.tcl       # Step 8: Post-DFT timing & Modus ATPG script export
+│   └── 08_export.tcl                       # Step 8: Export reports, SDC, netlist, SCANDEF & ATPG
 ├── dbs/                                    # Saved Genus checkpoint databases (01 through 07)
 ├── logs/                                   # Execution logs for each step
 ├── reports/                                # TDRC, gate count, scan chain, preview, and timing reports
@@ -84,7 +84,7 @@ Or execute individual steps sequentially:
 ./run_step.sh 5    # Modus Test Point Insertion (TPI)
 ./run_step.sh 6    # Post-TPI Compression Analysis (Ratios 50, 60, 70, 80)
 ./run_step.sh 7    # Scan Compression Insertion (Ratio 70)
-./run_step.sh 8    # Timing Analysis & Modus ATPG Export
+./run_step.sh 8    # Export Netlist, SDC, SCANDEF, Reports & Modus ATPG
 ```
 
 ### Step 2: Run ATPG in Cadence Modus
