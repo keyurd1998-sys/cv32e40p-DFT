@@ -1,11 +1,18 @@
 # ==============================================================================
 # Cadence Modus ATPG Script (COMPRESSION Mode Only)
-# Runs BOTH Stuck-At and Transition Delay ATPG with Full Report & Pattern Export
 # Target Design: cv32e40p_core
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# 1. Initialize Variables & Work Directory
+# 1. ATPG Mode Selection: "stuck_at", "delay", or "both"
+# ------------------------------------------------------------------------------
+set ATPG_MODE "both"
+if {[info exists ::env(ATPG_MODE)]} {
+    set ATPG_MODE $::env(ATPG_MODE)
+}
+
+# ------------------------------------------------------------------------------
+# 2. Initialize Variables & Work Directory
 # ------------------------------------------------------------------------------
 set DESIGN   "cv32e40p_core"
 set TECH_LIB "/home/admin/DFT/Library/atpg/stdcell.v"
@@ -14,7 +21,7 @@ set_db workdir .
 set WORKDIR [get_db workdir]
 
 # Netlist referenced directly from scan directory
-set NETLIST [file normalize "$WORKDIR/../scan/netlists/cv32e40p_core_compressed.v"]
+set NETLIST   "$WORKDIR/../scan/netlists/cv32e40p_core_compressed.v"
 set PINASSIGN "$WORKDIR/${DESIGN}.COMPRESSION.pinassign"
 
 set_option stdout summary
@@ -31,18 +38,9 @@ file mkdir $REPORTS_DIR $LOGS_DIR $TESTRESULTS_DIR
 file delete -force "$WORKDIR/tbdata"
 file delete -force "$WORKDIR/testresults"
 
-if {![file exists $NETLIST]} {
-    puts "ERROR: Gate-level netlist not found at: $NETLIST"
-    exit 1
-}
-
-if {![file exists $PINASSIGN]} {
-    puts "ERROR: Pin assignment file not found at: $PINASSIGN"
-    exit 1
-}
-
 puts "=================================================================="
 puts " Starting Modus ATPG for $DESIGN (COMPRESSION Mode)"
+puts "   Selected ATPG Mode: $ATPG_MODE"
 puts "   Technology Library: $TECH_LIB"
 puts "   Design Netlist:     $NETLIST"
 puts "   Pin Assignment:     $PINASSIGN"
@@ -51,7 +49,7 @@ puts "   Results Directory:  $TESTRESULTS_DIR"
 puts "=================================================================="
 
 # ------------------------------------------------------------------------------
-# 2. Build Logic Simulation Model
+# 3. Build Logic Simulation Model
 # ------------------------------------------------------------------------------
 puts "INFO: Building Boolean logic simulation model..."
 build_model \
@@ -62,7 +60,7 @@ build_model \
     -messagecounteach 100
 
 # ------------------------------------------------------------------------------
-# 3. Build Test Mode (COMPRESSION Only)
+# 4. Build Test Mode (COMPRESSION Only)
 # ------------------------------------------------------------------------------
 puts "INFO: Building COMPRESSION test mode..."
 build_testmode \
@@ -71,7 +69,7 @@ build_testmode \
     -modedef COMPRESSION
 
 # ------------------------------------------------------------------------------
-# 4. Report & Verify Test Structures (TSV Rules)
+# 5. Report & Verify Test Structures (TSV Rules)
 # ------------------------------------------------------------------------------
 puts "INFO: Reporting test structures to $REPORTS_DIR/test_structures.rpt..."
 report_test_structures \
@@ -88,151 +86,154 @@ verify_test_structures \
     -testmode COMPRESSION
 
 # ==============================================================================
-# 5. PART A: STUCK-AT ATPG & VECTOR GENERATION
+# 6. PART A: STUCK-AT ATPG & VECTOR GENERATION
 # ==============================================================================
-puts "\n=================================================================="
-puts " Starting Part A: Stuck-At ATPG"
-puts "=================================================================="
+if {$ATPG_MODE == "stuck_at" || $ATPG_MODE == "both"} {
+    puts "\n=================================================================="
+    puts " Starting Part A: Stuck-At ATPG"
+    puts "=================================================================="
 
-# 5.1 Build Stuck-At Fault Model
-puts "INFO: Building Stuck-At fault model..."
-build_faultmodel \
-    -includedynamic no
+    # 6.1 Build Stuck-At Fault Model
+    puts "INFO: Building Stuck-At fault model..."
+    build_faultmodel \
+        -includedynamic no
 
-puts "INFO: Writing initial Stuck-At fault summary..."
-report_faults -summary > "$REPORTS_DIR/stuck_at_initial_faults.rpt"
+    puts "INFO: Writing initial Stuck-At fault summary..."
+    report_faults -summary > "$REPORTS_DIR/stuck_at_initial_faults.rpt"
 
-# 5.2 Generate Deterministic Stuck-At Patterns
-puts "INFO: Generating Stuck-At ATPG test patterns..."
-create_logic_tests \
-    -experiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION
+    # 6.2 Generate Deterministic Stuck-At Patterns
+    puts "INFO: Generating Stuck-At ATPG test patterns..."
+    create_logic_tests \
+        -experiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION
 
-# 5.3 Export Stuck-At Test Summary & Fault Coverage Reports
-puts "INFO: Writing Stuck-At test summary and coverage reports..."
-report_tests \
-    -experiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/stuck_at_test_summary.rpt"
+    # 6.3 Export Stuck-At Test Summary & Fault Coverage Reports
+    puts "INFO: Writing Stuck-At test summary and coverage reports..."
+    report_tests \
+        -experiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/stuck_at_test_summary.rpt"
 
-report_faults -summary >> "$REPORTS_DIR/stuck_at_test_summary.rpt"
+    report_faults -summary >> "$REPORTS_DIR/stuck_at_test_summary.rpt"
 
-report_faults \
-    -experiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/stuck_at_fault_coverage.rpt"
+    report_faults \
+        -experiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/stuck_at_fault_coverage.rpt"
 
-# 5.4 Scan and Capture Switching Activity (Power Analysis)
-puts "INFO: Writing Stuck-At switching activity (toggle-gram) report..."
-write_toggle_gram \
-    -experiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/stuck_at_toggle_gram.rpt"
+    # 6.4 Scan and Capture Switching Activity (Power Analysis)
+    puts "INFO: Writing Stuck-At switching activity (toggle-gram) report..."
+    write_toggle_gram \
+        -experiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/stuck_at_toggle_gram.rpt"
 
-# 5.5 Export Serial Verilog Test Vectors
-puts "INFO: Exporting serial Verilog vectors for Stuck-At..."
-write_vectors \
-    -inexperiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION \
-    -language verilog \
-    -scanformat serial \
-    -exportdir "$TESTRESULTS_DIR/stuck_at/verilog_serial"
+    # 6.5 Export Serial Verilog Test Vectors
+    puts "INFO: Exporting serial Verilog vectors for Stuck-At..."
+    write_vectors \
+        -inexperiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION \
+        -language verilog \
+        -scanformat serial \
+        -exportdir "$TESTRESULTS_DIR/stuck_at/verilog_serial"
 
-# 5.6 Export Parallel Verilog Test Vectors
-puts "INFO: Exporting parallel Verilog vectors for Stuck-At..."
-write_vectors \
-    -inexperiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION \
-    -language verilog \
-    -scanformat parallel \
-    -exportdir "$TESTRESULTS_DIR/stuck_at/verilog_parallel"
+    # 6.6 Export Parallel Verilog Test Vectors
+    puts "INFO: Exporting parallel Verilog vectors for Stuck-At..."
+    write_vectors \
+        -inexperiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION \
+        -language verilog \
+        -scanformat parallel \
+        -exportdir "$TESTRESULTS_DIR/stuck_at/verilog_parallel"
 
-# 5.7 Commit Stuck-At Tests to Master Database
-puts "INFO: Committing Stuck-At experiment to master database..."
-commit_tests \
-    -inexperiment cv32e40p_core_stuck_at \
-    -testmode COMPRESSION
+    # 6.7 Commit Stuck-At Tests to Master Database
+    puts "INFO: Committing Stuck-At experiment to master database..."
+    commit_tests \
+        -inexperiment cv32e40p_core_stuck_at \
+        -testmode COMPRESSION
+}
 
 # ==============================================================================
-# 6. PART B: TRANSITION DELAY ATPG & VECTOR GENERATION
+# 7. PART B: TRANSITION DELAY ATPG & VECTOR GENERATION
 # ==============================================================================
+if {$ATPG_MODE == "delay" || $ATPG_MODE == "both"} {
+    puts "\n=================================================================="
+    puts " Starting Part B: Transition Delay ATPG"
+    puts "=================================================================="
+
+    # 7.1 Build Transition Delay Fault Model
+    puts "INFO: Building Transition Delay fault model (-includedynamic yes)..."
+    build_faultmodel \
+        -includedynamic yes \
+        -overwrite yes
+
+    puts "INFO: Writing initial Transition Delay fault summary..."
+    report_faults -summary > "$REPORTS_DIR/delay_initial_faults.rpt"
+
+    # 7.2 Generate At-Speed Transition Delay Patterns (LOC/LOS)
+    puts "INFO: Generating Transition Delay ATPG patterns (LOC/LOS)..."
+    create_logic_delay_tests \
+        -experiment cv32e40p_core_delay \
+        -testmode COMPRESSION
+
+    # 7.3 Supplementary Tests to Catch Remaining Faults
+    puts "INFO: Generating supplementary logic tests..."
+    create_logic_tests \
+        -experiment cv32e40p_core_delay \
+        -append yes \
+        -testmode COMPRESSION \
+        -testscan no
+
+    # 7.4 Export Delay Test Summary & Fault Coverage Reports
+    puts "INFO: Writing Transition Delay test summary and coverage reports..."
+    report_tests \
+        -experiment cv32e40p_core_delay \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/delay_test_summary.rpt"
+
+    report_faults -summary >> "$REPORTS_DIR/delay_test_summary.rpt"
+
+    report_faults \
+        -experiment cv32e40p_core_delay \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/delay_fault_coverage.rpt"
+
+    # 7.5 Scan and Capture Switching Activity (Power Analysis)
+    puts "INFO: Writing Transition Delay switching activity (toggle-gram) report..."
+    write_toggle_gram \
+        -experiment cv32e40p_core_delay \
+        -testmode COMPRESSION \
+        > "$REPORTS_DIR/delay_toggle_gram.rpt"
+
+    # 7.6 Export Serial Verilog Test Vectors
+    puts "INFO: Exporting serial Verilog vectors for Transition Delay..."
+    write_vectors \
+        -inexperiment cv32e40p_core_delay \
+        -testmode COMPRESSION \
+        -language verilog \
+        -scanformat serial \
+        -exportdir "$TESTRESULTS_DIR/delay/verilog_serial"
+
+    # 7.7 Export Parallel Verilog Test Vectors
+    puts "INFO: Exporting parallel Verilog vectors for Transition Delay..."
+    write_vectors \
+        -inexperiment cv32e40p_core_delay \
+        -testmode COMPRESSION \
+        -language verilog \
+        -scanformat parallel \
+        -exportdir "$TESTRESULTS_DIR/delay/verilog_parallel"
+
+    # 7.8 Commit Delay Tests to Master Database
+    puts "INFO: Committing Transition Delay experiment to master database..."
+    commit_tests \
+        -inexperiment cv32e40p_core_delay \
+        -testmode COMPRESSION
+}
+
 puts "\n=================================================================="
-puts " Starting Part B: Transition Delay ATPG"
-puts "=================================================================="
-
-# 6.1 Build Transition Delay Fault Model
-puts "INFO: Building Transition Delay fault model (-includedynamic yes)..."
-build_faultmodel \
-    -includedynamic yes \
-    -overwrite yes
-
-puts "INFO: Writing initial Transition Delay fault summary..."
-report_faults -summary > "$REPORTS_DIR/delay_initial_faults.rpt"
-
-# 6.2 Generate At-Speed Transition Delay Patterns (LOC/LOS)
-puts "INFO: Generating Transition Delay ATPG patterns (LOC/LOS)..."
-create_logic_delay_tests \
-    -experiment cv32e40p_core_delay \
-    -testmode COMPRESSION
-
-# 6.3 Supplementary Tests to Catch Remaining Faults
-puts "INFO: Generating supplementary logic tests..."
-create_logic_tests \
-    -experiment cv32e40p_core_delay \
-    -append yes \
-    -testmode COMPRESSION \
-    -testscan no
-
-# 6.4 Export Delay Test Summary & Fault Coverage Reports
-puts "INFO: Writing Transition Delay test summary and coverage reports..."
-report_tests \
-    -experiment cv32e40p_core_delay \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/delay_test_summary.rpt"
-
-report_faults -summary >> "$REPORTS_DIR/delay_test_summary.rpt"
-
-report_faults \
-    -experiment cv32e40p_core_delay \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/delay_fault_coverage.rpt"
-
-# 6.5 Scan and Capture Switching Activity (Power Analysis)
-puts "INFO: Writing Transition Delay switching activity (toggle-gram) report..."
-write_toggle_gram \
-    -experiment cv32e40p_core_delay \
-    -testmode COMPRESSION \
-    > "$REPORTS_DIR/delay_toggle_gram.rpt"
-
-# 6.6 Export Serial Verilog Test Vectors
-puts "INFO: Exporting serial Verilog vectors for Transition Delay..."
-write_vectors \
-    -inexperiment cv32e40p_core_delay \
-    -testmode COMPRESSION \
-    -language verilog \
-    -scanformat serial \
-    -exportdir "$TESTRESULTS_DIR/delay/verilog_serial"
-
-# 6.7 Export Parallel Verilog Test Vectors
-puts "INFO: Exporting parallel Verilog vectors for Transition Delay..."
-write_vectors \
-    -inexperiment cv32e40p_core_delay \
-    -testmode COMPRESSION \
-    -language verilog \
-    -scanformat parallel \
-    -exportdir "$TESTRESULTS_DIR/delay/verilog_parallel"
-
-# 6.8 Commit Delay Tests to Master Database
-puts "INFO: Committing Transition Delay experiment to master database..."
-commit_tests \
-    -inexperiment cv32e40p_core_delay \
-    -testmode COMPRESSION
-
-puts "\n=================================================================="
-puts " Modus ATPG (Stuck-At & Transition Delay) Completed Successfully!"
+puts " Modus ATPG ($ATPG_MODE) Completed Successfully!"
 puts " Reports:          $REPORTS_DIR/"
-puts " Stuck-At Vectors: $TESTRESULTS_DIR/stuck_at/"
-puts " Delay Vectors:    $TESTRESULTS_DIR/delay/"
+puts " Results:          $TESTRESULTS_DIR/"
 puts "=================================================================="
 
 exit
