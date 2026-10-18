@@ -27,11 +27,18 @@ compress_scan_chains \
     -compressor xor \
     -decompressor broadcast \
     -mask wide1 \
+    -apply_timing_constraints \
     -auto_create
 
-# Post-compression DFT DRC and scan chain reports
-check_dft_rules    > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
-report_scan_chains > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+# 4. Incremental Optimization to resolve functional timing violations
+puts "INFO: Running incremental optimization (syn_opt) to resolve timing violations..."
+syn_opt
+
+# Post-compression DFT DRC, scan chains, and timing reports
+check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+report_scan_chains               > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+report_timing -path_type summary > "$STEP_RPT_DIR/${DESIGN}_timing_summary.rpt"
+report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
 
 # Save checkpoint database
 set DB_FILE [file normalize "$DBS_DIR/07_compressed.db"]
