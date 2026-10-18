@@ -2,12 +2,8 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source "$SCRIPT_DIR/00_setup_env.tcl"
 
 set STEP_RPT_DIR [file normalize "$REPORTS_DIR/08_export"]
-set SA_DIR       [file normalize "$ATPG_DIR/stuck_at"]
-set DELAY_DIR    [file normalize "$ATPG_DIR/delay"]
 
 file mkdir $STEP_RPT_DIR
-file mkdir $SA_DIR
-file mkdir $DELAY_DIR
 file mkdir $NETLISTS_DIR
 file mkdir $DBS_DIR
 file mkdir [file normalize "$BLOCK_DIR/constraints"]
@@ -68,30 +64,17 @@ write_scandef > $SCANDEF_FILE
 puts "INFO: Exported SCANDEF file: $SCANDEF_FILE"
 
 # ==============================================================================
-# 5. Export Modus Compressed ATPG Workspaces (Stuck-At & Transition Delay)
+# 5. Export Modus Compressed ATPG Workspaces
 # ==============================================================================
-# 5.1 Stuck-At ATPG workspace
 puts "INFO: Generating Modus Compressed Stuck-At ATPG workspace..."
 write_dft_atpg \
-    -directory $SA_DIR \
+    -directory $ATPG_DIR \
     -library $ATPG_LIB \
     -compression \
     -build_model_options "-allowmissingmodules yes" \
-    -run_from_directory \
     -force
-puts "INFO: Stuck-At ATPG script exported to: $SA_DIR/runmodus.atpg.tcl"
+puts "INFO: ATPG script exported to: $ATPG_DIR/runmodus.atpg.tcl"
 
-# 5.2 Transition Delay ATPG workspace (Launch-off-Capture / Launch-off-Shift)
-puts "INFO: Generating Modus Compressed Transition Delay ATPG workspace..."
-write_dft_atpg \
-    -directory $DELAY_DIR \
-    -library $ATPG_LIB \
-    -compression \
-    -delay \
-    -build_model_options "-allowmissingmodules yes" \
-    -run_from_directory \
-    -force
-puts "INFO: Transition Delay ATPG script exported to: $DELAY_DIR/runmodus.atpg.tcl"
 
 # ==============================================================================
 # 6. Save Final Checkpoint Database
@@ -107,8 +90,7 @@ puts "   - Reports:        $STEP_RPT_DIR/"
 puts "   - SDC:            $EXPORT_SDC"
 puts "   - Netlist:        $FINAL_NETLIST"
 puts "   - SCANDEF:        $SCANDEF_FILE"
-puts "   - Stuck-At ATPG:  $SA_DIR/runmodus.atpg.tcl"
-puts "   - Delay ATPG:     $DELAY_DIR/runmodus.atpg.tcl"
+puts "   - ATPG:           $ATPG_DIR/runmodus.atpg.tcl"
 puts "   - Checkpoint:     $FINAL_DB"
 puts "=================================================================="
 exit
