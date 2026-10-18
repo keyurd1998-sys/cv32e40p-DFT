@@ -1,0 +1,232 @@
+Starting Command: report_faults 
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_report_faults_COMPRESSION_cv32e40p_core_delay_101826183417-990300000 [end TDA_015]
+
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+
+TFMlist 
+
+Logic Model(GM)   10/18/26
+                  12:43:38
+
+
+File Id     faultModel        faultStatus         experiment
+Created (GM)  10/18/26           10/18/26           10/18/26
+              12:43:43           12:43:43           12:43:45
+Modified(GM)  10/18/26           10/18/26           10/18/26
+              12:43:43           12:43:43           13:04:14
+Code Level        2025.0             2025.0             2025.0            
+Max Fault Id        356776
+
+Fault Model Type:   Cell Boundary
+
+
+Global Ignored Static Fault Count               271
+Global Ignored Dynamic Fault Count              402
+
+
+INFO (TFM-705): Testmode: COMPRESSION Experiment: cv32e40p_core_delay Fault List:   
+
+
+     Fault Status  Type    Sim Func / Cell Name           Fault pin name
+
+      9849 R       ISA1           AND3X6                  COMPACTOR.compressor.g_1.g43.A   
+      9957 R       ISA1           AND3X6                  COMPACTOR.compressor.g_101.g43.A   
+     10029 R       ISA1           AND3X6                  COMPACTOR.compressor.g_103.g43.A   
+     10101 R       ISA1           AND3X6                  COMPACTOR.compressor.g_105.g43.A   
+     10173 R       ISA1           AND3X6                  COMPACTOR.compressor.g_107.g43.A   
+     10425 R       ISA1           AND3X6                  COMPACTOR.compressor.g_113.g43.A   
+     10497 R       ISA1           AND3X6                  COMPACTOR.compressor.g_115.g43.A   
+     10569 R       ISA1           AND3X6                  COMPACTOR.compressor.g_117.g43.A   
+     10641 R       ISA1           AND3X6                  COMPACTOR.compressor.g_119.g43.A   
+     10749 R       ISA1           AND3X6                  COMPACTOR.compressor.g_121.g43.A   
+     10893 R       ISA1           AND3X6                  COMPACTOR.compressor.g_125.g43.A   
+     11073 R       ISA1           AND3X6                  COMPACTOR.compressor.g_13.g43.A   
+     11145 R       ISA1           AND3X6                  COMPACTOR.compressor.g_131.g43.A   
+     11325 R       ISA1           AND3X6                  COMPACTOR.compressor.g_136.g43.A   
+     11361 R       ISA1           AND3X6                  COMPACTOR.compressor.g_137.g43.A   
+     11433 R       ISA1           AND3X6                  COMPACTOR.compressor.g_139.g43.A   
+     11613 R       ISA1           AND3X6                  COMPACTOR.compressor.g_143.g43.A   
+     11721 R       ISA1           AND3X6                  COMPACTOR.compressor.g_146.g43.A   
+     12549 R       ISA1           AND3X6                  COMPACTOR.compressor.g_29.g43.A   
+     13125 R       ISA1           AND3X6                  COMPACTOR.compressor.g_43.g43.A   
+     13197 R       ISA1           AND3X6                  COMPACTOR.compressor.g_45.g43.A   
+     13233 R       ISA1           AND3X6                  COMPACTOR.compressor.g_46.g43.A   
+     13341 R       ISA1           AND3X6                  COMPACTOR.compressor.g_49.g43.A   
+     13449 R       ISA1           AND3X6                  COMPACTOR.compressor.g_51.g43.A   
+     13737 R       ISA1           AND3X6                  COMPACTOR.compressor.g_59.g43.A   
+     13845 R       ISA1           AND3X6                  COMPACTOR.compressor.g_61.g43.A   
+     13917 R       ISA1           AND3X6                  COMPACTOR.compressor.g_63.g43.A   
+     13989 R       ISA1           AND3X6                  COMPACTOR.compressor.g_65.g43.A   
+     14061 R       ISA1           AND3X6                  COMPACTOR.compressor.g_67.g43.A   
+     14133 R       ISA1           AND3X6                  COMPACTOR.compressor.g_69.g43.A   
+     14241 R       ISA1           AND3X6                  COMPACTOR.compressor.g_71.g43.A   
+     14313 R       ISA1           AND3X6                  COMPACTOR.compressor.g_73.g43.A   
+     14457 R       ISA1           AND3X6                  COMPACTOR.compressor.g_77.g43.A   
+     14529 R       ISA1           AND3X6                  COMPACTOR.compressor.g_79.g43.A   
+     14637 R       ISA1           AND3X6                  COMPACTOR.compressor.g_81.g43.A   
+     14709 R       ISA1           AND3X6                  COMPACTOR.compressor.g_83.g43.A   
+     14781 R       ISA1           AND3X6                  COMPACTOR.compressor.g_85.g43.A   
+     14853 R       ISA1           AND3X6                  COMPACTOR.compressor.g_87.g43.A   
+     14925 R       ISA1           AND3X6                  COMPACTOR.compressor.g_89.g43.A   
+     14961 R       ISA1           AND3X6                  COMPACTOR.compressor.g_9.g43.A   
+     15033 R       ISA1           AND3X6                  COMPACTOR.compressor.g_91.g43.A   
+     15105 R       ISA1           AND3X6                  COMPACTOR.compressor.g_93.g43.A   
+     15177 R       ISA1           AND3X6                  COMPACTOR.compressor.g_95.g43.A   
+     15249 R       ISA1           AND3X6                  COMPACTOR.compressor.g_97.g43.A   
+     15321 R       ISA1           AND3X6                  COMPACTOR.compressor.g_99.g43.A   
+     15361 R       ISA1           CLKAND2X12              COMPACTOR.decompressor.dg_0.g8.B   
+     17858 R       ISA0           TLATNX1                 DFT_lockup_latch_neg_edge.GN   
+     17874 R       ISA0           TLATNX1                 DFT_lockup_latch_neg_edge391651.GN   
+     18401 R       ISA1           CLKAND2X4               DFT_tpi_async_0_node_4_3.DFT__0.A   
+     76101 R       ISA1           OAI21X4                 g51.B0   
+     85968 R       ISA0           AOI21X4                 g406192.A0   
+    340914 cR      ISA0           AOI21X4                 g406192.A1   
+     86516 R       ISA1           OAI2BB1X4               g405740.A0N   
+     88180 R       ISA1           CLKXOR2X1               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9307.B   
+     88245 R       ISA1           NAND2X8                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9315.A   
+    338953 cR      OSA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9516.Y   
+    338956 cR      ISA0           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9516.B   
+    338957 cR      ISA0           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9516.A   
+     89285 R       ISA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9411.A   
+    339067 cR      OSA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9502.Y   
+    339073 cR      ISA0           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9502.B   
+    339075 cR      ISA0           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9502.A   
+     89298 R       ISA1           CLKMX2X3                csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9412.A   
+     89324 R       ISA1           CLKXOR2X2               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9413.B   
+     89352 R       ISA1           CLKXOR2X2               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9417.B   
+     89357 R       ISA0           NOR2X6                  csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9421.B   
+    339056 cR      OSA0           CLKAND2X6               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9503.Y   
+    339061 cR      ISA0           CLKAND2X6               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9503.B   
+    339063 cR      ISA0           CLKAND2X6               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9503.A   
+     90301 R       ISA0           NOR2X6                  csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9500.B   
+     90313 R       ISA0           OR2X6                   csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9501.B   
+     90321 R       ISA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9502.A   
+     90333 R       ISA1           CLKAND2X6               csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9503.A   
+     90441 R       ISA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9516.A   
+     90481 R       ISA0           OR2X6                   csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9520.B   
+     91159 R       OSA1           CLKINVX6                csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9654.Y   
+    338328 cR      ISA0           CLKINVX6                csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g9654.A   
+     93684 R       ISA1           CLKAND2X6               g404083.B   
+     93714 R       ISA1           CLKAND2X6               g404083.A   
+    122722 R       ISA0           NOR2X8                  g400243.B   
+    323809 cR      OSA0           CLKINVX6                g400244.Y   
+    323810 cR      ISA1           CLKINVX6                g400244.A   
+    122741 R       ISA0           NOR2X8                  g400243.A   
+    126105 R       ISA1           AND3X8                  g399255.C   
+    133000 R       ISA1           CLKAND2X8               g397167.B   
+    135437 R       ISA1           NAND2X6                 g110.A   
+    141021 R       ISA1           NAND2X8                 g212028.A   
+    151749 R       ISA1           NAND2X8                 g213012.A   
+    151981 R       ISA0           CLKMX2X3                g213034.A   
+    151982 R       ISA1           CLKMX2X3                g213034.A   
+    151986 R       ISA1           CLKMX2X3                g213034.S0   
+    157377 R       ISA0           OR2X6                   g213561.A   
+    157381 R       ISA0           OR2X6                   g213561.B   
+    157413 R       ISA0           OR2X6                   g213564.A   
+    157417 R       ISA0           OR2X6                   g213564.B   
+    158069 R       ISA0           OR2X6                   g213645.A   
+    158073 R       ISA0           OR2X6                   g213645.B   
+    158081 R       ISA0           OR2X6                   g213646.A   
+    158085 R       ISA0           OR2X6                   g213646.B   
+    158093 R       ISA1           NAND2X6                 g213647.A   
+    158097 R       ISA1           NAND2X6                 g213647.B   
+    158189 R       ISA0           OR2X6                   g213657.A   
+    158193 R       ISA0           OR2X6                   g213657.B   
+    158201 R       ISA0           OR2X6                   g213658.A   
+    158205 R       ISA0           OR2X6                   g213658.B   
+    158321 R       ISA0           OR2X6                   g213668.A   
+    158325 R       ISA0           OR2X6                   g213668.B   
+    158369 R       ISA0           OR2X6                   g213672.A   
+    158373 R       ISA0           OR2X6                   g213672.B   
+    158393 R       ISA0           OR2X6                   g213675.A   
+    158397 R       ISA0           OR2X6                   g213675.B   
+    158537 R       ISA0           OR2X6                   g213688.A   
+    158541 R       ISA0           OR2X6                   g213688.B   
+    158609 R       ISA0           OR2X6                   g213697.A   
+    158613 R       ISA0           OR2X6                   g213697.B   
+    160453 R       ISA0           OR2X8                   g214232.A   
+    160457 R       ISA0           OR2X8                   g214232.B   
+    168077 R       ISA1           NAND2X8                 g384800.A   
+    169670 R       ISA1           NAND2X6                 g384562.A   
+    303403 cR      OSA1           INVX6                   g386790.Y   
+    303404 cR      ISA0           INVX6                   g386790.A   
+    169682 R       ISA1           NAND2X8                 g384560.B   
+    181842 R       ISA0           OA21X2                  g383226.A1   
+    181850 R       ISA0           OA21X2                  g383226.A0   
+    181862 R       ISA0           OA21X2                  g383225.A1   
+    181868 R       ISA0           OA21X2                  g383225.A0   
+    182506 R       ISA1           NAND2BX1                g383095.B   
+    182511 R       ISA0           NAND2BX1                g383095.AN   
+    182768 R       ISA1           NAND2BX1                g383018.B   
+    182777 R       ISA0           NAND2BX1                g383018.AN   
+    182780 R       ISA1           NAND2BX1                g383017.B   
+    182789 R       ISA0           NAND2BX1                g383017.AN   
+    183786 R       ISA1           NAND3X8                 g382770_dup.A   
+    188366 R       ISA1           NAND2X8                 g380595.A   
+    200442 R       ISA0           NOR3X4                  g376276.A   
+    202765 R       ISA1           NAND2X6                 g355858.B   
+    277911 cR      OSA1           NAND2X8                 g356105.Y   
+    277913 cR      ISA0           NAND2X8                 g356105.B   
+    277915 cR      ISA0           NAND2X8                 g356105.A   
+    319020 cR      ISA0           BUFX6                   fopt384357.A   
+    319021 cR      OSA0           BUFX6                   fopt384357.Y   
+    337050 cR      ISA0           CLKAND2X6               g404083.A   
+    337054 cR      ISA0           CLKAND2X6               g404083.B   
+    337057 cR      OSA0           CLKAND2X6               g404083.Y   
+    204361 R       ISA1           NAND2X8                 g356105.A   
+    337058 cR      OSA1           CLKAND2X6               g404083.Y   
+    204365 R       ISA1           NAND2X8                 g356105.B   
+    319018 cR      ISA1           BUFX6                   fopt384357.A   
+    319019 cR      OSA1           BUFX6                   fopt384357.Y   
+    208245 R       ISA0           NOR3X8                  g356524.A   
+    208253 R       ISA0           NOR3X8                  g356524.C   
+    219724 R       ISA1           CLKAND2X12              g370256.A   
+    221769 R       ISA1           NAND2X6                 g369889.A   
+    232520 R       ISA0           NOR2X8                  g367153.B   
+    238294 R       OSA1           NAND2X8                 g366191.Y   
+    255066 cR      ISA0           NAND2X8                 g366191.A   
+    255070 cR      ISA0           NAND2X8                 g366191.B   
+    240434 R       ISA0           NOR2X6                  g365773.A   
+    240693 R       ISA1           NAND2X8                 g359995.B   
+
+[end TFM_705]
+
+
+INFO (TFM-901): Fault Status Statistics for faults included in this fault list: 
+ Total                 :          159
+ Tested                :            0
+ Possibly Tested       :            0
+ Redundant             :          159
+ Untested (unprocessed):            0
+[end TFM_901]
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           19,267,936  bytes
+
+                      CPU Time =    0:00:00.05
+                  Elapsed Time =    0:00:00.05                    [end TDA_001]
+
+     Date Ended:  Sunday Oct 18 18:34:18 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-705): Testmode: COMPRESSION Experiment: cv32e40p_core_delay Fault List:   
+      1 INFO (TFM-901): Fault Status Statistics for faults included in this fault list: 
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

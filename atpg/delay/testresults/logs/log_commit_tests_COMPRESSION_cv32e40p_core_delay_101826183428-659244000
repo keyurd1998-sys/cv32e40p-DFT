@@ -1,0 +1,127 @@
+Starting Command: commit_tests 
+
+INFO (TDA-005): Command Line Invocation: 
+            commit_tests -inexperiment cv32e40p_core_delay -testmode COMPRESSION -workdir /home/admin/DFT/cv32e40p-DFT/atpg/delay  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_commit_tests_COMPRESSION_cv32e40p_core_delay_101826183428-659244000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Sunday Oct 18 18:34:28 2026  IST
+            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
+            This job is process number 656012.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/delay
+            -TESTMODE COMPRESSION
+
+            -INEXPERIMENT cv32e40p_core_delay
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_commit_tests_COMPRESSION_cv32e40p_core_delay_101826183428-659244000
+[end TDA_009]
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+
+INFO (TBD-806): Input test vector File(s) (bytes, name):  [end TBD_806] 
+        5871108 /home/admin/DFT/cv32e40p-DFT/atpg/delay/tbdata/TBDbin.COMPRESSION.cv32e40p_core_delay
+
+INFO (TBD-807): Experiment cv32e40p_core_delay odometers prior to commit_tests: 1.1.1.2.1 thru 1.3.1.52.1 (Relative test numbers 1 thru 3149).  [end TBD_807] 
+
+Testmode and Global statistics prior to commit_tests
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00   0.00       178060            0            0            0       178060       178117            0            0            0       178117
+Collapsed Static     0.00   0.00       106556            0            0            0       106556       106609            0            0            0       106609
+PI Static            0.00   0.00          488            0            0            0          488          490            0            0            0          490
+PO Static            0.00   0.00          347            0            0            0          347          347            0            0            0          347
+
+Total Dynamic        0.00   0.00       168668            0            0            0       168668       177986            0            0            0       177986
+Collapsed Dynamic    0.00   0.00       131642            0            0            0       131642       140954            0            0            0       140954
+PI Dynamic           0.00   0.00          480            0            0            0          480          490            0            0            0          490
+PO Dynamic           0.00   0.00          226            0            0            0          226          226            0            0            0          226
+
+Parametric        
+
+IDDq                 0.00   0.00       178117            0                                 178117       178117            0                                 178117
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+
+Testmode and Global statistics after commit_tests
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static        98.54  98.50       178060       175295            0          159         2606       178117       175295            0          159         2663
+Collapsed Static    98.48  98.43       106556       104807            0          131         1618       106609       104807            0          131         1671
+PI Static           98.36  97.96          488          480            0            0            8          490          480            0            0           10
+PO Static          100.00 100.00          347          347            0            0            0          347          347            0            0            0
+
+Total Dynamic       87.73  83.13       168668       147866            0          113        20689       177986       147866            0          113        30007
+Collapsed Dynamic   86.46  80.75       131642       113735            0           98        17809       140954       113735            0           98        27121
+PI Dynamic           2.08   2.04          480           10            0            0          470          490           10            0            0          480
+PO Dynamic           1.77   1.77          226            4            0            0          222          226            4            0            0          222
+
+Parametric        
+
+IDDq                 0.00   0.00       178117            0                                 178117       178117            0                                 178117
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+INFO (TBD-810): Experiment cv32e40p_core_delay is saved to the master test vectors odometers: 1.1.1.2.1 to 1.3.1.52.1 (Relative test numbers 1 to 3149).  [end TBD_810] 
+
+INFO (TBD-809): Master test vector file statistics:  [end TBD_809]   
+  experiments     = 1
+  test sections   = 3
+  tester loops    = 3
+  test procedures = 245
+  test sequence   = 3149
+  init sequencess = 3
+
+INFO (TBD-805): File(s) generated (bytes and name):  [end TBD_805] 
+        5871108 /home/admin/DFT/cv32e40p-DFT/atpg/delay/tbdata/TBDbin.COMPRESSION 
+        1589248 /home/admin/DFT/cv32e40p-DFT/atpg/delay/tbdata/faultStatus 
+
+INFO (TBD-831): commit_tests completed successfully.  [end TBD_831] 
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           18,034,304  bytes
+
+                      CPU Time =    0:00:00.17
+                  Elapsed Time =    0:00:00.21                    [end TDA_001]
+
+     Date Ended:  Sunday Oct 18 18:34:28 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TBD-805): File(s) generated (bytes and name):   
+      1 INFO (TBD-806): Input test vector File(s) (bytes, name):   
+      1 INFO (TBD-807): Experiment cv32e40p_core_delay odometers prior to commit_tests: 1.1.1.2.1 thru 1.3.1.52.1 (Relative test numbers 1 thru 3149).   
+      1 INFO (TBD-809): Master test vector file statistics:     
+      1 INFO (TBD-810): Experiment cv32e40p_core_delay is saved to the master test vectors odometers: 1.1.1.2.1 to 1.3.1.52.1 (Relative test numbers 1 to 3149).   
+      1 INFO (TBD-831): commit_tests completed successfully.   
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

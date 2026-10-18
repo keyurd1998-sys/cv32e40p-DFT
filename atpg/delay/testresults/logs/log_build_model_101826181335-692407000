@@ -5,12 +5,12 @@ INFO (TDA-005): Command Line Invocation:
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_model_101826180645-930780000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_model_101826181335-692407000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Sunday Oct 18 18:06:45 2026  IST
+            Date Started: Sunday Oct 18 18:13:35 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 642314.
+            This job is process number 647206.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -22,7 +22,7 @@ INFO (TDA-009): Options/Values information.
             -designtop cv32e40p_core
             -TECHLIB /home/admin/DFT/Library/atpg/stdcell.v
             -allowmissingmodules yes
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_model_101826180645-930780000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_model_101826181335-692407000
             -messagecounteach 100
             -DESIGNSOURCE ../../scan/netlists/cv32e40p_core_compressed.v
 [end TDA_009]
@@ -117,10 +117,10 @@ INFO (TEI-199): Build Model - Flat Model Build completed.  [end TEI_199]
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =          134,502,384  bytes
+                  Total Memory =          134,502,240  bytes
 
-                      CPU Time =    0:00:01.88
-                  Elapsed Time =    0:00:02.92                    [end TDA_001]
+                      CPU Time =    0:00:01.83
+                  Elapsed Time =    0:00:02.87                    [end TDA_001]
 
 
 

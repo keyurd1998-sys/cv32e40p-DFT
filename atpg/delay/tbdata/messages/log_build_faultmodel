@@ -1,15 +1,15 @@
 
 INFO (TDA-005): Command Line Invocation: 
-            build_faultmodel -includedynamic no -workdir /home/admin/DFT/cv32e40p-DFT/atpg/delay  [end TDA_005]
+            build_faultmodel -includedynamic yes -workdir /home/admin/DFT/cv32e40p-DFT/atpg/delay  [end TDA_005]
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_faultmodel_101826180653-461863000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_faultmodel_101826181343-212887000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Sunday Oct 18 18:06:53 2026  IST
+            Date Started: Sunday Oct 18 18:13:43 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 642453.
+            This job is process number 647345.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -18,15 +18,15 @@ INFO (TDA-009): Options/Values information.
 
             -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/delay
 
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_faultmodel_101826180653-461863000
-            -includedynamic no
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_build_faultmodel_101826181343-212887000
+          + -includedynamic yes
 [end TDA_009]
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 INFO (TFM-099): Build Fault Model started.  [end TFM_099] 
 INFO (TFM-102): Creating faultModel file /home/admin/DFT/cv32e40p-DFT/atpg/delay/tbdata/faultModel.  [end TFM_102] 
 
 Global Ignored Static Fault Count               271
-Global Ignored Dynamic Fault Count                0
+Global Ignored Dynamic Fault Count              402
 
 
                             Global Statistics
@@ -39,7 +39,10 @@ Collapsed Static     0.00       106609            0            0            0   
 PI Static            0.00          490            0            0            0          490
 PO Static            0.00          347            0            0            0          347
 
-Total Dynamic                        0
+Total Dynamic        0.00       177986            0            0            0       177986
+Collapsed Dynamic    0.00       140954            0            0            0       140954
+PI Dynamic           0.00          490            0            0            0          490
+PO Dynamic           0.00          226            0            0            0          226
 
 Parametric        
 
@@ -59,7 +62,10 @@ Collapsed Static     0.00   0.00       106556            0            0         
 PI Static            0.00   0.00          488            0            0            0          488          490            0            0            0          490
 PO Static            0.00   0.00          347            0            0            0          347          347            0            0            0          347
 
-Total Dynamic                               0
+Total Dynamic        0.00   0.00       168668            0            0            0       168668       177986            0            0            0       177986
+Collapsed Dynamic    0.00   0.00       131642            0            0            0       131642       140954            0            0            0       140954
+PI Dynamic           0.00   0.00          480            0            0            0          480          490            0            0            0          490
+PO Dynamic           0.00   0.00          226            0            0            0          226          226            0            0            0          226
 
 Parametric        
 
@@ -77,7 +83,10 @@ Collapsed Static    99.95       106609       106556           53
 PI Static           99.59          490          488            2
 PO Static          100.00          347          347            0
 
-Total Dynamic                        0
+Total Dynamic       94.76       177986       168668         9318
+Collapsed Dynamic   93.39       140954       131642         9312
+PI Dynamic          97.96          490          480           10
+PO Dynamic         100.00          226          226            0
 
 Parametric        
 
@@ -89,12 +98,12 @@ INFO (TFM-109): Build Fault Model has completed with highest level severity mess
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =           45,974,288  bytes
+                  Total Memory =           53,519,168  bytes
 
-                      CPU Time =    0:00:00.13
-                  Elapsed Time =    0:00:00.19                    [end TDA_001]
+                      CPU Time =    0:00:00.22
+                  Elapsed Time =    0:00:00.29                    [end TDA_001]
 
-     Date Ended:  Sunday Oct 18 18:06:53 2026  IST
+     Date Ended:  Sunday Oct 18 18:13:43 2026  IST
 
 INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
 
