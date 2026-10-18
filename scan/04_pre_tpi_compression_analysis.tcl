@@ -35,6 +35,13 @@ analyze_scan_compressibility \
     -build_model_options "-allowmissingmodules yes" \
     -verbose
 
+# ------------------------------------------------------------------------------
+# Reports Generation
+# ------------------------------------------------------------------------------
+report_scan_compressibility -directory $MODUS_WORK > "$STEP_RPT_DIR/${DESIGN}_compressibility_analysis.rpt"
+check_dft_rules                                   > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+report_scan_chains                                > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+
 # Save checkpoint database
 set DB_FILE [file normalize "$DBS_DIR/04_pre_tpi_analyzed.db"]
 write_db -all_root_attributes -to_file $DB_FILE
