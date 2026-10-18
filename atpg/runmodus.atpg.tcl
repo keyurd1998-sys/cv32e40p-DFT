@@ -6,10 +6,28 @@
 
 # ------------------------------------------------------------------------------
 # 1. ATPG Mode Selection: "stuck_at", "delay", or "both"
+# Selectable via command line argument, environment variable, or default:
+#   Example: modus -file runmodus.atpg.tcl -args stuck_at
+#   Example: ATPG_MODE=stuck_at modus -file runmodus.atpg.tcl
 # ------------------------------------------------------------------------------
 set ATPG_MODE "both"
-if {[info exists ::env(ATPG_MODE)]} {
+
+# Check if passed via command line argv
+if {[info exists argv] && [llength $argv] > 0} {
+    set ATPG_MODE [lindex $argv 0]
+} elseif {[info exists ::env(ATPG_MODE)]} {
     set ATPG_MODE $::env(ATPG_MODE)
+}
+
+# Normalize input (e.g. "stuck" -> "stuck_at", "transition" -> "delay")
+switch -nocase -- $ATPG_MODE {
+    "stuck" - "stuckat" - "stuck_at" { set ATPG_MODE "stuck_at" }
+    "delay" - "transition"           { set ATPG_MODE "delay" }
+    "both" - "all"                   { set ATPG_MODE "both" }
+    default {
+        puts "WARNING: Unknown ATPG mode '$ATPG_MODE'. Defaulting to 'both'."
+        set ATPG_MODE "both"
+    }
 }
 
 # ------------------------------------------------------------------------------
