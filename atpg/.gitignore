@@ -1,9 +1,0 @@
-# Modus dynamic run databases and test results
-tbdata/
-testresults/
-logs/
-*/tbdata/
-*/testresults/
-*/logs/
-qaLog.txt
-*/qaLog.txt
