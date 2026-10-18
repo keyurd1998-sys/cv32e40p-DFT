@@ -7,4 +7,4 @@ rm -rf "$MODE/logs" "$MODE/reports" "$MODE/patterns" "$MODE/testresults" "$MODE/
 mkdir -p "$MODE/reports" "$MODE/logs" "$MODE/patterns" "$MODE/testresults"
 cd "$MODE"
 
-ATPG_MODE="$MODE" modus -file ../runmodus.atpg.tcl -log "logs/runmodus_${MODE}.log"
+ATPG_MODE="$MODE" modus -file ../atpg.tcl -log "logs/runmodus_${MODE}.log"
