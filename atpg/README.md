@@ -2,65 +2,74 @@
 
 This directory contains the step-by-step Automatic Test Pattern Generation (ATPG) flow using Cadence Modus for the post-scan compressed `cv32e40p_core`.
 
+A single set of scripts in `scripts/` handles both Stuck-At and Transition Delay fault models without code duplication.
+
 ---
 
 ## Directory Structure
 
-- `stuck_at/`: Stuck-At ATPG workspace containing netlist, pinassign, and 4-step scripts.
-- `delay/`: Transition Delay ATPG workspace containing netlist, pinassign, and 4-step scripts.
-- `run_atpg.sh`: Top-level runner to execute stuck-at and delay ATPG steps.
+- `scripts/`: Step-by-step Modus ATPG Tcl scripts (`00` to `08`).
+- `stuck_at/`: Workspace for Stuck-At ATPG execution (contains `test_netlist.v` and `.COMPRESSION.pinassign`).
+- `delay/`: Workspace for Transition Delay ATPG execution (contains `test_netlist.v` and `.COMPRESSION.pinassign`).
+- `run_atpg_step.sh`: Interactive step-by-step runner script.
 
 ---
 
-## 4-Step ATPG Flow Architecture
+## Configuration
 
-All scripts run strictly in **COMPRESSION** mode using the standard library:
-`set TECH_LIB "/home/admin/DFT/Library/atpg/stdcell.v"`
+- **Technology Library**: Strictly fixed to:
+  ```tcl
+  set TECH_LIB "/home/admin/DFT/Library/atpg/stdcell.v"
+  ```
+- **Test Mode**: Exclusively **COMPRESSION** mode (`cv32e40p_core.COMPRESSION.pinassign`). Fullscan bypass mode is removed.
 
-| Step | Script | Modus Command | Description |
+---
+
+## Step-by-Step ATPG Flow
+
+The scripts in `scripts/` use the shared test database (`tbdata/`):
+
+| Step | Script | Command | Purpose |
 | :---: | :--- | :--- | :--- |
-| **1** | `01_build_model.tcl` | `build_model` | Reads the gate netlist and `stdcell.v` to build the Boolean logic model. Resets `tbdata/`. |
-| **2** | `02_verify_structures.tcl` | `build_testmode`, `verify_test_structures` | Loads `.COMPRESSION.pinassign`, configures compression mode, and checks scan chain DRC (TSV rules). |
-| **3** | `03_run_atpg.tcl` | `build_faultmodel`, `create_logic_tests` (or `create_logic_delay_tests`), `write_toggle_gram` | Builds fault universe, generates compressed ATPG patterns, and calculates switching activity. |
-| **4** | `04_write_vectors.tcl` | `write_vectors`, `commit_tests` | Exports serial Verilog test patterns and commits patterns to the master test database. |
+| **0** | `00_setup_env.tcl` | - | Sets design names, fixed `TECH_LIB`, `COMPRESSION` mode, and workspace paths |
+| **1** | `01_build_model.tcl` | `build_model` | Builds flattened Boolean simulation model from netlist and `stdcell.v` |
+| **2** | `02_build_testmode.tcl` | `build_testmode` | Loads `.COMPRESSION.pinassign` and initializes compression test mode |
+| **3** | `03_verify_structures.tcl` | `verify_test_structures` | Checks TSV structural DRC rules and reports scan chain & masking structures |
+| **4** | `04_build_faultmodel.tcl` | `build_faultmodel` | Initializes fault universe (Stuck-At or Delay based on `-m` mode) |
+| **5** | `05_create_tests.tcl` | `create_logic_tests` | Generates deterministic compressed test patterns and reports test coverage |
+| **6** | `06_analyze_power.tcl` | `write_toggle_gram` | Analyzes scan shift and capture switching activity to prevent IR drop |
+| **7** | `07_write_vectors.tcl` | `write_vectors` | Exports serial and parallel Verilog simulation testbenches |
+| **8** | `08_commit_tests.tcl` | `commit_tests` | Commits generated patterns to master database (`tbdata/`) |
 
 ---
 
-## Execution Guide
+## Usage Guide
 
-### 1. Using the Top-Level Runner (`run_atpg.sh`)
+### 1. Stuck-At ATPG (Default)
 
 ```bash
-# Run all 4 steps for Stuck-At ATPG:
-./run_atpg.sh stuck_at
+# Run all steps end-to-end:
+./run_atpg_step.sh all
 
-# Run all 4 steps for Transition Delay ATPG:
-./run_atpg.sh delay
-
-# Run all steps for both Stuck-At and Delay:
-./run_atpg.sh all
-
-# Run an individual step (e.g. Step 1 or Step 3):
-./run_atpg.sh stuck_at 1
-./run_atpg.sh stuck_at 3
+# Or run individual steps sequentially:
+./run_atpg_step.sh 1    # Step 1: Build Logic Model
+./run_atpg_step.sh 2    # Step 2: Build Test Mode
+./run_atpg_step.sh 3    # Step 3: Verify Test Structures
+./run_atpg_step.sh 4    # Step 4: Build Fault Model
+./run_atpg_step.sh 5    # Step 5: Generate Patterns & Coverage
+./run_atpg_step.sh 6    # Step 6: Power / Switching Activity
+./run_atpg_step.sh 7    # Step 7: Export Verilog Vectors
+./run_atpg_step.sh 8    # Step 8: Commit to Master Database
 ```
 
-### 2. Running Directly Inside Subdirectories
+### 2. Transition Delay ATPG
 
-You can also run directly inside `stuck_at/` or `delay/`:
+The same scripts are used for Transition Delay ATPG by passing `-m delay`:
 
 ```bash
-cd stuck_at
+# Run all steps for Transition Delay:
+./run_atpg_step.sh -m delay all
 
-# Run all steps:
-./run_step.sh all
-
-# Or run steps one by one:
-./run_step.sh 1    # 01_build_model.tcl
-./run_step.sh 2    # 02_verify_structures.tcl
-./run_step.sh 3    # 03_run_atpg.tcl
-./run_step.sh 4    # 04_write_vectors.tcl
-
-# Or run directly with modus:
-modus -file 01_build_model.tcl -log 01_build_model.log
+# Or run individual steps:
+./run_atpg_step.sh -m delay 4 5
 ```
