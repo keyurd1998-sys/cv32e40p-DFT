@@ -1,6 +1,6 @@
-# Modus ATPG & Simulation for CV32E40P Core (COMPRESSION Mode)
+# Modus ATPG for CV32E40P Core (COMPRESSION Mode)
 
-This directory contains the Automatic Test Pattern Generation (ATPG) and Verilog simulation flow using Cadence Modus and Cadence Xcelium for `cv32e40p_core`.
+This directory contains the Automatic Test Pattern Generation (ATPG) flow using Cadence Modus for `cv32e40p_core`.
 
 ---
 
@@ -10,17 +10,11 @@ This directory contains the Automatic Test Pattern Generation (ATPG) and Verilog
 atpg/
 ├── stuck_at/
 │   ├── runmodus.atpg.tcl            # Stuck-At ATPG (COMPRESSION mode)
-│   ├── run_compression_sim         # Serial Xcelium simulation runner
-│   ├── run_compression_sim_parallel# Parallel Xcelium simulation runner
-│   ├── run_compression_sim_sdf     # SDF timing simulation runner
 │   ├── cv32e40p_core.COMPRESSION.pinassign
 │   └── cv32e40p_core.test_netlist.v
 │
 ├── delay/
 │   ├── runmodus.atpg.tcl            # Transition Delay ATPG (COMPRESSION mode)
-│   ├── run_compression_sim         # Serial Xcelium simulation runner
-│   ├── run_compression_sim_parallel# Parallel Xcelium simulation runner
-│   ├── run_compression_sim_sdf     # SDF timing simulation runner
 │   ├── cv32e40p_core.COMPRESSION.pinassign
 │   └── cv32e40p_core.test_netlist.v
 │
@@ -58,32 +52,20 @@ Each `runmodus.atpg.tcl` executes the complete ATPG flow and automatically expor
 
 ## How to Run
 
-### 1. Stuck-At ATPG & Simulation
+### 1. Stuck-At ATPG
 
 ```bash
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg/stuck_at
 
-# Run Stuck-At ATPG (generates reports, serial vectors, parallel vectors):
+# Run Stuck-At ATPG:
 modus -file runmodus.atpg.tcl -log runmodus.log
-
-# Run Serial Verilog Simulation (realistic tester shift):
-./run_compression_sim
-
-# Run Parallel Verilog Simulation (fast register deposit):
-./run_compression_sim_parallel
 ```
 
-### 2. Transition Delay ATPG & Simulation
+### 2. Transition Delay ATPG
 
 ```bash
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg/delay
 
-# Run Transition Delay ATPG (at-speed LOC/LOS + supplementary tests):
+# Run Transition Delay ATPG:
 modus -file runmodus.atpg.tcl -log runmodus.log
-
-# Run Serial Verilog Simulation:
-./run_compression_sim
-
-# Run Parallel Verilog Simulation:
-./run_compression_sim_parallel
 ```
