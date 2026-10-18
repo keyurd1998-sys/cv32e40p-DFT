@@ -1,0 +1,226 @@
+
+ 
+Copyright (C) 2002-2025 Cadence Design Systems Inc. All Rights Reserved. 
+Cadence and the Cadence logo are registered trademarks and Modus is a trademark 
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Type 'help legal_notices' for third party license notices. 
+Version : 25.10-p027_1, built Mar 13 2025 (linux26_64)
+Options : -file ../runmodus.atpg.tcl -log logs/runmodus_stuck_at.log
+Date    : Sun, October 18 11:56:55 2026
+Host    : Pine-06 (x86_64 Linux 5.14.0-611.30.1.el9_7.x86_64) (6*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB)
+OS      : Red Hat Enterprise Linux release 9.7 (Plow)
+#@ Processing -files option
+@modus:root:/ 1>  source ../runmodus.atpg.tcl
+#@ Begin verbose source ../runmodus.atpg.tcl
+@file(../runmodus.atpg.tcl) 10: set DESIGN    "cv32e40p_core"
+@file(../runmodus.atpg.tcl) 11: set TECH_LIB  "/home/admin/DFT/Library/atpg/stdcell.v"
+@file(../runmodus.atpg.tcl) 12: set NETLIST   "../../scan/netlists/cv32e40p_core_compressed.v"
+@file(../runmodus.atpg.tcl) 13: set PINASSIGN "../cv32e40p_core.COMPRESSION.pinassign"
+@file(../runmodus.atpg.tcl) 16: if {[info exists argv] && [llength $argv] > 0} {
+    set ATPG_MODE [lindex $argv 0]
+} elseif {[info exists ::env(ATPG_MODE)]} {
+    set ATPG_MODE $::env(ATPG_MODE)
+} elseif {[string match "*delay*" [pwd]]} {
+    set ATPG_MODE "delay"
+} else {
+    set ATPG_MODE "stuck_at"
+}
+@file(../runmodus.atpg.tcl) 26: set EXPERIMENT "${DESIGN}_${ATPG_MODE}"
+@file(../runmodus.atpg.tcl) 31: set_db workdir .
+@file(../runmodus.atpg.tcl) 32: set_option stdout summary
+@file(../runmodus.atpg.tcl) 33: set ::env(CDS_LIC_REPORT) yes
+@file(../runmodus.atpg.tcl) 34: set_db stop_on_severity error
+@file(../runmodus.atpg.tcl) 36: file delete -force ./tbdata
+@file(../runmodus.atpg.tcl) 37: file delete -force ./testresults
+@file(../runmodus.atpg.tcl) 42: build_model \
+    -cell $DESIGN \
+    -techlib $TECH_LIB \
+    -designsource $NETLIST \
+    -allowmissingmodules yes \
+    -messagecounteach 100
+INFO (TUI-772): The command 'build_model' will release the currently acquired resources. [end TUI_772] 
+
+Starting Command: build_model 
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+
+            -designtop cv32e40p_core
+            -TECHLIB /home/admin/DFT/Library/atpg/stdcell.v
+            -allowmissingmodules yes
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_build_model_101826115656-581563000
+            -STDOUT summary
+            -messagecounteach 100
+            -DESIGNSOURCE ../../scan/netlists/cv32e40p_core_compressed.v
+[end TDA_009]
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TEI-195): Build Model - Controller starting:  
+      1 INFO (TEI-196): Build Model - Hierarchical Model Build starting:  
+      1 INFO (TEI-197): Build Model - Hierarchical Model Build completed.  
+      1 INFO (TEI-198): Build Model - Flat Model Build starting:  
+      1 INFO (TEI-199): Build Model - Flat Model Build completed.   
+      1 INFO (TEI-200): Build Model - Controller completed.  
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+      1 INFO (TLM-055): Design Summary
+
+  WARNING Messages...
+      2 WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/admin/DFT/Library/atpg/stdcell.v'.   
+      1 WARNING (TEI-275): Mixed signal strengths not supported on line 3763.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(../runmodus.atpg.tcl) 52: build_testmode \
+    -testmode COMPRESSION \
+    -assignfile $PINASSIGN \
+    -modedef COMPRESSION
+Starting Command: build_testmode 
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+            -TESTMODE COMPRESSION
+
+            -ASSIGNFILE ../cv32e40p_core.COMPRESSION.pinassign
+          * update_assign_file=
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_build_testmode_COMPRESSION_101826115700-714502000
+            -MODEDEF COMPRESSION
+            -STDOUT summary
+[end TDA_009]
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+      1 INFO (THM-814): Testmode contains 97.27% active logic,  2.73% inactive logic and  0.00% constraint logic.    
+      1 INFO (TTM-352): There are 2 Channel Mask Load chains.    
+      1 INFO (TTM-357): There are 154 scan chains which are controllable and observable.    
+      1 INFO (TTM-387): A default scanop sequence will be generated.    
+      1 INFO (TTM-391): A default modeinit sequence will be generated.    
+      1 INFO (TTM-800): build_testmode has created mode COMPRESSION.  
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(../runmodus.atpg.tcl) 60: report_test_structures \
+    -testmode COMPRESSION \
+    -reportscanchain all \
+    -reportchannelio yes \
+    -reportchannelmaskscanchain yes \
+    -reportchannelmaskstate yes \
+    > "./reports/test_structures.rpt"
+@file(../runmodus.atpg.tcl) 68: verify_test_structures \
+    -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10 \
+    -testmode COMPRESSION
+Starting Command: verify_test_structures 
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+            -TESTMODE COMPRESSION
+
+            -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_verify_test_structures_COMPRESSION_101826115702-599284000
+            -STDOUT summary
+[end TDA_009]
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+      1 INFO (TLM-055): Design Summary
+      1 INFO (TSV-068): The length of the longest scan chain is 14 bit positions, which is 101% of the average scan chain length 14 (based on 2153 total scan chain bits and 154 valid scan chains).    
+      2 INFO (TSV-107): X source summary for  Channel Masking Scan Register block COMPACTOR.compressor.\mreg0_reg[76].__iNsT0.dff_primitive : Total Observe Points: 1 : Safe Observe Points: 0, Unsafe Observe Points: 1, Unverified Observed Points: 0   
+      1 INFO (TSV-328): The length of the longest Channel Mask Scan Register is 77 bit positions, which is 100% of the average Channel Mask Scan Register length of 77 (based on 154 total Channel Mask Scan Register bits and 2 Channel Mask Scan Registers). In addition, there are a total of 1 Channel Mask Registers and each has a length of 154 bits.    
+    154 INFO (TSV-346): Channel mask shift register element block COMPACTOR.compressor.\mreg0_reg[0].__iNsT1.dff_primitive may be corrupted in the Test Constraint state. This condition may prevents the creation of a single Load Channel Mask event for use by multiple test sequences.   
+    154 INFO (TSV-378): Scan chain beginning at 'pin scan_in_0' and ending at 'pin COMPACTOR.compressor.g_0.g43.__iNsT0.01' is controllable and observable. The length of the scan chain is 14 bit positions.    
+      1 INFO (TSV-383): There are 4 floating latches.    
+      1 INFO (TSV-567): There are 2 controllable scan chains fed by Scan In (SI) primary inputs.    
+      1 INFO (TSV-568): There are 154 observable scan chains feeding to Scan Out (SO) primary outputs.    
+      1 INFO (TSV-569): There are 0 controllable scan chains fed by on-product Pattern Generator(s).    
+      1 INFO (TSV-570): There are 0 observable scan chains feeding to on-product Multiple-Input Signature Register (MISRs).    
+      1 INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 11:57:02 2026     
+      1 INFO (TSV-908): verify_test_structures processing complete.    
+
+  WARNING Messages...
+      1 WARNING (TSV-372): The Masking scan chain length exceeds the longest scan chain. Excessive tester cycles may be required. Please consider using Masking sharing techniques. The longest Masking chain depth is 77, the longest scan channel depth is 14.  
+
+  WARNING [Severe] Messages...
+      2 WARNING (TSV-101): [Severe] Unpredictable signal value (X) from  Channel Masking Scan Register block COMPACTOR.compressor.\mreg0_reg[76].__iNsT0.dff_primitive may be observed at block \id_stage_i_register_file_i_mem_reg[7][13].__iNsT2.dff_primitive.    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(../runmodus.atpg.tcl) 75: if {$ATPG_MODE == "delay"} {
+    build_faultmodel \
+        -includedynamic yes
+} else {
+    build_faultmodel \
+        -includedynamic no
+}
+INFO (TUI-772): The command 'build_faultmodel' will release the currently acquired resources. [end TUI_772] 
+
+Starting Command: build_faultmodel 
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_build_faultmodel_101826115704-160034000
+            -STDOUT summary
+            -includedynamic no
+[end TDA_009]
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-099): Build Fault Model started.   
+      1 INFO (TFM-102): Creating faultModel file /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/tbdata/faultModel.   
+      1 INFO (TFM-103): Creating faultStatus file /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/tbdata/faultStatus.   
+      1 INFO (TFM-109): Build Fault Model has completed with highest level severity message of INFO.   
+      1 INFO (TFM-704): Maximum Global Test Coverage Statistics: 
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(../runmodus.atpg.tcl) 83: report_faults -summary > "./reports/${ATPG_MODE}_initial_faults.rpt"
+File '../runmodus.atpg.tcl' line 83: errors out.
+#@ End verbose source ../runmodus.atpg.tcl
