@@ -3,19 +3,19 @@ Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
 Cadence and the Cadence logo are registered trademarks and Genus is a trademark
 of Cadence Design Systems, Inc. in the United States and other countries.
 
-[17:32:29.455617] Configured Lic search path (25.01-s002): 5280@pine-server
+[15:38:14.455601] Configured Lic search path (25.01-s002): 5280@pine-server
 
 Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
 Options: -overwrite -files 02_dft_setup_tdrc.tcl -log logs/02_dft_setup_tdrc.log 
-Date:    Sat Oct 17 17:32:29 2026
+Date:    Sun Oct 18 15:38:14 2026
 Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
-PID:     4180293
+PID:     549045
 OS:      Red Hat Enterprise Linux 9.7 (Plow)
 
 Checking out license: Genus_Synthesis
-[17:32:29.503192] Periodic Lic check successful
-[17:32:29.503208] Feature usage summary:
-[17:32:29.503208] Genus_Synthesis  
+[15:38:14.468024] Periodic Lic check successful
+[15:38:14.992323] Feature usage summary:
+[15:38:14.992328] Genus_Synthesis  
 
 
 ***********************************************************************************************************
@@ -23,7 +23,7 @@ Checking out license: Genus_Synthesis
 
 
 
-Finished executable startup (3 seconds elapsed).
+Finished executable startup (2 seconds elapsed).
 
 Loading tool scripts...
 Finished loading tool scripts (16 seconds elapsed).
@@ -33,7 +33,7 @@ Finished loading tool scripts (16 seconds elapsed).
 #@ Begin verbose source ./02_dft_setup_tdrc.tcl
 @file(02_dft_setup_tdrc.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
 @file(02_dft_setup_tdrc.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
-Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 17:32:46 IST 2026)...
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sun Oct 18 15:38:31 IST 2026)...
 #@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
 @file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
@@ -266,7 +266,7 @@ Detected 0 DFT rule violation(s)
       Number of registers that pass DFT rules: 2612
   Percentage of total registers that are scannable: 100%
 Info    : Reporting runtime for DFT command. [DFT-147]
-        : Runtime for check_dft_rules is 0.132000 seconds.
+        : Runtime for check_dft_rules is 0.131000 seconds.
 Info    : Successfully completed DFT command. [DFT-146]
         : Successfully completed check_dft_rules command.
   =================
@@ -282,13 +282,13 @@ Info    : Successfully completed DFT command. [DFT-146]
 @file(02_dft_setup_tdrc.tcl) 29: report_dft_violations > "$STEP_RPT_DIR/${DESIGN}_dft_violations_pre_syn.rpt"
 @file(02_dft_setup_tdrc.tcl) 32: set DB_FILE "$DBS_DIR/02_tdrc.db"
 @file(02_dft_setup_tdrc.tcl) 33: write_db -all_root_attributes -to_file $DB_FILE
-Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/02_tdrc.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:02, real = 00:03).
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/02_tdrc.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:02, real = 00:02).
 @file(02_dft_setup_tdrc.tcl) 35: puts "INFO: Step 2 DFT setup & pre-DFT TDRC completed successfully. Checkpoint saved: $DB_FILE"
 INFO: Step 2 DFT setup & pre-DFT TDRC completed successfully. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/02_tdrc.db
 @file(02_dft_setup_tdrc.tcl) 36: exit
 
 Lic Summary:
-[17:32:51.230505] Cdslmd servers: pine-server
-[17:32:51.230513] Feature usage summary:
-[17:32:51.230513] Genus_Synthesis  
+[15:38:36.130017] Cdslmd servers: pine-server
+[15:38:36.654321] Feature usage summary:
+[15:38:36.654322] Genus_Synthesis  
 Normal exit.

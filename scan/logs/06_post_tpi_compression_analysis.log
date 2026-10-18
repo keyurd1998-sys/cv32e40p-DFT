@@ -3,19 +3,19 @@ Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
 Cadence and the Cadence logo are registered trademarks and Genus is a trademark
 of Cadence Design Systems, Inc. in the United States and other countries.
 
-[19:31:28.455617] Configured Lic search path (25.01-s002): 5280@pine-server
+[17:22:35.455585] Configured Lic search path (25.01-s002): 5280@pine-server
 
 Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
 Options: -overwrite -files 06_post_tpi_compression_analysis.tcl -log logs/06_post_tpi_compression_analysis.log 
-Date:    Sat Oct 17 19:31:28 2026
+Date:    Sun Oct 18 17:22:35 2026
 Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
-PID:     44103
+PID:     616889
 OS:      Red Hat Enterprise Linux 9.7 (Plow)
 
 Checking out license: Genus_Synthesis
-[19:31:28.521243] Periodic Lic check successful
-[19:31:28.521249] Feature usage summary:
-[19:31:28.521250] Genus_Synthesis  
+[17:22:35.092226] Periodic Lic check successful
+[17:22:35.616530] Feature usage summary:
+[17:22:35.616531] Genus_Synthesis  
 
 
 ***********************************************************************************************************
@@ -26,14 +26,14 @@ Checking out license: Genus_Synthesis
 Finished executable startup (3 seconds elapsed).
 
 Loading tool scripts...
-Finished loading tool scripts (16 seconds elapsed).
+Finished loading tool scripts (17 seconds elapsed).
 
 #@ Processing -files option
 @genus:root: 1> source 06_post_tpi_compression_analysis.tcl
 #@ Begin verbose source ./06_post_tpi_compression_analysis.tcl
 @file(06_post_tpi_compression_analysis.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
 @file(06_post_tpi_compression_analysis.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
-Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 19:31:44 IST 2026)...
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sun Oct 18 17:22:52 IST 2026)...
 #@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
 @file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
@@ -278,10 +278,10 @@ Warning : Relaxing an attribute value in the library. [LBR-39]
         : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
         : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
 Checking out license: Modus_DFT_Opt
-[19:31:46.008818] Periodic Lic check successful
-[19:31:46.533120] Feature usage summary:
-[19:31:46.533121] Genus_Synthesis  
-[19:31:46.533121] Modus_DFT_Opt  
+[17:22:54.187651] Periodic Lic check successful
+[17:22:54.187675] Feature usage summary:
+[17:22:54.187675] Genus_Synthesis  
+[17:22:54.187675] Modus_DFT_Opt  
 Warning : Obsolete attribute. [TUI-30]
         : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
         : This attribute does not affect the tool behavior and will be removed in next major release. Remove all usages.
@@ -394,7 +394,7 @@ Analyzing the design with the following configuration
 	Mask           - wide1
 	Ratio          - 70 80
 
-TMPDIR is being set to /tmp/genus_temp_44103_ca5b7ba0-cf8b-42a6-b1ca-04b0f0973421_Pine-06_admin_tOnCU4/genus_temp_44485_28fbfe5b-8930-4c94-8544-4d734bb68e19_Pine-06_admin_AeHRwP
+TMPDIR is being set to /tmp/genus_temp_616889_3011f036-b573-4211-9b3d-d4127f5a1cad_Pine-06_admin_LidLqC/genus_temp_617272_bf78147e-9e8f-47cc-8411-5017ae268f13_Pine-06_admin_82BEi7
 
 
 ***********************************************************************************************************
@@ -402,12 +402,12 @@ TMPDIR is being set to /tmp/genus_temp_44103_ca5b7ba0-cf8b-42a6-b1ca-04b0f097342
 
 
 
-Finished executable startup (2 seconds elapsed).
+Finished executable startup (3 seconds elapsed).
 
 Loading tool scripts...Using chipware dir from user defined $CW_DIR environment variable set to /mnt/22b703da-ca2b-42dd-9641-48ed3afe6614/cadence/installs/DDI251/GENUS251/tools.lnx86/lib/chipware
 Using chipware simulation model dir from user defined $CW_DIR_SIM environment variable set to /mnt/22b703da-ca2b-42dd-9641-48ed3afe6614/cadence/installs/DDI251/GENUS251/tools.lnx86/lib/chipware/sim
 
-Finished loading tool scripts (16 seconds elapsed).
+Finished loading tool scripts (15 seconds elapsed).
 
 #@ Processing -files option
 @genus:root: 1> source /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/asc.tcl
@@ -619,9 +619,9 @@ Warning : Relaxing an attribute value in the library. [LBR-39]
         : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
         : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
 Checking out license: Modus_DFT_Opt
-[19:32:08.448393] Periodic Lic check successful
-[19:32:08.972691] Feature usage summary:
-[19:32:08.972691] Modus_DFT_Opt  
+[17:23:16.244282] Periodic Lic check successful
+[17:23:16.768576] Feature usage summary:
+[17:23:16.768577] Modus_DFT_Opt  
 Warning : Obsolete attribute. [TUI-30]
         : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
         : This attribute does not affect the tool behavior and will be removed in next major release. Remove all usages.
@@ -696,6 +696,7 @@ ENABLED NEW REPORT GATE CMD
 
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_fullscan' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for fullscan mode to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_fullscan'.
@@ -729,15 +730,13 @@ Warning : Netlist has library cells with no physical information in LEF. This ma
         : Instances of the library cell 'INVX6' have zero area.
         : To prevent this, add physical information for this library cell to LEF, or set 'use_area_from_lef' attribute to false.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKINVX6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'DLY4X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'BUFX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR3X6' have zero area.
+        : Instances of the library cell 'CLKINVX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKMX2X3' have zero area.
+        : Instances of the library cell 'OR3X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AO21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
@@ -745,27 +744,29 @@ Warning : Netlist has library cells with no physical information in LEF. This ma
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X12' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X8' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'SDFFRHQX8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'CLKXOR2X2' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'OA21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X2' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR3X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X12' have zero area.
 Warning : Maximum message print count reached. [MESG-11]
         : Maximum print count of '20' reached for message 'PHYS-141'.
   Setting attribute of root '/': 'boundary_opto_internal_assert' = false
@@ -863,6 +864,7 @@ ENABLED NEW REPORT GATE CMD
         Tool achieved ratio: 76.9
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80'.
@@ -936,15 +938,13 @@ Info    : Done Elaborating Design. [ELAB-3]
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'INVX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKINVX6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'DLY4X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'BUFX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR3X6' have zero area.
+        : Instances of the library cell 'CLKINVX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKMX2X3' have zero area.
+        : Instances of the library cell 'OR3X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AO21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
@@ -952,27 +952,29 @@ Warning : Netlist has library cells with no physical information in LEF. This ma
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X12' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X8' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'SDFFRHQX8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'CLKXOR2X2' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'OA21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X2' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR3X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X12' have zero area.
   Setting attribute of root '/': 'boundary_opto_internal_assert' = false
   Setting attribute of module 'decomp_136_2_1x2_20100110_gate': 'boundary_opto' = strict_no
   Setting attribute of module 'decomp_136_2_1x2_20100110': 'boundary_opto' = strict_no
@@ -1064,6 +1066,7 @@ ENABLED NEW REPORT GATE CMD
         Tool achieved ratio: 67.3
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70'.
@@ -1085,11 +1088,11 @@ Running Modus ATPG
 	Running /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/runmodus.atpg.tcl .....
 	Running /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/runmodus.atpg.tcl .....
 
-[19:46:31.274291] Periodic Lic check successful
-[19:46:31.274306] Feature usage summary:
-[19:46:31.274306] Genus_Synthesis  
-[19:46:53.460274] Periodic Lic check successful
-[19:46:53.984563] Feature usage summary:
+[17:37:38.439163] Periodic Lic check successful
+[17:37:38.439169] Feature usage summary:
+[17:37:38.439170] Genus_Synthesis  
+[17:38:01.240272] Periodic Lic check successful
+[17:38:01.764562] Feature usage summary:
       completed /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/runmodus.atpg.tcl
 
 Info    : Reporting runtime for DFT command. [DFT-147]
@@ -1111,15 +1114,15 @@ Info    : Successfully completed DFT command. [DFT-146]
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 Lic Summary:
-[19:55:40.064771] Cdslmd servers: pine-server
-[19:55:40.589112] Feature usage summary:
-[19:55:40.589112] Modus_DFT_Opt  
+[17:48:30.423601] Cdslmd servers: pine-server
+[17:48:30.947905] Feature usage summary:
+[17:48:30.947905] Modus_DFT_Opt  
 Normal exit.
 Checking out license: Modus_DFT_Opt
-[19:55:42.221747] Periodic Lic check successful
-[19:55:42.221842] Feature usage summary:
-[19:55:42.221848] Genus_Synthesis  
-[19:55:42.221850] Modus_DFT_Opt  
+[17:48:32.226915] Periodic Lic check successful
+[17:48:32.226938] Feature usage summary:
+[17:48:32.226938] Genus_Synthesis  
+[17:48:32.226939] Modus_DFT_Opt  
 
 ----------------------------------------
  Results of analyze_scan_compressibility
@@ -1133,19 +1136,19 @@ Achieved compression table with fullscan top-off vectors
 --------------------------------------------------------
 IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles        Runtime    Gatecount    Area
 -----------------------------------------------------------------------------------------------------
-fs    1.0    1.0     99.99%   1077     -         312       339424        00:00:22   -            -
-70    1.2    1.2     99.99%   16       859       223       276339        00:11:23   777          79.833    
-80    1.4    1.4     99.99%   14       982       193       244263        00:09:51   878          79.833    
+fs    1.0    1.0     99.98%   1077     -         317       344825        00:00:18   -            -
+70    1.2    1.2     99.99%   16       833       227       280366        00:12:31   777          79.833    
+80    1.3    1.3     99.99%   14       1015      204       257628        00:10:28   878          79.833    
 
 Achieved compression table without fullscan top-off vectors
 -----------------------------------------------------------
 IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles    Gatecount    Area
 --------------------------------------------------------------------------------------
-fs    1.0    1.0     99.99%   1077     -         312       339424        -       -    
-70    18.1   18.1    95.28%   16       859       -         18745         777     79.833     
-80    17.5   17.5    95.94%   14       982       -         19418         878     79.833     
+fs    1.0    1.0     99.98%   1077     -         317       344825        -       -    
+70    19.0   19.0    95.12%   16       833       -         18186         777     79.833     
+80    17.2   17.2    96.10%   14       1015      -         20048         878     79.833     
 
-Total ATPG runtime: 00:21:36 (hrs:min:sec).
+Total ATPG runtime: 00:23:17 (hrs:min:sec).
 
 IC        - Inserted compression
 TATR      - Test application time reduction
@@ -1158,16 +1161,81 @@ Runtime   - ATPG runtime
 fs        - Uncompressed (Fullscan) run
 
 Completed scan compressibility analysis for module 'cv32e40p_core'
-@file(06_post_tpi_compression_analysis.tcl) 39: set DB_FILE [file normalize "$DBS_DIR/06_post_tpi_analyzed.db"]
-@file(06_post_tpi_compression_analysis.tcl) 40: write_db -all_root_attributes -to_file $DB_FILE
+@file(06_post_tpi_compression_analysis.tcl) 41: report_scan_compressibility -directory $MODUS_WORK > "$STEP_RPT_DIR/${DESIGN}_compressibility_analysis.rpt"
+Analyzing from work directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility' .....
+
+----------------------------------------
+ Results of analyze_scan_compressibility
+----------------------------------------
+	Design       - cv32e40p_core
+	Decompressor - broadcast
+	Compressor   - xor
+	Mask         - wide1
+
+Achieved compression table with fullscan top-off vectors
+--------------------------------------------------------
+IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles        Runtime    Gatecount    Area
+-----------------------------------------------------------------------------------------------------
+fs    1.0    1.0     99.98%   1077     -         317       344825        00:00:18   -            -
+70    1.2    1.2     99.99%   16       833       227       280366        00:12:31   777          79.833    
+80    1.3    1.3     99.99%   14       1015      204       257628        00:10:28   878          79.833    
+
+Achieved compression table without fullscan top-off vectors
+-----------------------------------------------------------
+IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles    Gatecount    Area
+--------------------------------------------------------------------------------------
+fs    1.0    1.0     99.98%   1077     -         317       344825        -       -    
+70    19.0   19.0    95.12%   16       833       -         18186         777     79.833     
+80    17.2   17.2    96.10%   14       1015      -         20048         878     79.833     
+
+Total ATPG runtime: 00:23:17 (hrs:min:sec).
+
+IC        - Inserted compression
+TATR      - Test application time reduction
+TDVR      - Test data volume reduction
+ATCov.    - ATPG test mode coverage
+CL        - Channel length
+PAT-comp  - Number of compression test patterns
+PAT-fs    - Number of fullscan test patterns
+Runtime   - ATPG runtime
+fs        - Uncompressed (Fullscan) run
+
+@file(06_post_tpi_compression_analysis.tcl) 42: check_dft_rules                                   > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+Info    : Initiating DFT command. [DFT-145]
+        : Initiating check_dft_rules command.
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2153
+  Percentage of total registers that are scannable: 100%
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for check_dft_rules is 0.070000 seconds.
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed check_dft_rules command.
+  =================
+   Message Summary
+  =================
+--------------------------------------------------------
+|  Id   |Sev |Count|           Message Text            |
+--------------------------------------------------------
+|DFT-145|Info|    1|Initiating DFT command.            |
+|DFT-146|Info|    1|Successfully completed DFT command.|
+|DFT-147|Info|    1|Reporting runtime for DFT command. |
+--------------------------------------------------------
+@file(06_post_tpi_compression_analysis.tcl) 43: report_scan_chains                                > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+@file(06_post_tpi_compression_analysis.tcl) 46: set DB_FILE [file normalize "$DBS_DIR/06_post_tpi_analyzed.db"]
+@file(06_post_tpi_compression_analysis.tcl) 47: write_db -all_root_attributes -to_file $DB_FILE
 Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/06_post_tpi_analyzed.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:01).
-@file(06_post_tpi_compression_analysis.tcl) 42: puts "INFO: Step 6 Post-TPI compression analysis completed. Checkpoint saved: $DB_FILE"
+@file(06_post_tpi_compression_analysis.tcl) 49: puts "INFO: Step 6 Post-TPI compression analysis completed. Checkpoint saved: $DB_FILE"
 INFO: Step 6 Post-TPI compression analysis completed. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/06_post_tpi_analyzed.db
-@file(06_post_tpi_compression_analysis.tcl) 43: exit
+@file(06_post_tpi_compression_analysis.tcl) 50: exit
 
 Lic Summary:
-[19:55:43.124939] Cdslmd servers: pine-server
-[19:55:43.649243] Feature usage summary:
-[19:55:43.649248] Genus_Synthesis  
-[19:55:43.649248] Modus_DFT_Opt  
+[17:48:33.464920] Cdslmd servers: pine-server
+[17:48:33.989233] Feature usage summary:
+[17:48:33.989234] Genus_Synthesis  
+[17:48:33.989234] Modus_DFT_Opt  
 Normal exit.

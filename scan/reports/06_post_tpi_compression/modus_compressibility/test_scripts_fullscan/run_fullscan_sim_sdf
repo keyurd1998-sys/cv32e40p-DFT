@@ -29,7 +29,7 @@ xrun \
    +sdf_file+DEFAULT.sdf \
    +xmerror+CUSFNF \
    +define+TIMING \
-   +xmlibdirname+$WORKDIR/Inca_libs_19_32_12 \
+   +xmlibdirname+$WORKDIR/Inca_libs_17_23_20 \
    -l $WORKDIR/ncverilog_FULLSCAN_TIMED.log \
   -v /home/admin/DFT/Library/atpg/stdcell.v \
 $WORKDIR/cv32e40p_core.test_netlist.v \

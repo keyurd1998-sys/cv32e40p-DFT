@@ -3,19 +3,19 @@ Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
 Cadence and the Cadence logo are registered trademarks and Genus is a trademark
 of Cadence Design Systems, Inc. in the United States and other countries.
 
-[17:58:47.455681] Configured Lic search path (25.01-s002): 5280@pine-server
+[16:00:43.455537] Configured Lic search path (25.01-s002): 5280@pine-server
 
 Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
 Options: -overwrite -files 04_pre_tpi_compression_analysis.tcl -log logs/04_pre_tpi_compression_analysis.log 
-Date:    Sat Oct 17 17:58:47 2026
+Date:    Sun Oct 18 16:00:43 2026
 Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
-PID:     4193221
+PID:     560153
 OS:      Red Hat Enterprise Linux 9.7 (Plow)
 
 Checking out license: Genus_Synthesis
-[17:58:47.270139] Periodic Lic check successful
-[17:58:47.794442] Feature usage summary:
-[17:58:47.794443] Genus_Synthesis  
+[16:00:43.521314] Periodic Lic check successful
+[16:00:43.521331] Feature usage summary:
+[16:00:43.521331] Genus_Synthesis  
 
 
 ***********************************************************************************************************
@@ -33,7 +33,7 @@ Finished loading tool scripts (17 seconds elapsed).
 #@ Begin verbose source ./04_pre_tpi_compression_analysis.tcl
 @file(04_pre_tpi_compression_analysis.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
 @file(04_pre_tpi_compression_analysis.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
-Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 17:59:04 IST 2026)...
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sun Oct 18 16:01:00 IST 2026)...
 #@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
 @file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
@@ -331,10 +331,10 @@ INFO: Running Pre-TPI scan compressibility analysis across ratios 70 and 80...
 Starting scan compressibility analysis for module 'cv32e40p_core'
 
 Checking out license: Modus_DFT_Opt
-[17:59:06.222904] Periodic Lic check successful
-[17:59:06.747216] Feature usage summary:
-[17:59:06.747216] Genus_Synthesis  
-[17:59:06.747217] Modus_DFT_Opt  
+[16:01:02.327450] Periodic Lic check successful
+[16:01:02.851753] Feature usage summary:
+[16:01:02.851753] Genus_Synthesis  
+[16:01:02.851754] Modus_DFT_Opt  
 using existing work directory: '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility'
 
 Analyzing the design with the following configuration
@@ -345,7 +345,7 @@ Analyzing the design with the following configuration
 	Mask           - wide1
 	Ratio          - 70 80
 
-TMPDIR is being set to /tmp/genus_temp_4193221_4b7f28f5-40ab-46db-b779-d0e86450a94f_Pine-06_admin_f4CxXa/genus_temp_4193600_4eaabc0d-ba2d-4606-86cd-99cbe2e42b92_Pine-06_admin_npz14z
+TMPDIR is being set to /tmp/genus_temp_560153_67ec2515-6a2f-4501-b769-9610bbb8ad4d_Pine-06_admin_urR5A4/genus_temp_560561_8072b5bd-2941-4b84-b72d-4558128ada53_Pine-06_admin_PyvyPk
 
 
 ***********************************************************************************************************
@@ -570,9 +570,9 @@ Warning : Relaxing an attribute value in the library. [LBR-39]
         : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
         : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
 Checking out license: Modus_DFT_Opt
-[17:59:28.431960] Periodic Lic check successful
-[17:59:28.431970] Feature usage summary:
-[17:59:28.431970] Modus_DFT_Opt  
+[16:01:24.308137] Periodic Lic check successful
+[16:01:24.308147] Feature usage summary:
+[16:01:24.308147] Modus_DFT_Opt  
 Scan Registers Status
 ---------------------
 	(Number of Scannable Registers) / (Total Register Count) = 
@@ -604,6 +604,7 @@ ENABLED NEW REPORT GATE CMD
 
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_fullscan' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for fullscan mode to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_fullscan'.
@@ -771,6 +772,7 @@ ENABLED NEW REPORT GATE CMD
         Tool achieved ratio: 76.0
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80'.
@@ -932,6 +934,7 @@ ENABLED NEW REPORT GATE CMD
         Tool achieved ratio: 66.5
 Warning : This command option will be obsolete in a next major release. [TUI-42]
         : The option '-effort' is obsolete. Use '-atpg_options' option to specify '-effort' option.
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_70' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
  for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_70'.
@@ -952,15 +955,15 @@ Running Modus ATPG
 	Running /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_fullscan/runmodus.atpg.tcl .....
 	Running /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80/runmodus.atpg.tcl .....
 
-[18:13:50.232083] Periodic Lic check successful
-[18:13:50.756377] Feature usage summary:
-[18:13:50.756378] Genus_Synthesis  
-[18:14:13.371081] Periodic Lic check successful
-[18:14:13.371082] Feature usage summary:
+[16:15:46.038593] Periodic Lic check successful
+[16:15:46.038603] Feature usage summary:
+[16:15:46.038603] Genus_Synthesis  
+[16:16:09.096794] Periodic Lic check successful
+[16:16:09.621083] Feature usage summary:
 	Running /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_70/runmodus.atpg.tcl .....
 
-[18:44:17.117209] Periodic Lic check successful
-[18:44:17.117211] Feature usage summary:
+[16:46:13.485864] Periodic Lic check successful
+[16:46:13.485865] Feature usage summary:
       completed /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_70/runmodus.atpg.tcl
 
 Info    : Reporting runtime for DFT command. [DFT-147]
@@ -982,15 +985,15 @@ Info    : Successfully completed DFT command. [DFT-146]
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 Lic Summary:
-[19:11:03.222395] Cdslmd servers: pine-server
-[19:11:03.746691] Feature usage summary:
-[19:11:03.746691] Modus_DFT_Opt  
+[17:14:38.168962] Cdslmd servers: pine-server
+[17:14:38.693258] Feature usage summary:
+[17:14:38.693259] Modus_DFT_Opt  
 Normal exit.
 Checking out license: Modus_DFT_Opt
-[19:11:05.523147] Periodic Lic check successful
-[19:11:05.523163] Feature usage summary:
-[19:11:05.523163] Genus_Synthesis  
-[19:11:05.523168] Modus_DFT_Opt  
+[17:14:40.434264] Periodic Lic check successful
+[17:14:40.434283] Feature usage summary:
+[17:14:40.434283] Genus_Synthesis  
+[17:14:40.434283] Modus_DFT_Opt  
 
 ----------------------------------------
  Results of analyze_scan_compressibility
@@ -1004,9 +1007,9 @@ Achieved compression table with fullscan top-off vectors
 --------------------------------------------------------
 IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles        Runtime    Gatecount    Area
 -----------------------------------------------------------------------------------------------------
-fs    1.0    1.0     99.95%   1064     -         478       512628        00:00:36   -            -
-70    1.1    1.1     99.98%   16       600       404       473318        00:38:21   769          79.833    
-80    1.1    1.1     99.98%   14       682       393       464793        00:30:13   871          79.833    
+fs    1.0    1.0     99.95%   1064     -         478       512628        00:00:37   -            -
+70    1.1    1.1     99.98%   16       600       404       473318        00:39:39   769          79.833    
+80    1.1    1.1     99.98%   14       682       393       464793        00:30:28   871          79.833    
 
 Achieved compression table without fullscan top-off vectors
 -----------------------------------------------------------
@@ -1016,7 +1019,7 @@ fs    1.0    1.0     99.95%   1064     -         478       512628        -      
 70    38.7   38.7    79.05%   16       600       -         13258         769     79.833     
 80    37.5   37.5    83.38%   14       682       -         13674         871     79.833     
 
-Total ATPG runtime: 01:09:10 (hrs:min:sec).
+Total ATPG runtime: 01:10:44 (hrs:min:sec).
 
 IC        - Inserted compression
 TATR      - Test application time reduction
@@ -1029,16 +1032,81 @@ Runtime   - ATPG runtime
 fs        - Uncompressed (Fullscan) run
 
 Completed scan compressibility analysis for module 'cv32e40p_core'
-@file(04_pre_tpi_compression_analysis.tcl) 39: set DB_FILE [file normalize "$DBS_DIR/04_pre_tpi_analyzed.db"]
-@file(04_pre_tpi_compression_analysis.tcl) 40: write_db -all_root_attributes -to_file $DB_FILE
-Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/04_pre_tpi_analyzed.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:01).
-@file(04_pre_tpi_compression_analysis.tcl) 42: puts "INFO: Step 4 Pre-TPI compression analysis completed. Checkpoint saved: $DB_FILE"
+@file(04_pre_tpi_compression_analysis.tcl) 41: report_scan_compressibility -directory $MODUS_WORK > "$STEP_RPT_DIR/${DESIGN}_compressibility_analysis.rpt"
+Analyzing from work directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility' .....
+
+----------------------------------------
+ Results of analyze_scan_compressibility
+----------------------------------------
+	Design       - cv32e40p_core
+	Decompressor - broadcast
+	Compressor   - xor
+	Mask         - wide1
+
+Achieved compression table with fullscan top-off vectors
+--------------------------------------------------------
+IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles        Runtime    Gatecount    Area
+-----------------------------------------------------------------------------------------------------
+fs    1.0    1.0     99.95%   1064     -         478       512628        00:00:37   -            -
+70    1.1    1.1     99.98%   16       600       404       473318        00:39:39   769          79.833    
+80    1.1    1.1     99.98%   14       682       393       464793        00:30:28   871          79.833    
+
+Achieved compression table without fullscan top-off vectors
+-----------------------------------------------------------
+IC    TATR   TDVR    ATCov.   CL       PAT-comp  PAT-fs    Cycles    Gatecount    Area
+--------------------------------------------------------------------------------------
+fs    1.0    1.0     99.95%   1064     -         478       512628        -       -    
+70    38.7   38.7    79.05%   16       600       -         13258         769     79.833     
+80    37.5   37.5    83.38%   14       682       -         13674         871     79.833     
+
+Total ATPG runtime: 01:10:44 (hrs:min:sec).
+
+IC        - Inserted compression
+TATR      - Test application time reduction
+TDVR      - Test data volume reduction
+ATCov.    - ATPG test mode coverage
+CL        - Channel length
+PAT-comp  - Number of compression test patterns
+PAT-fs    - Number of fullscan test patterns
+Runtime   - ATPG runtime
+fs        - Uncompressed (Fullscan) run
+
+@file(04_pre_tpi_compression_analysis.tcl) 42: check_dft_rules                                   > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+Info    : Initiating DFT command. [DFT-145]
+        : Initiating check_dft_rules command.
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2127
+  Percentage of total registers that are scannable: 100%
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for check_dft_rules is 0.072000 seconds.
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed check_dft_rules command.
+  =================
+   Message Summary
+  =================
+--------------------------------------------------------
+|  Id   |Sev |Count|           Message Text            |
+--------------------------------------------------------
+|DFT-145|Info|    1|Initiating DFT command.            |
+|DFT-146|Info|    1|Successfully completed DFT command.|
+|DFT-147|Info|    1|Reporting runtime for DFT command. |
+--------------------------------------------------------
+@file(04_pre_tpi_compression_analysis.tcl) 43: report_scan_chains                                > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+@file(04_pre_tpi_compression_analysis.tcl) 46: set DB_FILE [file normalize "$DBS_DIR/04_pre_tpi_analyzed.db"]
+@file(04_pre_tpi_compression_analysis.tcl) 47: write_db -all_root_attributes -to_file $DB_FILE
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/04_pre_tpi_analyzed.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:02).
+@file(04_pre_tpi_compression_analysis.tcl) 49: puts "INFO: Step 4 Pre-TPI compression analysis completed. Checkpoint saved: $DB_FILE"
 INFO: Step 4 Pre-TPI compression analysis completed. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/04_pre_tpi_analyzed.db
-@file(04_pre_tpi_compression_analysis.tcl) 43: exit
+@file(04_pre_tpi_compression_analysis.tcl) 50: exit
 
 Lic Summary:
-[19:11:06.342720] Cdslmd servers: pine-server
-[19:11:06.867025] Feature usage summary:
-[19:11:06.867025] Genus_Synthesis  
-[19:11:06.867026] Modus_DFT_Opt  
+[17:14:42.203800] Cdslmd servers: pine-server
+[17:14:42.203817] Feature usage summary:
+[17:14:42.203817] Genus_Synthesis  
+[17:14:42.203818] Modus_DFT_Opt  
 Normal exit.

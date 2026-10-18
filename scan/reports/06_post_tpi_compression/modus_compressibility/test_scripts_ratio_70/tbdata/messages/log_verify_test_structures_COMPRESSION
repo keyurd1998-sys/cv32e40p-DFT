@@ -4,12 +4,12 @@ INFO (TDA-005): Command Line Invocation:
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_verify_test_structures_COMPRESSION_101726194355-284500000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_verify_test_structures_COMPRESSION_101826173536-824400000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Saturday Oct 17 19:43:55 2026  IST
+            Date Started: Sunday Oct 18 17:35:36 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 52847.
+            This job is process number 626764.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -20,10 +20,10 @@ INFO (TDA-009): Options/Values information.
             -TESTMODE COMPRESSION
 
             -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_verify_test_structures_COMPRESSION_101726194355-284500000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_verify_test_structures_COMPRESSION_101826173536-824400000
             -STDOUT no
 [end TDA_009]
-INFO (TSV-900): verify_test_structures processing has started Sat Oct 17 19:43:55 2026    [end TSV_900] 
+INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 17:35:36 2026    [end TSV_900] 
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 ------------------- verify_test_structures Process Preview ---------------------
   apply constraints ...................................... constraints=yes    
@@ -58,9 +58,9 @@ INFO (TLM-055): Design Summary
                 --------------
 
 Hierarchical Model:                  Flattened Model:
-        140,376  Blocks                      80,091  Blocks
-        425,323  Pins                        80,091  Nodes
-        235,766  Nets
+        141,784  Blocks                      81,127  Blocks
+        429,390  Pins                        81,127  Nodes
+        238,276  Nets
 
 Primary Inputs:                      Primary Outputs:
         312  Input Only                       234  Output Only
@@ -69,9 +69,9 @@ Primary Inputs:                      Primary Outputs:
 
 Tied Nets:                           Dotted Nets:
       4,362  Tied to 0                          0  Two-State
-      2,129  Tied to 1                          0  Three-State
+      2,130  Tied to 1                          0  Three-State
           0  Tied to X                          0  Total Dotted Nets
-      6,491  Total Tied Nets
+      6,492  Total Tied Nets
 
 Selected Primitive Functions:
           0  Clock Chopper (CHOP) primitives 
@@ -80,14 +80,14 @@ Selected Primitive Functions:
           0  TSDs
           0  Resistors
           0  Transistors
-      3,281  MUX2s
+      3,284  MUX2s
           3  Latches
 
 
       2,289  Rising  Edge Flop w/Set-Dominant and Reset Port
       2,289  Total Flops
 
-     23,897  Technology Library Cell Instances
+     24,344  Technology Library Cell Instances
 
 [end TLM_055] 
 
@@ -442,7 +442,7 @@ Analyze explicit fixed value latches process has completed.
    Check for mutually exclusive gating logic (MEG)    
 
 Analyze potential clock signal races process has completed.
-                             CPU time =  0:00:00.05  Elapsed time =  0:00:00.07
+                             CPU time =  0:00:00.04  Elapsed time =  0:00:00.06
   
    Ensure X-sources cannot be observed 
 WARNING (TSV-101): [Severe] Unpredictable signal value (X) from  Channel Masking Scan Register block COMPACTOR.compressor.\mreg0_reg[67].__iNsT0.dff_primitive may be observed at block \id_stage_i_register_file_i_mem_reg[7][13].__iNsT2.dff_primitive.   [end TSV_101] 
@@ -466,11 +466,11 @@ INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119]
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =           34,831,664  bytes
+                  Total Memory =           35,050,288  bytes
 
                       CPU Time =    0:00:00.18
-                  Elapsed Time =    0:00:00.47                    [end TDA_001]
+                  Elapsed Time =    0:00:00.48                    [end TDA_001]
 
-     Date Ended:  Saturday Oct 17 19:43:55 2026  IST
+     Date Ended:  Sunday Oct 18 17:35:37 2026  IST
 
 

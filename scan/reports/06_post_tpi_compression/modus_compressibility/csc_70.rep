@@ -13,15 +13,13 @@ Info    : Done Elaborating Design. [ELAB-3]
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'INVX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKINVX6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'DLY4X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'BUFX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR3X6' have zero area.
+        : Instances of the library cell 'CLKINVX6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKMX2X3' have zero area.
+        : Instances of the library cell 'OR3X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AO21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
@@ -29,27 +27,29 @@ Warning : Netlist has library cells with no physical information in LEF. This ma
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'AND2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'CLKAND2X12' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X8' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
-        : Instances of the library cell 'OR2X6' have zero area.
-Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X6' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'SDFFRHQX8' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'CLKXOR2X2' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'OA21X4' have zero area.
 Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X2' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
         : Instances of the library cell 'NOR3X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X12' have zero area.
   Setting attribute of root '/': 'boundary_opto_internal_assert' = false
   Setting attribute of module 'decomp_136_2_1x2_20100110_gate': 'boundary_opto' = strict_no
   Setting attribute of module 'decomp_136_2_1x2_20100110': 'boundary_opto' = strict_no

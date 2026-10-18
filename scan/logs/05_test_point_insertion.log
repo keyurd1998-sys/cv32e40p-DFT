@@ -3,19 +3,19 @@ Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
 Cadence and the Cadence logo are registered trademarks and Genus is a trademark
 of Cadence Design Systems, Inc. in the United States and other countries.
 
-[19:30:15.455577] Configured Lic search path (25.01-s002): 5280@pine-server
+[17:14:47.455617] Configured Lic search path (25.01-s002): 5280@pine-server
 
 Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
 Options: -overwrite -files 05_test_point_insertion.tcl -log logs/05_test_point_insertion.log 
-Date:    Sat Oct 17 19:30:15 2026
+Date:    Sun Oct 18 17:14:47 2026
 Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
-PID:     39907
+PID:     610045
 OS:      Red Hat Enterprise Linux 9.7 (Plow)
 
 Checking out license: Genus_Synthesis
-[19:30:15.407154] Periodic Lic check successful
-[19:30:15.931456] Feature usage summary:
-[19:30:15.931457] Genus_Synthesis  
+[17:14:47.480000] Periodic Lic check successful
+[17:14:47.480011] Feature usage summary:
+[17:14:47.480016] Genus_Synthesis  
 
 
 ***********************************************************************************************************
@@ -26,14 +26,14 @@ Checking out license: Genus_Synthesis
 Finished executable startup (3 seconds elapsed).
 
 Loading tool scripts...
-Finished loading tool scripts (17 seconds elapsed).
+Finished loading tool scripts (20 seconds elapsed).
 
 #@ Processing -files option
 @genus:root: 1> source 05_test_point_insertion.tcl
 #@ Begin verbose source ./05_test_point_insertion.tcl
 @file(05_test_point_insertion.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
 @file(05_test_point_insertion.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
-Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 19:30:32 IST 2026)...
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sun Oct 18 17:15:07 IST 2026)...
 #@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
 @file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
@@ -300,7 +300,7 @@ Info    : Initiating DFT command. [DFT-145]
 Mapping DFT logic introduced by scan chain connection...
 Mapping DFT logic done.
 Info    : Reporting runtime for DFT command. [DFT-147]
-        : Runtime for connect_scan_chains is 0 second(s).
+        : Runtime for connect_scan_chains is 1 second(s).
 Info    : Successfully completed DFT command. [DFT-146]
         : Successfully completed connect_scan_chains command.
   =================
@@ -323,10 +323,10 @@ Info    : Successfully completed DFT command. [DFT-146]
     -compression_testpoints_options "-maxtestpts 100" \
     -force
 Checking out license: Modus_DFT_Opt
-[19:30:34.077801] Periodic Lic check successful
-[19:30:34.602113] Feature usage summary:
-[19:30:34.602114] Genus_Synthesis  
-[19:30:34.602115] Modus_DFT_Opt  
+[17:15:09.223650] Periodic Lic check successful
+[17:15:09.747954] Feature usage summary:
+[17:15:09.747955] Genus_Synthesis  
+[17:15:09.747955] Modus_DFT_Opt  
 WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work' for write_dft_compression_test_points.
 INFO: Start of Generation of Modus No TP File '/home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/cv32e40p_core.noTpFile'
 INFO: Avoiding test point identification for pin 'g169756/A' because the pin location does not have enough slack.
@@ -33752,7 +33752,7 @@ Type 'help legal_notices' for third party license notices.
 
 Version : 25.10-p027_1, built Mar 13 2025 (linux26_64)
 Options : -file /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/runmodus.compression_testpoints.tcl
-Date    : Sat, October 17 19:30:44 2026
+Date    : Sun, October 18 17:15:22 2026
 Host    : Pine-06 (x86_64 Linux 5.14.0-611.30.1.el9_7.x86_64) (6*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB)
 OS      : Red Hat Enterprise Linux release 9.7 (Plow)
 @modus:root:/ 1> [1G                 [1GE#@ Processing -files option
@@ -33786,7 +33786,7 @@ INFO (TDA-009): Options/Values information.
             -designtop cv32e40p_core
             -TECHLIB /home/admin/DFT/Library/atpg/stdcell.v
             -allowmissingmodules yes
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_model_101726193045-051405000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_model_101826171522-841702000
             -STDOUT summary
             -messagecounteach 100
             -DESIGNSOURCE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/cv32e40p_core.test_netlist.v
@@ -33833,7 +33833,7 @@ INFO (TDA-009): Options/Values information.
 
             -ASSIGNFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/cv32e40p_core.FULLSCAN.pinassign
           * update_assign_file=
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_testmode_FULLSCAN_101726193048-346993000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_testmode_FULLSCAN_101826171526-373315000
             -MODEDEF FULLSCAN
             -STDOUT summary
 [end TDA_009]
@@ -33871,7 +33871,7 @@ INFO (TDA-009): Options/Values information.
             -TESTMODE FULLSCAN
 
             -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_verify_test_structures_FULLSCAN_101726193050-066815000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_verify_test_structures_FULLSCAN_101826171527-963168000
             -STDOUT summary
 [end TDA_009]
 
@@ -33892,7 +33892,7 @@ INFO (TDA-009): Options/Values information.
       1 INFO (TSV-568): There are 2 observable scan chains feeding to Scan Out (SO) primary outputs.    
       1 INFO (TSV-569): There are 0 controllable scan chains fed by on-product Pattern Generator(s).    
       1 INFO (TSV-570): There are 0 observable scan chains feeding to on-product Multiple-Input Signature Register (MISRs).    
-      1 INFO (TSV-900): verify_test_structures processing has started Sat Oct 17 19:30:50 2026     
+      1 INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 17:15:28 2026     
       1 INFO (TSV-908): verify_test_structures processing complete.    
 
  For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
@@ -33911,7 +33911,7 @@ INFO (TDA-009): Options/Values information.
 
             -WORKDIR /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work
 
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_faultmodel_101726193051-559830000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_build_faultmodel_101826171529-357881000
             -STDOUT summary
             -includedynamic no
 [end TDA_009]
@@ -33952,7 +33952,7 @@ INFO (TDA-009): Options/Values information.
             -TESTMODE FULLSCAN
             -EXPERIMENT cv32e40p_core_compression_testpoints
 
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_analyze_compression_testpoints_FULLSCAN_cv32e40p_core_compression_testpoints_101726193052-885366000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/testresults/logs/log_analyze_compression_testpoints_FULLSCAN_cv32e40p_core_compression_testpoints_101826171530-682225000
             -STDOUT summary
             -maxtestpts 100
             -notpfile /home/admin/DFT/cv32e40p-DFT/scan/reports/05_tpi/modus_tpi_work/cv32e40p_core.noTpFile
@@ -33975,11 +33975,11 @@ INFO (TDA-009): Options/Values information.
       1 INFO (TRA-155): Test point identification started, maximum number of test points to be identified: 100  
       1 INFO (TRA-156): Test point identification complete, 100 test points have been identified.  
       1 INFO (TRA-641): Incremental test points analysis to find out effective test points started. This may take some time.  
-      1 INFO (TRA-642): Incremental test points analysis to find out effective test points complete. Time used: (CPU/Elapsed)   0:00:00.48/  0:00:00.00  
+      1 INFO (TRA-642): Incremental test points analysis to find out effective test points complete. Time used: (CPU/Elapsed)   0:00:00.57/  0:00:01.00  
       1 INFO (TRA-643): Random Resistant analysis based test point identification started.  
-      1 INFO (TRA-644): Random Resistant analysis based test point identification completed. '100' test points have been identified. Time used: (CPU/Elapsed)   0:00:11.38/  0:00:11.45  
+      1 INFO (TRA-644): Random Resistant analysis based test point identification completed. '100' test points have been identified. Time used: (CPU/Elapsed)   0:00:13.85/  0:00:13.94  
       1 INFO (TRA-647): SCOAP analysis based test point identification started.  
-      1 INFO (TRA-648): SCOAP analysis based test point identification completed. '50' test points have been identified. Time used: (CPU/Elapsed)   0:00:04.71/  0:00:04.72  
+      1 INFO (TRA-648): SCOAP analysis based test point identification completed. '50' test points have been identified. Time used: (CPU/Elapsed)   0:00:05.34/  0:00:05.35  
 
  For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
 
@@ -34362,7 +34362,7 @@ Info : Inserted 26 test point flops.
 Inserted 100 of 100 suggested test points.
 Inserted 100 testpoints successfully (Failed: 0).
 Info    : Reporting runtime for DFT command. [DFT-147]
-        : Runtime for add_analyzed_test_points is 8 second(s).
+        : Runtime for add_analyzed_test_points is 9 second(s).
 Info    : Successfully completed DFT command. [DFT-146]
         : Successfully completed add_analyzed_test_points.
 
@@ -34382,7 +34382,1003 @@ Info    : Successfully completed DFT command. [DFT-146]
 |TUI-30  |Warning|   20|Obsolete attribute.                                                                                           |
 |        |       |     |This attribute does not affect the tool behavior and will be removed in next major release. Remove all usages.|
 ---------------------------------------------------------------------------------------------------------------------------------------
-@file(05_test_point_insertion.tcl) 57: check_dft_rules                 > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+@file(05_test_point_insertion.tcl) 57: puts "INFO: Running post-TPI optimization (syn_opt)..."
+INFO: Running post-TPI optimization (syn_opt)...
+@file(05_test_point_insertion.tcl) 58: syn_opt
+Warning : The selected flow setting will be removed in a future release. [SYNTH-33]
+        : The use of 'syn_opt' for logical only optimization will be obsolete in a future release.
+	Transition to 'syn_opt -logical' or 'syn_opt -spatial'.
+
+        : Contact Cadence support to understand current flows.
+Current PLE settings:
+
+Aspect ratio        : 1.000
+Shrink factor       : 1.000
+Scale of res/length : 1.000
+Scale of cap/length : 1.000
+Net derating factor : 1.000
+Thermal factor      : 1.000
+Via Resistance      : 4.800 ohm (from lef_library)
+Site size           : 5.700 um (from lef [tech+cell])
+
+                                   Capacitance  
+  Layer                             / Length         Data source:
+Name        Direction Utilization  (pF/micron)       lef_library
+------------------------------------------------
+Metal1          H         0.00        0.000127  
+Metal2          V         1.00        0.000142  
+Metal3          H         1.00        0.000151  
+Metal4          V         1.00        0.000122  
+Metal5          H         1.00        0.000098  
+Metal6          V         1.00        0.000110  
+
+                                    Resistance   
+  Layer                              / Length         Data source:
+Name        Direction Utilization  (ohm/micron)       lef_library
+-------------------------------------------------
+Metal1          H         0.00         0.439130  
+Metal2          V         1.00         0.360714  
+Metal3          H         1.00         0.360714  
+Metal4          V         1.00         0.360714  
+Metal5          H         1.00         0.360714  
+Metal6          V         1.00         0.102273  
+
+                                        Area     
+  Layer                               / Length        Data source:
+Name        Direction Utilization     (micron)        lef_library
+-------------------------------------------------
+Metal1          H         0.00         0.230000  
+Metal2          V         1.00         0.280000  
+Metal3          H         1.00         0.280000  
+Metal4          V         1.00         0.280000  
+Metal5          H         1.00         0.280000  
+Metal6          V         1.00         0.440000  
+
+Info    : Incrementally optimizing. [SYNTH-7]
+        : Incrementally optimizing 'cv32e40p_core' using 'high' effort.
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total DRC Total
+                           Total  Weighted      Neg       Max 
+Operation                   Area   Slacks      Slack      Cap 
+ init_iopt                342250     -395   -166886         0
+            Worst cost_group: clk_i, WNS: -395.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[29]
+-------------------------------------------------------------------------------
+ const_prop               342246     -395   -166886         0
+            Worst cost_group: clk_i, WNS: -395.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[29]
+ simp_cc_inputs           341486     -395   -166811         0
+            Worst cost_group: clk_i, WNS: -395.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[29]
+-------------------------------------------------------------------------------
+ hi_fo_buf                341486     -395   -166811         0
+            Worst cost_group: clk_i, WNS: -395.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[29]
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+       hi_fo_buf         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total DRC Total
+                           Total  Weighted      Neg       Max 
+Operation                   Area   Slacks      Slack      Cap 
+ init_delay               341486     -395   -166811         0
+            Worst cost_group: clk_i, WNS: -395.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[29]
+ incr_delay               342207     -360   -166536         0
+            Worst cost_group: clk_i, WNS: -360.3
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[25]
+ incr_delay               342466     -356   -166336         0
+            Worst cost_group: clk_i, WNS: -356.8
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[25]
+ incr_delay               342877     -343   -175383         0
+            Worst cost_group: clk_i, WNS: -343.1
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[26]
+ incr_delay               343675     -338   -176603         0
+            Worst cost_group: clk_i, WNS: -338.6
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[9]
+ incr_delay               343723     -333   -176132         0
+            Worst cost_group: clk_i, WNS: -333.6
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[26]
+ incr_delay               344233     -331   -176088         0
+            Worst cost_group: clk_i, WNS: -331.5
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[18]
+ incr_delay               344221     -327   -176006         0
+            Worst cost_group: clk_i, WNS: -327.3
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[13]
+ incr_delay               344296     -326   -176600         0
+            Worst cost_group: clk_i, WNS: -326.1
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[31]
+ incr_delay               344541     -324   -176603         0
+            Worst cost_group: clk_i, WNS: -324.7
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[31]
+ incr_delay               344556     -324   -177111         0
+            Worst cost_group: clk_i, WNS: -324.3
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[31]
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+        crit_msz       566  (       55 /       68 )  0.90
+       crit_upsz       691  (       46 /       47 )  0.33
+       crit_slew       350  (        3 /       12 )  0.16
+        setup_dn       334  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st       334  (        0 /        0 )  0.00
+    plc_st_fence       334  (        0 /        0 )  0.00
+        plc_star       334  (        0 /        0 )  0.00
+      plc_laf_st       334  (        0 /        0 )  0.00
+ plc_laf_st_fence       334  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+   plc_laf_lo_st       334  (        0 /        0 )  0.00
+       plc_lo_st       334  (        0 /        0 )  0.00
+            fopt       334  (        0 /        0 )  0.01
+       crit_swap       334  (        0 /        0 )  0.11
+       mux2_swap       344  (        1 /        1 )  0.02
+       crit_dnsz       989  (       25 /       25 )  1.07
+       load_swap       403  (        0 /        0 )  0.47
+            fopt       443  (       11 /       13 )  0.54
+        setup_dn       379  (        0 /        0 )  0.00
+       load_isol       488  (       26 /       26 )  1.83
+       load_isol       444  (       21 /       21 )  0.63
+        move_for       499  (       12 /       12 )  0.30
+        move_for       393  (        0 /        0 )  0.03
+          rem_bi       393  (        0 /        0 )  0.00
+         offload       393  (        0 /        0 )  0.00
+          rem_bi       393  (        0 /        8 )  0.09
+         offload       393  (        0 /        0 )  0.06
+           phase       393  (        0 /        0 )  0.00
+        in_phase       393  (        0 /        0 )  0.00
+       merge_bit       466  (        6 /        6 )  0.06
+     merge_idrvr       406  (        0 /        0 )  0.00
+     merge_iload       406  (        0 /        0 )  0.00
+    merge_idload       406  (        0 /        0 )  0.00
+      merge_drvr       406  (        0 /       20 )  0.44
+      merge_load       406  (        0 /       20 )  0.44
+          decomp       563  (       18 /       18 )  0.54
+        p_decomp       422  (        0 /        0 )  0.29
+        levelize       422  (        0 /        4 )  0.06
+        mb_split       422  (        0 /        0 )  0.00
+             dup       668  (       45 /       45 )  1.54
+      mux_retime       448  (        0 /        0 )  0.00
+         buf2inv       448  (        0 /        0 )  0.00
+             exp       148  (        2 /       17 )  0.10
+       gate_deco        91  (       11 /       11 )  0.64
+       gcomp_tim       494  (       10 /       11 )  1.45
+  inv_pair_2_buf       404  (        0 /        0 )  0.00
+
+ incr_delay               344916     -324   -177131         0
+            Worst cost_group: clk_i, WNS: -324.2
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[25]
+ incr_delay               345206     -320   -176968         0
+            Worst cost_group: clk_i, WNS: -320.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[30]
+ incr_delay               345493     -316   -176023         0
+            Worst cost_group: clk_i, WNS: -316.5
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[17]
+ incr_delay               346438     -305   -170962         0
+            Worst cost_group: clk_i, WNS: -305.8
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[10]
+ incr_delay               352974     -233   -167353         0
+            Worst cost_group: clk_i, WNS: -233.1
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[20]
+ incr_delay               353146     -232   -169553         0
+            Worst cost_group: clk_i, WNS: -232.0
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[22]/D
+ incr_delay               353783     -222   -168786         0
+            Worst cost_group: clk_i, WNS: -222.1
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_b_ex_o_reg[22]/D
+ incr_delay               353767     -221   -169383         0
+            Worst cost_group: clk_i, WNS: -221.2
+            Path: data_rdata_i[23] --> id_stage_i_mult_operand_a_ex_o_reg[18]/D
+ incr_delay               353941     -216   -169073         0
+            Worst cost_group: clk_i, WNS: -216.4
+            Path: data_rdata_i[23] --> id_stage_i_alu_operand_a_ex_o_reg[14]/D
+ incr_delay               353952     -216   -168175         0
+            Worst cost_group: clk_i, WNS: -216.0
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[14]/D
+ incr_delay               354331     -214   -167349         0
+            Worst cost_group: clk_i, WNS: -214.7
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[21]
+ incr_delay               354868     -213   -163485         0
+            Worst cost_group: clk_i, WNS: -213.6
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[18]
+ incr_delay               354926     -213   -163479         0
+            Worst cost_group: clk_i, WNS: -213.2
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[16]/D
+ incr_delay               354999     -213   -161664         0
+            Worst cost_group: clk_i, WNS: -213.0
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[16]
+ incr_delay               355002     -212   -161632         0
+            Worst cost_group: clk_i, WNS: -212.8
+            Path: data_rvalid_i --> id_stage_i_alu_operand_b_ex_o_reg[27]/D
+ incr_delay               355204     -210   -161661         0
+            Worst cost_group: clk_i, WNS: -210.9
+            Path: data_rdata_i[23] --> id_stage_i_alu_operand_a_ex_o_reg[19]/D
+ incr_delay               355670     -205   -163948         0
+            Worst cost_group: clk_i, WNS: -205.4
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][22]/D
+ incr_delay               356343     -202   -162022         0
+            Worst cost_group: clk_i, WNS: -202.4
+            Path: if_stage_i_instr_rdata_id_o_reg[15]/CK --> instr_addr_o[19]
+ incr_delay               356400     -201   -162127         0
+            Worst cost_group: clk_i, WNS: -201.9
+            Path: data_rdata_i[23] --> id_stage_i_alu_operand_a_ex_o_reg[19]/D
+ incr_delay               356566     -199   -161245         0
+            Worst cost_group: clk_i, WNS: -199.9
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               356770     -198   -161177         0
+            Worst cost_group: clk_i, WNS: -198.8
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               356915     -198   -160989         0
+            Worst cost_group: clk_i, WNS: -198.4
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[18]/D
+ incr_delay               356932     -197   -159941         0
+            Worst cost_group: clk_i, WNS: -197.9
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[7][21]/D
+ incr_delay               357256     -197   -158864         0
+            Worst cost_group: clk_i, WNS: -197.0
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               357346     -196   -158388         0
+            Worst cost_group: clk_i, WNS: -196.7
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[8]/D
+ incr_delay               357480     -195   -159372         0
+            Worst cost_group: clk_i, WNS: -195.1
+            Path: data_rdata_i[23] --> id_stage_i_mult_operand_a_ex_o_reg[27]/D
+ incr_delay               358012     -194   -158856         0
+            Worst cost_group: clk_i, WNS: -194.1
+            Path: id_stage_i_alu_operand_b_ex_o_reg[5]/CK --> instr_addr_o[17]
+ incr_delay               358031     -193   -158825         0
+            Worst cost_group: clk_i, WNS: -193.6
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[2][21]/D
+ incr_delay               358093     -192   -155914         0
+            Worst cost_group: clk_i, WNS: -192.9
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_c_ex_o_reg[22]/D
+ incr_delay               358195     -192   -155935         0
+            Worst cost_group: clk_i, WNS: -192.5
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[14]/D
+ incr_delay               358398     -191   -156922         0
+            Worst cost_group: clk_i, WNS: -191.5
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               358471     -191   -156921         0
+            Worst cost_group: clk_i, WNS: -191.0
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[2][21]/D
+ incr_delay               358568     -190   -156171         0
+            Worst cost_group: clk_i, WNS: -190.6
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[16]
+ incr_delay               358595     -190   -156145         0
+            Worst cost_group: clk_i, WNS: -190.2
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               358595     -190   -156145         0
+            Worst cost_group: clk_i, WNS: -190.2
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               358809     -188   -156299         0
+            Worst cost_group: clk_i, WNS: -188.1
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[2][21]/D
+ incr_delay               359084     -186   -155859         0
+            Worst cost_group: clk_i, WNS: -186.4
+            Path: data_rvalid_i --> id_stage_i_alu_operand_b_ex_o_reg[16]/D
+ incr_delay               359078     -186   -156285         0
+            Worst cost_group: clk_i, WNS: -186.3
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[2][20]/D
+ incr_delay               359201     -184   -154224         0
+            Worst cost_group: clk_i, WNS: -184.8
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               359261     -184   -153066         0
+            Worst cost_group: clk_i, WNS: -184.1
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[6][21]/D
+ incr_delay               359381     -183   -153918         0
+            Worst cost_group: clk_i, WNS: -183.7
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               359393     -183   -153913         0
+            Worst cost_group: clk_i, WNS: -183.6
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               359496     -183   -153809         0
+            Worst cost_group: clk_i, WNS: -183.1
+            Path: data_rdata_i[23] --> id_stage_i_alu_operand_a_ex_o_reg[20]/D
+ incr_delay               359479     -183   -153794         0
+            Worst cost_group: clk_i, WNS: -183.0
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[18]/D
+ incr_delay               359543     -182   -153612         0
+            Worst cost_group: clk_i, WNS: -182.8
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[22]/D
+ incr_delay               359614     -181   -152967         0
+            Worst cost_group: clk_i, WNS: -181.5
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][21]/D
+ incr_delay               359581     -180   -152761         0
+            Worst cost_group: clk_i, WNS: -180.3
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_b_ex_o_reg[21]/D
+ incr_delay               359720     -179   -155301         0
+            Worst cost_group: clk_i, WNS: -179.6
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[7]/D
+ incr_delay               359855     -179   -154993         0
+            Worst cost_group: clk_i, WNS: -179.4
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[21]/D
+ incr_delay               359913     -179   -154896         0
+            Worst cost_group: clk_i, WNS: -179.0
+            Path: id_stage_i_alu_operand_b_ex_o_reg[17]/CK --> instr_addr_o[16]
+ incr_delay               359974     -178   -154889         0
+            Worst cost_group: clk_i, WNS: -178.9
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[16]
+ incr_delay               360063     -178   -154764         0
+            Worst cost_group: clk_i, WNS: -178.2
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[27]/D
+ incr_delay               360340     -177   -153859         0
+            Worst cost_group: clk_i, WNS: -177.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[15]/D
+ incr_delay               360455     -176   -149467         0
+            Worst cost_group: clk_i, WNS: -176.3
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[18]/D
+ incr_delay               360711     -176   -147235         0
+            Worst cost_group: clk_i, WNS: -176.0
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[21]/D
+ incr_delay               360788     -175   -147210         0
+            Worst cost_group: clk_i, WNS: -175.2
+            Path: if_stage_i_instr_rdata_id_o_reg[19]/CK --> instr_addr_o[16]
+ incr_delay               360966     -173   -146861         0
+            Worst cost_group: clk_i, WNS: -173.7
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[27]/D
+ incr_delay               361073     -173   -146802         0
+            Worst cost_group: clk_i, WNS: -173.2
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_b_ex_o_reg[19]/D
+ incr_delay               361171     -172   -146733         0
+            Worst cost_group: clk_i, WNS: -172.8
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[6][21]/D
+ incr_delay               361189     -172   -146638         0
+            Worst cost_group: clk_i, WNS: -172.1
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[7]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+         crr_220       181  (       28 /      170 )  13.23
+        crr_glob       271  (       20 /       28 )  1.05
+         crr_200       412  (       91 /      391 )  7.91
+        crr_glob       696  (       83 /       91 )  1.07
+         crr_300       300  (       69 /      277 )  7.78
+        crr_glob       589  (       63 /       69 )  0.93
+         crr_400       166  (       47 /      154 )  5.59
+        crr_glob       372  (       45 /       47 )  0.68
+         crr_111       701  (      391 /      691 )  31.52
+        crr_glob      1712  (      360 /      391 )  5.60
+         crr_210       237  (       52 /      233 )  10.27
+        crr_glob       395  (       39 /       52 )  1.02
+         crr_110       436  (      127 /      427 )  12.17
+        crr_glob       618  (      113 /      127 )  1.75
+         crr_101       542  (      169 /      469 )  10.70
+        crr_glob       770  (      157 /      169 )  1.77
+         crr_201       120  (       18 /      118 )  3.71
+        crr_glob       218  (       15 /       18 )  0.38
+         crr_211       105  (       13 /      105 )  7.04
+        crr_glob       185  (       11 /       13 )  0.55
+        crit_msz       524  (       57 /       69 )  0.73
+       crit_upsz       422  (       26 /       28 )  0.22
+       crit_slew       253  (        0 /        6 )  0.05
+        setup_dn       492  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st       253  (        0 /        0 )  0.00
+    plc_st_fence       253  (        0 /        0 )  0.00
+        plc_star       253  (        0 /        0 )  0.00
+      plc_laf_st       253  (        0 /        0 )  0.00
+ plc_laf_st_fence       253  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       plc_lo_st       253  (        0 /        0 )  0.00
+            fopt       554  (       18 /       25 )  0.61
+       crit_swap       253  (        0 /        0 )  0.08
+       mux2_swap       253  (        0 /        0 )  0.00
+       crit_dnsz       905  (       38 /       39 )  1.01
+       load_swap       273  (        0 /        0 )  0.28
+            fopt       554  (       18 /       25 )  0.61
+        setup_dn       492  (        0 /        0 )  0.00
+       load_isol       540  (       11 /       11 )  1.31
+       load_isol       540  (       11 /       11 )  1.31
+        move_for       639  (       15 /       15 )  0.31
+        move_for       639  (       15 /       15 )  0.31
+          rem_bi       500  (        1 /       11 )  0.18
+         offload       492  (        0 /        1 )  0.22
+          rem_bi       500  (        1 /       11 )  0.18
+         offload       492  (        0 /        1 )  0.22
+       merge_bit       326  (        4 /        6 )  0.04
+     merge_idrvr       265  (        0 /        0 )  0.00
+     merge_iload       265  (        0 /        0 )  0.00
+    merge_idload       265  (        0 /        1 )  0.01
+      merge_drvr       265  (        0 /       16 )  0.26
+      merge_load       265  (        0 /       15 )  0.23
+           phase       265  (        0 /        0 )  0.00
+          decomp       261  (        1 /        1 )  0.25
+        p_decomp       255  (        0 /        0 )  0.19
+        levelize       255  (        0 /        1 )  0.01
+        mb_split       255  (        0 /        0 )  0.00
+        in_phase       255  (        0 /        0 )  0.00
+             dup       263  (        6 /        6 )  0.41
+      mux_retime       214  (        0 /        0 )  0.00
+         buf2inv       214  (        0 /        0 )  0.00
+             exp        87  (        4 /       17 )  0.06
+       gate_deco        85  (       49 /       49 )  0.67
+       gcomp_tim      1052  (       24 /       24 )  3.22
+  inv_pair_2_buf       297  (        0 /        0 )  0.00
+ init_drc                 361189     -172   -146638         0
+            Worst cost_group: clk_i, WNS: -172.1
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[7]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+      drc_buf_sp         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+ init_tns                 361189     -172   -146638         0
+            Worst cost_group: clk_i, WNS: -172.1
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[7]/D
+ incr_tns                 364883     -170   -111437         0
+            Worst cost_group: clk_i, WNS: -170.7
+            Path: instr_rdata_i[29] --> if_stage_i_instr_rdata_id_o_reg[16]/D
+ incr_tns                 367615     -170    -95613         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ incr_tns                 367615     -170    -95613         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+            fopt      4730  (       18 /       39 )  1.27
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+        crit_msz      4712  (      549 /     1447 )  7.99
+       crit_upsz      4163  (      321 /      715 )  2.55
+   plc_laf_lo_st      3842  (        0 /        0 )  0.00
+       plc_lo_st      3842  (        0 /        0 )  0.00
+       crit_swap      3842  (       13 /       97 )  1.11
+       mux2_swap      3829  (        1 /        3 )  0.19
+       crit_dnsz      5457  (      194 /      504 )  6.95
+       load_swap      3634  (        2 /      124 )  2.30
+            fopt      3632  (       44 /      133 )  2.30
+        setup_dn      3588  (        0 /        0 )  0.01
+       load_isol      3588  (       14 /       72 )  13.36
+       load_isol      3574  (       10 /       38 )  2.91
+        move_for      3564  (       55 /       98 )  1.91
+        move_for      3509  (       20 /       53 )  1.28
+          rem_bi      3489  (        4 /       12 )  0.28
+         offload      3485  (        7 /       15 )  0.36
+          rem_bi      3478  (       21 /       49 )  1.40
+         offload      3457  (       17 /       77 )  2.48
+       merge_bit      3589  (       18 /       28 )  0.28
+     merge_idrvr      3423  (        0 /        0 )  0.00
+     merge_iload      3423  (        0 /        0 )  0.00
+    merge_idload      3423  (        3 /        4 )  0.12
+      merge_drvr      3420  (        1 /        6 )  0.71
+      merge_load      3419  (        0 /        3 )  0.47
+           phase      3419  (        0 /        0 )  0.01
+          decomp      3419  (       38 /      110 )  5.12
+        p_decomp      3381  (        0 /        1 )  4.39
+        levelize      3381  (        0 /        1 )  0.10
+        mb_split      3381  (        0 /        0 )  0.02
+             dup      3381  (       77 /      234 )  4.49
+      mux_retime      3304  (        1 /        6 )  0.02
+       crr_local      3304  (      139 /      251 )  24.64
+         buf2inv      3165  (        0 /        0 )  0.00
+
+ init_area                367615     -170    -95613         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ undup                    367439     -170    -95461         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ rem_buf                  363621     -170    -91540         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ rem_inv                  362634     -170    -91528         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ merge_bi                 360400     -170    -91481         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ merge_bi                 360363     -170    -91480         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ io_phase                 359566     -170    -91131         0
+            Worst cost_group: clk_i, WNS: -170.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ gate_comp                356376     -170    -89823         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ glob_area                355505     -170    -89310         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ area_down                355235     -170    -89197         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ rem_buf                  354842     -170    -89141         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ rem_inv                  354688     -170    -89131         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ merge_bi                 354528     -170    -89130         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ merge_bi                 354521     -170    -89130         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+           undup       115  (       15 /       51 )  0.59
+         rem_buf      1295  (      451 /      700 )  3.34
+         rem_inv       317  (       88 /      161 )  1.03
+        merge_bi       801  (      247 /      320 )  1.95
+      rem_inv_qb         0  (        0 /        0 )  0.00
+    seq_res_area         0  (        0 /        0 )  0.00
+        io_phase      1517  (       98 /      242 )  3.28
+       gate_comp      8921  (      321 /      896 )  22.88
+       gcomp_mog        80  (        0 /        4 )  1.21
+       glob_area        91  (       58 /       91 )  1.79
+       area_down       390  (       34 /       47 )  2.28
+      size_n_buf         0  (        0 /        0 )  0.07
+  gate_deco_area         0  (        0 /        0 )  0.01
+         rem_buf       791  (       44 /      244 )  1.92
+         rem_inv       209  (       18 /       81 )  0.73
+        merge_bi       525  (       19 /       76 )  1.16
+      rem_inv_qb         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total DRC Total
+                           Total  Weighted      Neg       Max 
+Operation                   Area   Slacks      Slack      Cap 
+ init_delay               354521     -170    -89130         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[11]/D
+ incr_delay               354540     -170    -89145         0
+            Worst cost_group: clk_i, WNS: -170.1
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[3][21]/D
+ incr_delay               354586     -169    -90448         0
+            Worst cost_group: clk_i, WNS: -169.6
+            Path: data_rdata_i[23] -->
+                    id_stage_i_register_file_i_mem_reg[3][21]/D
+ incr_delay               354669     -167    -88270         0
+            Worst cost_group: clk_i, WNS: -167.4
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[3][21]/D
+ incr_delay               354694     -166    -88324         0
+            Worst cost_group: clk_i, WNS: -166.3
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[3][21]/D
+ incr_delay               354832     -163    -88910         0
+            Worst cost_group: clk_i, WNS: -163.4
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[18]/D
+ incr_delay               354871     -161    -89122         0
+            Worst cost_group: clk_i, WNS: -161.5
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[22]/D
+ incr_delay               355002     -161    -89123         0
+            Worst cost_group: clk_i, WNS: -161.3
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[26]/D
+ incr_delay               355130     -160    -91549         0
+            Worst cost_group: clk_i, WNS: -160.6
+            Path: data_rdata_i[31] --> id_stage_i_alu_operand_a_ex_o_reg[18]/D
+ incr_delay               355172     -159    -92461         0
+            Worst cost_group: clk_i, WNS: -159.1
+            Path: data_rvalid_i --> if_stage_i_instr_rdata_id_o_reg[24]/D
+ incr_delay               355186     -158    -92482         0
+            Worst cost_group: clk_i, WNS: -158.6
+            Path: data_rdata_i[23] --> id_stage_i_alu_operand_b_ex_o_reg[9]/D
+ incr_delay               355465     -156    -91773         0
+            Worst cost_group: clk_i, WNS: -156.4
+            Path: data_rdata_i[31] --> id_stage_i_mult_operand_a_ex_o_reg[20]/D
+ incr_delay               355465     -156    -91631         0
+            Worst cost_group: clk_i, WNS: -156.4
+            Path: if_stage_i_instr_rdata_id_o_reg[16]/CK --> instr_addr_o[16]
+ incr_delay               355543     -154    -91674         0
+            Worst cost_group: clk_i, WNS: -154.7
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ incr_delay               355724     -151    -90755         0
+            Worst cost_group: clk_i, WNS: -151.3
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ incr_delay               355724     -151    -90701         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ incr_delay               355724     -151    -90700         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+         crr_220        26  (        3 /       26 )  1.89
+        crr_glob        43  (        2 /        3 )  0.16
+         crr_200        57  (       13 /       55 )  1.00
+        crr_glob        88  (       11 /       13 )  0.14
+         crr_300        24  (        3 /       22 )  0.51
+        crr_glob        55  (        3 /        3 )  0.05
+         crr_400        16  (        0 /       14 )  0.35
+        crr_glob        43  (        0 /        0 )  0.03
+         crr_111        94  (       22 /       94 )  3.58
+        crr_glob       118  (       21 /       22 )  0.34
+         crr_210        35  (        6 /       35 )  1.15
+        crr_glob        60  (        4 /        6 )  0.11
+         crr_110       157  (       40 /      152 )  3.66
+        crr_glob       239  (       32 /       40 )  0.50
+         crr_101       110  (       26 /       91 )  1.82
+        crr_glob       138  (       21 /       26 )  0.23
+         crr_201        70  (       18 /       67 )  1.76
+        crr_glob       106  (       14 /       18 )  0.24
+         crr_211        27  (        2 /       27 )  1.25
+        crr_glob        44  (        0 /        2 )  0.10
+        crit_msz       148  (       13 /       14 )  0.15
+       crit_upsz       102  (        6 /        6 )  0.10
+       crit_slew        74  (        0 /        0 )  0.01
+        setup_dn       158  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st        74  (        0 /        0 )  0.00
+    plc_st_fence        74  (        0 /        0 )  0.00
+        plc_star        74  (        0 /        0 )  0.00
+      plc_laf_st        74  (        0 /        0 )  0.00
+ plc_laf_st_fence        74  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+       plc_lo_st        74  (        0 /        0 )  0.00
+            fopt       179  (        6 /        7 )  0.09
+       crit_swap        74  (        0 /        0 )  0.01
+       mux2_swap        74  (        0 /        0 )  0.00
+       crit_dnsz       224  (       15 /       15 )  0.24
+       load_swap        84  (        0 /        0 )  0.04
+            fopt       179  (        6 /        7 )  0.09
+        setup_dn       158  (        0 /        0 )  0.00
+       load_isol       187  (        5 /        5 )  0.41
+       load_isol       187  (        5 /        5 )  0.41
+        move_for       216  (        1 /        1 )  0.08
+        move_for       216  (        1 /        1 )  0.08
+          rem_bi       214  (        0 /        8 )  0.09
+         offload       214  (        0 /        0 )  0.07
+          rem_bi       214  (        0 /        8 )  0.09
+         offload       214  (        0 /        0 )  0.07
+       merge_bit       112  (        0 /        0 )  0.01
+     merge_idrvr       107  (        0 /        0 )  0.00
+     merge_iload       107  (        0 /        0 )  0.00
+    merge_idload       107  (        0 /        0 )  0.00
+      merge_drvr       107  (        0 /        1 )  0.02
+      merge_load       107  (        0 /        1 )  0.02
+           phase       107  (        0 /        0 )  0.00
+          decomp       107  (        0 /        0 )  0.02
+        p_decomp       107  (        0 /        0 )  0.01
+        levelize       107  (        0 /        0 )  0.00
+        mb_split       107  (        0 /        0 )  0.00
+        in_phase       107  (        0 /        0 )  0.00
+             dup       108  (        1 /        1 )  0.11
+      mux_retime       103  (        0 /        0 )  0.00
+         buf2inv       103  (        0 /        0 )  0.00
+             exp        15  (        1 /        3 )  0.02
+       gate_deco        11  (        1 /        1 )  0.07
+       gcomp_tim        73  (        0 /        0 )  0.17
+  inv_pair_2_buf       108  (        0 /        0 )  0.00
+ init_drc                 355724     -151    -90700         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+ init_tns                 355724     -151    -90700         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ incr_tns                 356956     -151    -71991         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ incr_tns                 356956     -151    -71991         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+            fopt      1738  (        9 /       17 )  0.63
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+        crit_msz      1729  (      160 /      372 )  2.32
+       crit_upsz      1569  (       88 /      246 )  2.01
+   plc_laf_lo_st      1481  (        0 /        0 )  0.00
+       plc_lo_st      1481  (        0 /        0 )  0.00
+       crit_swap      1481  (        4 /       49 )  0.49
+       mux2_swap      1477  (        0 /        0 )  0.03
+       crit_dnsz      2577  (       78 /      184 )  2.86
+       load_swap      1399  (        1 /       39 )  0.84
+            fopt      1398  (        9 /       43 )  0.91
+        setup_dn      1389  (        0 /        0 )  0.00
+       load_isol      1389  (        4 /       20 )  4.97
+       load_isol      1385  (        4 /       18 )  1.30
+        move_for      1381  (       32 /       44 )  1.00
+        move_for      1349  (       17 /       25 )  0.82
+          rem_bi      1332  (        1 /        2 )  0.09
+         offload      1331  (        1 /       10 )  0.13
+          rem_bi      1330  (        4 /       13 )  0.67
+         offload      1326  (        3 /       34 )  1.47
+       merge_bit      1411  (        3 /       11 )  0.15
+     merge_idrvr      1320  (        0 /        0 )  0.00
+     merge_iload      1320  (        0 /        0 )  0.00
+    merge_idload      1320  (        0 /        1 )  0.03
+      merge_drvr      1320  (        0 /        3 )  0.35
+      merge_load      1320  (        0 /        1 )  0.20
+           phase      1320  (        0 /        0 )  0.00
+          decomp      1320  (        7 /       25 )  1.52
+        p_decomp      1313  (        0 /        1 )  1.43
+        levelize      1313  (        1 /        1 )  0.05
+        mb_split      1312  (        0 /        0 )  0.00
+             dup      1312  (       25 /      106 )  1.85
+      mux_retime      1287  (        0 /        0 )  0.00
+       crr_local      1287  (       63 /      251 )  14.77
+         buf2inv      1224  (        0 /        0 )  0.00
+
+ init_area                356956     -151    -71991         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ undup                    356829     -151    -71501         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ rem_buf                  356289     -151    -71445         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ rem_inv                  356228     -151    -71445         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ merge_bi                 355827     -151    -71426         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ io_phase                 355570     -151    -71110         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ gate_comp                355246     -151    -70946         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ glob_area                354960     -151    -70889         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+ area_down                354900     -151    -70869         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+           undup       113  (       11 /       37 )  0.56
+         rem_buf       803  (       56 /      226 )  1.80
+         rem_inv       196  (        6 /       47 )  0.56
+        merge_bi       515  (       36 /       81 )  1.09
+      rem_inv_qb         0  (        0 /        0 )  0.00
+        io_phase      1314  (       24 /      151 )  2.86
+       gate_comp      8378  (       53 /      624 )  21.16
+       gcomp_mog        81  (        0 /        5 )  1.15
+       glob_area        76  (       28 /       76 )  1.76
+       area_down       387  (        7 /       27 )  2.13
+      size_n_buf         0  (        0 /        0 )  0.07
+  gate_deco_area         0  (        0 /        0 )  0.00
+
+ 
+Incremental optimization status
+===============================
+                                   Group   
+                                  Tot Wrst     Total DRC Total
+                           Total  Weighted      Neg       Max 
+Operation                   Area   Slacks      Slack      Cap 
+ init_delay               354900     -151    -70869         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+        crit_msz        43  (        0 /        0 )  0.05
+       crit_upsz        43  (        0 /        0 )  0.03
+       crit_slew        43  (        0 /        0 )  0.01
+        setup_dn        43  (        0 /        0 )  0.00
+    plc_bal_star         0  (        0 /        0 )  0.00
+     drc_buftimb         0  (        0 /        0 )  0.00
+          plc_st        43  (        0 /        0 )  0.00
+    plc_st_fence        43  (        0 /        0 )  0.00
+        plc_star        43  (        0 /        0 )  0.00
+      plc_laf_st        43  (        0 /        0 )  0.00
+ plc_laf_st_fence        43  (        0 /        0 )  0.00
+     drc_buftims         0  (        0 /        0 )  0.00
+   plc_laf_lo_st        43  (        0 /        0 )  0.00
+       plc_lo_st        43  (        0 /        0 )  0.00
+            fopt        43  (        0 /        0 )  0.00
+       crit_swap        43  (        0 /        0 )  0.00
+       mux2_swap        43  (        0 /        0 )  0.00
+       crit_dnsz        26  (        0 /        0 )  0.02
+       load_swap        43  (        0 /        0 )  0.01
+            fopt        43  (        0 /        0 )  0.01
+        setup_dn        43  (        0 /        0 )  0.00
+       load_isol        43  (        0 /        0 )  0.10
+       load_isol        43  (        0 /        0 )  0.01
+        move_for        43  (        0 /        0 )  0.01
+        move_for        43  (        0 /        0 )  0.02
+          rem_bi        43  (        0 /        0 )  0.00
+         offload        43  (        0 /        0 )  0.00
+          rem_bi        43  (        0 /        4 )  0.05
+         offload        43  (        0 /        0 )  0.04
+           phase        43  (        0 /        0 )  0.00
+        in_phase        43  (        0 /        0 )  0.00
+       merge_bit        45  (        0 /        0 )  0.00
+     merge_idrvr        43  (        0 /        0 )  0.00
+     merge_iload        43  (        0 /        0 )  0.00
+    merge_idload        43  (        0 /        0 )  0.00
+      merge_drvr        43  (        0 /        0 )  0.00
+      merge_load        43  (        0 /        0 )  0.00
+          decomp        43  (        0 /        0 )  0.01
+        p_decomp        43  (        0 /        0 )  0.00
+        levelize        43  (        0 /        0 )  0.00
+        mb_split        43  (        0 /        0 )  0.00
+             dup        43  (        0 /        0 )  0.04
+      mux_retime        43  (        0 /        0 )  0.00
+         buf2inv        43  (        0 /        0 )  0.00
+             exp         0  (        0 /        0 )  0.00
+       gate_deco         4  (        0 /        0 )  0.03
+       gcomp_tim        26  (        0 /        0 )  0.07
+  inv_pair_2_buf        46  (        0 /        0 )  0.00
+
+ init_drc                 354900     -151    -70869         0
+            Worst cost_group: clk_i, WNS: -151.2
+            Path: data_rdata_i[31] -->
+                    id_stage_i_register_file_i_mem_reg[1][19]/D
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+       crit_slew         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+      simple_buf         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+
+           Trick     Calls     Accepts   Attempts    Time(secs) 
+-----------------------------------------------------------
+          plc_st         0  (        0 /        0 )  0.00
+        plc_star         0  (        0 /        0 )  0.00
+        drc_bufs         0  (        0 /        0 )  0.00
+        drc_fopt         0  (        0 /        0 )  0.00
+        drc_bufb         0  (        0 /        0 )  0.00
+             dup         0  (        0 /        0 )  0.00
+       crit_dnsz         0  (        0 /        0 )  0.00
+       crit_upsz         0  (        0 /        0 )  0.00
+
+Info    : Done incrementally optimizing. [SYNTH-8]
+        : Done incrementally optimizing 'cv32e40p_core'.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   syn_opt
+@file(05_test_point_insertion.tcl) 61: check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+  =================
+   Message Summary
+  =================
+---------------------------------------------------------------------------------------
+|   Id   |  Sev  |Count|                         Message Text                         |
+---------------------------------------------------------------------------------------
+|SYNTH-7 |Info   |    1|Incrementally optimizing.                                     |
+|SYNTH-8 |Info   |    1|Done incrementally optimizing.                                |
+|SYNTH-33|Warning|    1|The selected flow setting will be removed in a future release.|
+|        |       |     |Contact Cadence support to understand current flows.          |
+---------------------------------------------------------------------------------------
 Info    : Initiating DFT command. [DFT-145]
         : Initiating check_dft_rules command.
   Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
@@ -34394,7 +35390,7 @@ Detected 0 DFT rule violation(s)
       Number of registers that pass DFT rules: 2153
   Percentage of total registers that are scannable: 100%
 Info    : Reporting runtime for DFT command. [DFT-147]
-        : Runtime for check_dft_rules is 0.069000 seconds.
+        : Runtime for check_dft_rules is 0.073000 seconds.
 Info    : Successfully completed DFT command. [DFT-146]
         : Successfully completed check_dft_rules command.
   =================
@@ -34407,17 +35403,19 @@ Info    : Successfully completed DFT command. [DFT-146]
 |DFT-146|Info|    1|Successfully completed DFT command.|
 |DFT-147|Info|    1|Reporting runtime for DFT command. |
 --------------------------------------------------------
-@file(05_test_point_insertion.tcl) 58: report_dft_analyzed_test_points > "$STEP_RPT_DIR/${DESIGN}_test_points.rpt"
-@file(05_test_point_insertion.tcl) 61: set DB_FILE [file normalize "$DBS_DIR/05_tpi.db"]
-@file(05_test_point_insertion.tcl) 62: write_db -all_root_attributes -to_file $DB_FILE
-Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/05_tpi.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:01).
-@file(05_test_point_insertion.tcl) 64: puts "INFO: Step 5 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: $DB_FILE"
+@file(05_test_point_insertion.tcl) 62: report_dft_analyzed_test_points  > "$STEP_RPT_DIR/${DESIGN}_test_points.rpt"
+@file(05_test_point_insertion.tcl) 63: report_timing -path_type summary > "$STEP_RPT_DIR/${DESIGN}_timing_summary.rpt"
+@file(05_test_point_insertion.tcl) 64: report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
+@file(05_test_point_insertion.tcl) 67: set DB_FILE [file normalize "$DBS_DIR/05_tpi.db"]
+@file(05_test_point_insertion.tcl) 68: write_db -all_root_attributes -to_file $DB_FILE
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/05_tpi.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:02).
+@file(05_test_point_insertion.tcl) 70: puts "INFO: Step 5 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: $DB_FILE"
 INFO: Step 5 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/05_tpi.db
-@file(05_test_point_insertion.tcl) 65: exit
+@file(05_test_point_insertion.tcl) 71: exit
 
 Lic Summary:
-[19:31:23.210552] Cdslmd servers: pine-server
-[19:31:23.734865] Feature usage summary:
-[19:31:23.734866] Genus_Synthesis  
-[19:31:23.734866] Modus_DFT_Opt  
+[17:22:31.078833] Cdslmd servers: pine-server
+[17:22:31.078849] Feature usage summary:
+[17:22:31.078850] Genus_Synthesis  
+[17:22:31.078850] Modus_DFT_Opt  
 Normal exit.

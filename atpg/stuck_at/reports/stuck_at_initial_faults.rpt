@@ -1,0 +1,75 @@
+Starting Command: report_fault_statistics 
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_101826175405-982841000 [end TDA_015]
+
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+Logic Model(GM)   10/18/26
+                  12:24:00
+
+
+File Id     faultModel        faultStatus
+Created (GM)  10/18/26           10/18/26
+              12:24:04           12:24:04
+Modified(GM)  10/18/26           10/18/26
+              12:24:04           12:24:04
+Code Level        2025.0             2025.0            
+Max Fault Id        178388
+
+Fault Model Type:   Cell Boundary
+
+
+Global Ignored Static Fault Count               271
+Global Ignored Dynamic Fault Count                0
+
+
+INFO (TFM-701):  Fault Statistics for Testmode:  COMPRESSION  : 
+
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00   0.00       178060            0            0            0       178060       178117            0            0            0       178117
+Collapsed Static     0.00   0.00       106556            0            0            0       106556       106609            0            0            0       106609
+PI Static            0.00   0.00          488            0            0            0          488          490            0            0            0          490
+PO Static            0.00   0.00          347            0            0            0          347          347            0            0            0          347
+
+Total Dynamic                               0
+
+Parametric        
+
+IDDq                 0.00   0.00       178117            0                                 178117       178117            0                                 178117
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+[end TFM_701]
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           31,837,888  bytes
+
+                      CPU Time =    0:00:00.00
+                  Elapsed Time =    0:00:00.00                    [end TDA_001]
+
+     Date Ended:  Sunday Oct 18 17:54:06 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-701):  Fault Statistics for Testmode:  COMPRESSION  : 
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

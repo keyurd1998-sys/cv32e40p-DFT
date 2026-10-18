@@ -17,7 +17,7 @@ xrun \
    +xmoverride_timescale \
    +xmseq_udp_delay+2ps \
    +libext+.v+.V+.z+.Z+.gz \
-   +xmlibdirname+$WORKDIR/Inca_libs_17_59_57 \
+   +xmlibdirname+$WORKDIR/Inca_libs_16_01_53 \
    -l $WORKDIR/ncverilog_FULLSCAN.log \
   -v /home/admin/DFT/Library/atpg/stdcell.v \
 $WORKDIR/cv32e40p_core.test_netlist.v \

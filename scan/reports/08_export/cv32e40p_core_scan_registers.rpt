@@ -2316,7 +2316,7 @@ Reporting registers that are marked Abstract Segment Dont Scan
 Reporting registers that are part of shift register segments
 Reporting registers that are identified as lockup elements
   DFT_lockup_latch_neg_edge 
-  DFT_lockup_latch_neg_edge362032 
+  DFT_lockup_latch_neg_edge391651 
 Reporting registers that are level-sensitive elements
   sleep_unit_i_core_clock_gate_i_clk_en_reg 
 Reporting misc. non-scan registers

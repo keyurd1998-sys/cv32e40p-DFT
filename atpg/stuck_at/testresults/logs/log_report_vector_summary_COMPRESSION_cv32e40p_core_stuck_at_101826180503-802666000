@@ -1,0 +1,186 @@
+Starting Command: report_vector_summary 
+
+INFO (TDA-005): Command Line Invocation: 
+            report_vector_summary -key yes -experiment cv32e40p_core_stuck_at -testmode COMPRESSION -summary yes -vectors yes -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -stdout all  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_vector_summary_COMPRESSION_cv32e40p_core_stuck_at_101826180503-802666000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Sunday Oct 18 18:05:03 2026  IST
+            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
+            This job is process number 640526.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+            -TESTMODE COMPRESSION
+            -EXPERIMENT cv32e40p_core_stuck_at
+
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_vector_summary_COMPRESSION_cv32e40p_core_stuck_at_101826180503-802666000
+            -vectors yes
+            -key yes
+          + -STDOUT all
+          + -summary yes
+[end TDA_009]
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+
+Key for string format of Test Sequence report
+-----------------------------------------------------
+S - Stim PI
+I - Stim PPI
+s - Stim Latch
+P - Pulse Clock (P is followed by name of the clock being pulsed)
+p - Dynamic Pulse Clock (p is followed by name of the clock being pulsed)
+C - Stim Clock
+Q - Pulse PPI (Q is followed by name of the clock being pulsed)
+q - Dynamic Pulse PPI (q is followed by name of the clock being pulsed)
+L - LoadOPCGcontrols
+l - LoadChannelMasks
+u - UseChannelMasks
+M - Measure PO
+m - Measure Latch
+r - Measure Current
+c - Channel_Scan
+d - Diagnostic_Scan_Unload
+F - Force
+O - Product MISR Signature
+X - Any other events
+Z - CompressedInputStream or CompressedOutputStream
+W - Wait_osc
+A - Load_SR
+a - Unload_SR
+B - Composite_MISR_Signature
+
+
+      #Sequences  %Det     #Static   #Dynamic  1st Seq Template
+      ----------  ----     -------   --------  ------- --------
+#1             2 100.0         719          0       13 sSMP(clk_i)MlumZ
+#2            85   0.0       97196          0       11 sSMP(clk_i)MmZ
+#3           834   0.0       47328          0       27 sSP(clk_i)MmZ
+#4             2   0.0        2128          0        9 sSP(rst_ni)mZ
+#5            53   0.0         466          0      777 sSP(clk_i)P(clk_i)MmZ
+#6             5   0.0          68          0      758 sSP(clk_i)SP(clk_i)MmZ
+#7             8   0.0          41          0      751 sSMmZ
+#8             1   0.0          10          0      945 sSP(rst_ni)P(clk_i)MmZ
+#9             2   0.0           0          0        0 init
+#10            7   0.0           0          0        2 scan
+#11            1   0.0           0          0        1 scan
+
+----Template #1---- logic 
+
+Scan_Load 
+Stim_PI 
+Measure_PO 
+Pulse(clk_i) 
+Measure_PO 
+Load_Channel_Masks 
+Use_Channel_Masks 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #2---- logic 
+
+Scan_Load 
+Stim_PI 
+Measure_PO 
+Pulse(clk_i) 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #3---- logic 
+
+Scan_Load 
+Stim_PI 
+Pulse(clk_i) 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #4---- logic 
+
+Scan_Load 
+Stim_PI 
+Pulse(rst_ni) 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #5---- logic 
+
+Scan_Load 
+Stim_PI 
+Pulse(clk_i) 
+Pulse(clk_i) 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #6---- logic 
+
+Scan_Load 
+Stim_PI 
+Pulse(clk_i) 
+Stim_PI 
+Pulse(clk_i) 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #7---- logic 
+
+Scan_Load 
+Stim_PI 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #8---- logic 
+
+Scan_Load 
+Stim_PI 
+Pulse(rst_ni) 
+Pulse(clk_i) 
+Measure_PO 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #9---- init 
+
+Stim_PI 
+
+----Template #10---- scan 
+
+Scan_Load 
+Load_Channel_Masks 
+Use_Channel_Masks 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+----Template #11---- scan 
+
+Scan_Load 
+Diagnostic_Scan_Unload 
+Compressed_Output_Stream 
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

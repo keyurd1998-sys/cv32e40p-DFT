@@ -1,0 +1,4 @@
+# Cadence Modus
+#   Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64)
+#   Date: Sunday, October 18, 2026
+set code [catch { source /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_fullscan/runmodus.atpg.tcl ;}]; exit $code

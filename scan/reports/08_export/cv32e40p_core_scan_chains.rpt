@@ -11,7 +11,7 @@ Chain 1: chain0 (compressed)
       pin 	COMPACTOR/msi[1] <DFT_mask_clk (rise)>
       pin 	COMPACTOR/mso[1] <DFT_mask_clk (rise)>
     END segment DFT_segment_2
-    llatch 77 	DFT_lockup_latch_neg_edge362032 <DFT_mask_clk (low)>
+    llatch 77 	DFT_lockup_latch_neg_edge391651 <DFT_mask_clk (low)>
       <START compressed internal chain chain0_0 (sdi: COMPACTOR/SWBOX_SI[0])>
     bit 78 	DFT_tpi_async_0_flop_0/DFT_CDNS_C0_tpi_flop  <clk_i (rise)>  
     bit 79 	DFT_tpi_async_0_flop_1/DFT_CDNS_C0_tpi_flop  <clk_i (rise)>  

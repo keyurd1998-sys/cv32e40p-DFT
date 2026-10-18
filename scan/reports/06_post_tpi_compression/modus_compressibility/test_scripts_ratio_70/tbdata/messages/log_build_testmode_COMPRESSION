@@ -4,12 +4,12 @@ INFO (TDA-005): Command Line Invocation:
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_build_testmode_COMPRESSION_101726194351-291255000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_build_testmode_COMPRESSION_101826173532-798971000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Saturday Oct 17 19:43:51 2026  IST
+            Date Started: Sunday Oct 18 17:35:32 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 52778.
+            This job is process number 626695.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -21,7 +21,7 @@ INFO (TDA-009): Options/Values information.
 
             -ASSIGNFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/cv32e40p_core.COMPRESSION.pinassign
           * update_assign_file=
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_build_testmode_COMPRESSION_101726194351-291255000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_build_testmode_COMPRESSION_101826173532-798971000
             -MODEDEF COMPRESSION
             -STDOUT no
 [end TDA_009]
@@ -40,7 +40,7 @@ Modus Build Test Mode(s) beginning...
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 INFO (TTM-391): A default modeinit sequence will be generated.   [end TTM_391] 
 INFO (TTM-387): A default scanop sequence will be generated.   [end TTM_387] 
-INFO (THM-814): Testmode contains 97.26% active logic,  2.74% inactive logic and  0.00% constraint logic.   [end THM_814] 
+INFO (THM-814): Testmode contains 97.30% active logic,  2.70% inactive logic and  0.00% constraint logic.   [end THM_814] 
 INFO (TTM-357): There are 136 scan chains which are controllable and observable.   [end TTM_357] 
 INFO (TTM-352): There are 2 Channel Mask Load chains.   [end TTM_352] 
 INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
@@ -102,10 +102,10 @@ Test Function Pin Information for Test Mode:  COMPRESSION
         545      PO   SO1                                 scan_out_1 / scan_out_1
 
 
-               Total Memory =           47,324,976  bytes
+               Total Memory =           47,544,272  bytes
 
             Cumulative Time in hours:minutes:seconds:
-                   CPU Time =   0:00:00.48
-               Elapsed Time =   0:00:00.58
+                   CPU Time =   0:00:00.49
+               Elapsed Time =   0:00:00.61
 
 

@@ -3,19 +3,19 @@ Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
 Cadence and the Cadence logo are registered trademarks and Genus is a trademark
 of Cadence Design Systems, Inc. in the United States and other countries.
 
-[20:57:50.455577] Configured Lic search path (25.01-s002): 5280@pine-server
+[17:53:21.455577] Configured Lic search path (25.01-s002): 5280@pine-server
 
 Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
 Options: -overwrite -files 08_export.tcl -log logs/08_export.log 
-Date:    Sat Oct 17 20:57:50 2026
+Date:    Sun Oct 18 17:53:21 2026
 Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
-PID:     82593
+PID:     633963
 OS:      Red Hat Enterprise Linux 9.7 (Plow)
 
 Checking out license: Genus_Synthesis
-[20:57:50.289136] Periodic Lic check successful
-[20:57:50.813435] Feature usage summary:
-[20:57:50.813435] Genus_Synthesis  
+[17:53:21.205267] Periodic Lic check successful
+[17:53:21.729563] Feature usage summary:
+[17:53:21.729568] Genus_Synthesis  
 
 
 ***********************************************************************************************************
@@ -33,7 +33,7 @@ Finished loading tool scripts (17 seconds elapsed).
 #@ Begin verbose source ./08_export.tcl
 @file(08_export.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
 @file(08_export.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
-Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 20:58:07 IST 2026)...
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sun Oct 18 17:53:38 IST 2026)...
 #@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
 @file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
@@ -71,15 +71,13 @@ Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 20:58:
 ==================================================================
 #@ End verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
 @file(08_export.tcl) 4: set STEP_RPT_DIR [file normalize "$REPORTS_DIR/08_export"]
-@file(08_export.tcl) 5: set SA_DIR       [file normalize "$ATPG_DIR/stuck_at"]
-@file(08_export.tcl) 6: set DELAY_DIR    [file normalize "$ATPG_DIR/delay"]
+@file(08_export.tcl) 5: set EXPORT_DIR atpg_script
+@file(08_export.tcl) 7: file mkdir $EXPORT_DIR
 @file(08_export.tcl) 8: file mkdir $STEP_RPT_DIR
-@file(08_export.tcl) 9: file mkdir $SA_DIR
-@file(08_export.tcl) 10: file mkdir $DELAY_DIR
-@file(08_export.tcl) 11: file mkdir $NETLISTS_DIR
-@file(08_export.tcl) 12: file mkdir $DBS_DIR
-@file(08_export.tcl) 13: file mkdir [file normalize "$BLOCK_DIR/constraints"]
-@file(08_export.tcl) 15: read_db "$DBS_DIR/07_compressed.db"
+@file(08_export.tcl) 9: file mkdir $NETLISTS_DIR
+@file(08_export.tcl) 10: file mkdir $DBS_DIR
+@file(08_export.tcl) 11: file mkdir [file normalize "$BLOCK_DIR/constraints"]
+@file(08_export.tcl) 13: read_db "$DBS_DIR/07_compressed.db"
 Reading database file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/07_compressed.db'.
 
   Message Summary for Library slow.lib:
@@ -391,10 +389,10 @@ Warning : Relaxing an attribute value in the library. [LBR-39]
         : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
         : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
 Checking out license: Modus_DFT_Opt
-[20:58:08.394328] Periodic Lic check successful
-[20:58:08.918635] Feature usage summary:
-[20:58:08.918635] Genus_Synthesis  
-[20:58:08.918635] Modus_DFT_Opt  
+[17:53:40.308882] Periodic Lic check successful
+[17:53:40.308898] Feature usage summary:
+[17:53:40.308898] Genus_Synthesis  
+[17:53:40.308898] Modus_DFT_Opt  
   Setting attribute of test_clock 'DFT_mask_clk': 'dft_mask_clock' = true
 Warning : Obsolete attribute. [TUI-30]
         : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
@@ -463,21 +461,21 @@ Detected 0 DFT rule violation(s)
       Number of registers that pass DFT rules: 2307
   Percentage of total registers that are scannable: 100%
   Percentage of abstract segment flops that are scannable: 100%
-@file(08_export.tcl) 20: puts "INFO: Generating comprehensive post-DFT reports..."
+@file(08_export.tcl) 18: puts "INFO: Generating comprehensive post-DFT reports..."
 INFO: Generating comprehensive post-DFT reports...
-@file(08_export.tcl) 23: check_timing_intent              > "$STEP_RPT_DIR/${DESIGN}_check_timing_intent.rpt"
-@file(08_export.tcl) 24: report_timing -path_type summary > "$STEP_RPT_DIR/${DESIGN}_timing_summary.rpt"
-@file(08_export.tcl) 25: report_timing -max_paths 50      > "$STEP_RPT_DIR/${DESIGN}_timing_paths.rpt"
-@file(08_export.tcl) 26: report_timing -unconstrained     > "$STEP_RPT_DIR/${DESIGN}_timing_unconstrained.rpt"
-@file(08_export.tcl) 27: report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
-@file(08_export.tcl) 30: report_area                      > "$STEP_RPT_DIR/${DESIGN}_area.rpt"
-@file(08_export.tcl) 31: report_gates                     > "$STEP_RPT_DIR/${DESIGN}_gates.rpt"
+@file(08_export.tcl) 21: check_timing_intent              > "$STEP_RPT_DIR/${DESIGN}_check_timing_intent.rpt"
+@file(08_export.tcl) 22: report_timing -path_type summary > "$STEP_RPT_DIR/${DESIGN}_timing_summary.rpt"
+@file(08_export.tcl) 23: report_timing -max_paths 50      > "$STEP_RPT_DIR/${DESIGN}_timing_paths.rpt"
+@file(08_export.tcl) 24: report_timing -unconstrained     > "$STEP_RPT_DIR/${DESIGN}_timing_unconstrained.rpt"
+@file(08_export.tcl) 25: report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
+@file(08_export.tcl) 28: report_area                      > "$STEP_RPT_DIR/${DESIGN}_area.rpt"
+@file(08_export.tcl) 29: report_gates                     > "$STEP_RPT_DIR/${DESIGN}_gates.rpt"
 ENABLED NEW REPORT GATE CMD
 
 
 
 
-@file(08_export.tcl) 34: report_power                     > "$STEP_RPT_DIR/${DESIGN}_power.rpt"
+@file(08_export.tcl) 32: report_power                     > "$STEP_RPT_DIR/${DESIGN}_power.rpt"
 Warning: Library 'slow' found in multiple domains.
 Info: Use -domain to uniquify.
 Info: Selecting library 'slow' in domain '-1'
@@ -502,9 +500,9 @@ Info   : PWRA-0002 Finished power computation.
 Info   : PWRA-0007 [PwrInfo] Completed successfully.
        : Info=6, Warn=0, Error=0, Fatal=0
 Output file: /home/admin/DFT/cv32e40p-DFT/scan/reports/08_export/cv32e40p_core_power.rpt
-@file(08_export.tcl) 37: report_scan_chains               > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
-@file(08_export.tcl) 38: report_scan_registers            > "$STEP_RPT_DIR/${DESIGN}_scan_registers.rpt"
-@file(08_export.tcl) 41: check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+@file(08_export.tcl) 35: report_scan_chains               > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+@file(08_export.tcl) 36: report_scan_registers            > "$STEP_RPT_DIR/${DESIGN}_scan_registers.rpt"
+@file(08_export.tcl) 39: check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
   =================
    Message Summary
   =================
@@ -552,17 +550,17 @@ Info    : Successfully completed DFT command. [DFT-146]
 |DFT-146|Info|    1|Successfully completed DFT command.|
 |DFT-147|Info|    1|Reporting runtime for DFT command. |
 --------------------------------------------------------
-@file(08_export.tcl) 42: report_dft_violations            > "$STEP_RPT_DIR/${DESIGN}_dft_violations.rpt"
+@file(08_export.tcl) 40: report_dft_violations            > "$STEP_RPT_DIR/${DESIGN}_dft_violations.rpt"
+@file(08_export.tcl) 42: puts "=================================================================="
+==================================================================
+@file(08_export.tcl) 43: puts " Post-DFT QoR & Timing Summary:"
+ Post-DFT QoR & Timing Summary:
 @file(08_export.tcl) 44: puts "=================================================================="
 ==================================================================
-@file(08_export.tcl) 45: puts " Post-DFT QoR & Timing Summary:"
- Post-DFT QoR & Timing Summary:
-@file(08_export.tcl) 46: puts "=================================================================="
-==================================================================
-@file(08_export.tcl) 47: report_qor
+@file(08_export.tcl) 45: report_qor
 ============================================================
   Generated by:           Genus(TM) Synthesis Solution 25.10-p002_1
-  Generated on:           Oct 17 2026  08:58:12 pm
+  Generated on:           Oct 18 2026  05:53:44 pm
   Module:                 cv32e40p_core
   Operating conditions:   slow 
   Interconnect mode:      global
@@ -572,141 +570,110 @@ Info    : Successfully completed DFT command. [DFT-146]
 Timing
 --------
 
-Clock Period 
--------------
-clk_i 5000.0 
+    Clock     Period 
+---------------------
+clk_i         5000.0 
+DFT_mask_clk 80000.0 
 
 
-  Cost    Critical               Violating 
- Group   Path Slack     TNS        Paths   
--------------------------------------------
-clk_i        -395.0   -166899.9       1241 
-default    No paths         0.0            
--------------------------------------------
-Total                 -166899.9       1241 
+    Cost       Critical              Violating 
+    Group     Path Slack     TNS       Paths   
+-----------------------------------------------
+clk_i             -125.9   -64926.4        840 
+default          39656.7        0.0          0 
+-----------------------------------------------
+Total                      -64926.4        840 
 
 Instance Count
 --------------
-Leaf Instance Count             23998 
+Leaf Instance Count             24522 
 Physical Instance count             0 
 Sequential Instance Count        2310 
-Combinational Instance Count    21688 
+Combinational Instance Count    22212 
 Hierarchical Instance Count       259 
 
 Area
 ----
-Cell Area                          43662.326
+Cell Area                          50571.259
 Physical Cell Area                 0.000
-Total Cell Area (Cell+Physical)    43662.326
-Net Area                           309014.726
-Total Area (Cell+Physical+Net)     352677.052
+Total Cell Area (Cell+Physical)    50571.259
+Net Area                           315692.833
+Total Area (Cell+Physical+Net)     366264.092
 
 Max Fanout                         2154 (SCAN_ENABLE)
 Min Fanout                         0 (mtvec_addr_i[7])
 Average Fanout                     2.5
-Terms to net ratio                 3.5727
-Terms to instance ratio            3.6211
-Runtime                            25.840885 seconds
+Terms to net ratio                 3.5677
+Terms to instance ratio            3.6148
+Runtime                            25.845001 seconds
 Elapsed Runtime                    26 seconds
-Genus peak memory usage            1810.63 
+Genus peak memory usage            1810.75 
 Innovus peak memory usage          no_value 
 Hostname                           Pine-06
-@file(08_export.tcl) 52: set EXPORT_SDC [file normalize "$BLOCK_DIR/constraints/${DESIGN}_post_dft.sdc"]
-@file(08_export.tcl) 53: write_sdc > $EXPORT_SDC
-Finished SDC export (command execution time mm:ss (real) = 00:00).
-@file(08_export.tcl) 54: puts "INFO: Exported post-DFT SDC constraints: $EXPORT_SDC"
+@file(08_export.tcl) 50: set EXPORT_SDC [file normalize "$BLOCK_DIR/constraints/${DESIGN}_post_dft.sdc"]
+@file(08_export.tcl) 51: write_sdc > $EXPORT_SDC
+Finished SDC export (command execution time mm:ss (real) = 00:01).
+@file(08_export.tcl) 52: puts "INFO: Exported post-DFT SDC constraints: $EXPORT_SDC"
 INFO: Exported post-DFT SDC constraints: /home/admin/DFT/cv32e40p-DFT/constraints/cv32e40p_core_post_dft.sdc
-@file(08_export.tcl) 59: set FINAL_NETLIST [file normalize "$NETLISTS_DIR/${DESIGN}_compressed.v"]
-@file(08_export.tcl) 60: write_hdl > $FINAL_NETLIST
-@file(08_export.tcl) 61: puts "INFO: Exported compressed netlist: $FINAL_NETLIST"
+@file(08_export.tcl) 57: set FINAL_NETLIST [file normalize "$NETLISTS_DIR/${DESIGN}_compressed.v"]
+@file(08_export.tcl) 58: write_hdl > $FINAL_NETLIST
+@file(08_export.tcl) 59: puts "INFO: Exported compressed netlist: $FINAL_NETLIST"
 INFO: Exported compressed netlist: /home/admin/DFT/cv32e40p-DFT/scan/netlists/cv32e40p_core_compressed.v
-@file(08_export.tcl) 66: set SCANDEF_FILE [file normalize "$NETLISTS_DIR/${DESIGN}_compressed.scandef"]
-@file(08_export.tcl) 67: write_scandef > $SCANDEF_FILE
-@file(08_export.tcl) 68: puts "INFO: Exported SCANDEF file: $SCANDEF_FILE"
+@file(08_export.tcl) 64: set SCANDEF_FILE [file normalize "$NETLISTS_DIR/${DESIGN}_compressed.scandef"]
+@file(08_export.tcl) 65: write_scandef > $SCANDEF_FILE
+@file(08_export.tcl) 66: puts "INFO: Exported SCANDEF file: $SCANDEF_FILE"
 INFO: Exported SCANDEF file: /home/admin/DFT/cv32e40p-DFT/scan/netlists/cv32e40p_core_compressed.scandef
-@file(08_export.tcl) 74: puts "INFO: Generating Modus Compressed Stuck-At ATPG workspace..."
+@file(08_export.tcl) 71: puts "INFO: Generating Modus Compressed Stuck-At ATPG workspace..."
 INFO: Generating Modus Compressed Stuck-At ATPG workspace...
-@file(08_export.tcl) 75: write_dft_atpg \
-    -directory $SA_DIR \
+@file(08_export.tcl) 72: write_dft_atpg \
+    -directory $EXPORT_DIR \
     -library $ATPG_LIB \
     -compression \
     -build_model_options "-allowmissingmodules yes" \
-    -run_from_directory \
     -force
-WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/atpg/stuck_at' for write_dft_atpg.
+WARNING: Using existing directory 'atpg_script' for write_dft_atpg.
 ----------------------------------------------------------------------------
 Modus scripts for ATPG have been written 
- for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/atpg/stuck_at'.
+ for compression mode with fullscan top-off to directory 'atpg_script'.
 To generate the ATPG test vectors in compression mode with fullscan top-off :
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/stuck_at'
-.... Invoke the script from OS command line as 'modus -file ./runmodus.atpg.tcl'.
+.... Invoke the script from OS command line as 'modus -file atpg_script/runmodus.atpg.tcl'.
 To simulate the ATPG generated test vectors in COMPRESSION mode:
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/stuck_at'
-.... Invoke the script from OS command line as './run_compression_sim'.
+.... Invoke the script from OS command line as 'atpg_script/run_compression_sim'.
 To simulate the ATPG generated test vectors in FULLSCAN (top-off) mode:
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/stuck_at'
-.... Invoke the script from OS command line as './run_fullscan_sim'.
+.... Invoke the script from OS command line as 'atpg_script/run_fullscan_sim'.
 ------------------------------------------------------------------------
-@file(08_export.tcl) 82: puts "INFO: Stuck-At ATPG script exported to: $SA_DIR/runmodus.atpg.tcl"
-INFO: Stuck-At ATPG script exported to: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/runmodus.atpg.tcl
-@file(08_export.tcl) 85: puts "INFO: Generating Modus Compressed Transition Delay ATPG workspace..."
-INFO: Generating Modus Compressed Transition Delay ATPG workspace...
-@file(08_export.tcl) 86: write_dft_atpg \
-    -directory $DELAY_DIR \
-    -library $ATPG_LIB \
-    -compression \
-    -delay \
-    -build_model_options "-allowmissingmodules yes" \
-    -run_from_directory \
-    -force
-WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/atpg/delay' for write_dft_atpg.
-----------------------------------------------------------------------------
-Modus scripts for ATPG have been written 
- for compression mode with fullscan top-off to directory '/home/admin/DFT/cv32e40p-DFT/atpg/delay'.
-To generate the ATPG test vectors in compression mode with fullscan top-off :
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/delay'
-.... Invoke the script from OS command line as 'modus -file ./runmodus.atpg.tcl'.
-To simulate the ATPG generated test vectors in COMPRESSION mode:
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/delay'
-.... Invoke the script from OS command line as './run_compression_sim'.
-To simulate the ATPG generated test vectors in FULLSCAN (top-off) mode:
-.... Change your directory to the Modus workdir '/home/admin/DFT/cv32e40p-DFT/atpg/delay'
-.... Invoke the script from OS command line as './run_fullscan_sim'.
-------------------------------------------------------------------------
-@file(08_export.tcl) 94: puts "INFO: Transition Delay ATPG script exported to: $DELAY_DIR/runmodus.atpg.tcl"
-INFO: Transition Delay ATPG script exported to: /home/admin/DFT/cv32e40p-DFT/atpg/delay/runmodus.atpg.tcl
-@file(08_export.tcl) 99: set FINAL_DB [file normalize "$DBS_DIR/08_final.db"]
-@file(08_export.tcl) 100: write_db -all_root_attributes -to_file $FINAL_DB
-Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/08_final.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:01).
-@file(08_export.tcl) 101: puts "INFO: Final post-export database saved: $FINAL_DB"
+@file(08_export.tcl) 78: puts "INFO: ATPG script exported to: $ATPG_DIR/runmodus.atpg.tcl"
+INFO: ATPG script exported to: /home/admin/DFT/cv32e40p-DFT/atpg/runmodus.atpg.tcl
+@file(08_export.tcl) 84: set FINAL_DB [file normalize "$DBS_DIR/08_final.db"]
+@file(08_export.tcl) 85: write_db -all_root_attributes -to_file $FINAL_DB
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/08_final.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:02).
+@file(08_export.tcl) 86: puts "INFO: Final post-export database saved: $FINAL_DB"
 INFO: Final post-export database saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/08_final.db
-@file(08_export.tcl) 103: puts "=================================================================="
+@file(08_export.tcl) 88: puts "=================================================================="
 ==================================================================
-@file(08_export.tcl) 104: puts " Step 8 Export Completed Successfully!"
+@file(08_export.tcl) 89: puts " Step 8 Export Completed Successfully!"
  Step 8 Export Completed Successfully!
-@file(08_export.tcl) 105: puts " Deliverables summary:"
+@file(08_export.tcl) 90: puts " Deliverables summary:"
  Deliverables summary:
-@file(08_export.tcl) 106: puts "   - Reports:        $STEP_RPT_DIR/"
+@file(08_export.tcl) 91: puts "   - Reports:        $STEP_RPT_DIR/"
    - Reports:        /home/admin/DFT/cv32e40p-DFT/scan/reports/08_export/
-@file(08_export.tcl) 107: puts "   - SDC:            $EXPORT_SDC"
+@file(08_export.tcl) 92: puts "   - SDC:            $EXPORT_SDC"
    - SDC:            /home/admin/DFT/cv32e40p-DFT/constraints/cv32e40p_core_post_dft.sdc
-@file(08_export.tcl) 108: puts "   - Netlist:        $FINAL_NETLIST"
+@file(08_export.tcl) 93: puts "   - Netlist:        $FINAL_NETLIST"
    - Netlist:        /home/admin/DFT/cv32e40p-DFT/scan/netlists/cv32e40p_core_compressed.v
-@file(08_export.tcl) 109: puts "   - SCANDEF:        $SCANDEF_FILE"
+@file(08_export.tcl) 94: puts "   - SCANDEF:        $SCANDEF_FILE"
    - SCANDEF:        /home/admin/DFT/cv32e40p-DFT/scan/netlists/cv32e40p_core_compressed.scandef
-@file(08_export.tcl) 110: puts "   - Stuck-At ATPG:  $SA_DIR/runmodus.atpg.tcl"
-   - Stuck-At ATPG:  /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/runmodus.atpg.tcl
-@file(08_export.tcl) 111: puts "   - Delay ATPG:     $DELAY_DIR/runmodus.atpg.tcl"
-   - Delay ATPG:     /home/admin/DFT/cv32e40p-DFT/atpg/delay/runmodus.atpg.tcl
-@file(08_export.tcl) 112: puts "   - Checkpoint:     $FINAL_DB"
+@file(08_export.tcl) 95: puts "   - ATPG:           $ATPG_DIR/runmodus.atpg.tcl"
+   - ATPG:           /home/admin/DFT/cv32e40p-DFT/atpg/runmodus.atpg.tcl
+@file(08_export.tcl) 96: puts "   - Checkpoint:     $FINAL_DB"
    - Checkpoint:     /home/admin/DFT/cv32e40p-DFT/scan/dbs/08_final.db
-@file(08_export.tcl) 113: puts "=================================================================="
+@file(08_export.tcl) 97: puts "=================================================================="
 ==================================================================
-@file(08_export.tcl) 114: exit
+@file(08_export.tcl) 98: exit
 
 Lic Summary:
-[20:58:19.217410] Cdslmd servers: pine-server
-[20:58:19.741714] Feature usage summary:
-[20:58:19.741715] Genus_Synthesis  
-[20:58:19.741715] Modus_DFT_Opt  
+[17:53:49.270730] Cdslmd servers: pine-server
+[17:53:49.270746] Feature usage summary:
+[17:53:49.270746] Genus_Synthesis  
+[17:53:49.270747] Modus_DFT_Opt  
 Normal exit.

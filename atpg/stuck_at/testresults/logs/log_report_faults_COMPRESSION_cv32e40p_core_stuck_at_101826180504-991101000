@@ -1,0 +1,560 @@
+Starting Command: report_faults 
+
+INFO (TDA-005): Command Line Invocation: 
+            report_faults -faultstatus untested -testmode COMPRESSION -experiment cv32e40p_core_stuck_at -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -stdout all  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_faults_COMPRESSION_cv32e40p_core_stuck_at_101826180504-991101000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Sunday Oct 18 18:05:04 2026  IST
+            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
+            This job is process number 640591.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+            -TESTMODE COMPRESSION
+            -EXPERIMENT cv32e40p_core_stuck_at
+
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_faults_COMPRESSION_cv32e40p_core_stuck_at_101826180504-991101000
+          + -STDOUT all
+          + -faultstatus untested
+[end TDA_009]
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+
+TFMlist 
+
+Logic Model(GM)   10/18/26
+                  12:24:00
+
+
+File Id     faultModel        faultStatus         experiment
+Created (GM)  10/18/26           10/18/26           10/18/26
+              12:24:04           12:24:04           12:24:06
+Modified(GM)  10/18/26           10/18/26           10/18/26
+              12:24:04           12:24:04           12:35:02
+Code Level        2025.0             2025.0             2025.0            
+Max Fault Id        178388
+
+Fault Model Type:   Cell Boundary
+
+
+Global Ignored Static Fault Count               271
+Global Ignored Dynamic Fault Count                0
+
+
+INFO (TFM-705): Testmode: COMPRESSION Experiment: cv32e40p_core_stuck_at Fault List:   
+
+
+     Fault Status  Type    Sim Func / Cell Name           Fault pin name
+
+      1153 Utm     ISA0           TLATNX1                 sleep_unit_i_core_clock_gate_i_clk_en_reg.GN   
+      1154 C       ISA1           TLATNX1                 sleep_unit_i_core_clock_gate_i_clk_en_reg.GN   
+      1418 A       ISA1           AND3X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g366.C   
+      1433 A       ISA1           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g363.D   
+      1446 A       ISA1           AND3X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g361.C   
+      1690 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2982.A   
+      1734 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.C   
+      1738 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.B   
+      1765 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2975.A   
+      1866 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2960.Y   
+    177704 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2960.A   
+    177706 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2960.B   
+    177840 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.A   
+    177842 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.B   
+    177844 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.C   
+    177846 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.D   
+    177847 cA      OSA0           AND4X6                  inc_cs_registers_i_add_1387_74_I4_g2978.Y   
+      1872 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2959.Y   
+    177698 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2959.A   
+    177700 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2959.B   
+      1874 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2959.B   
+      1885 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2957.Y   
+    177686 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2957.A   
+    177688 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2957.B   
+      1887 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2957.A   
+      1917 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2952.Y   
+    177656 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2952.A   
+    177658 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2952.B   
+      1949 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I4_g2948.B   
+      1950 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I4_g2948.A   
+      2297 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2909.B   
+      2479 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I4_g2886.A   
+      2608 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I4_g2872.B   
+      2882 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2978.C   
+      2905 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.B   
+      2906 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.A   
+      2910 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2975.C   
+      2914 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2975.A   
+      2938 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2973.D   
+      2942 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2973.B   
+      3195 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2943.Y   
+    176720 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2943.A   
+    176722 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2943.B   
+      3198 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2943.A   
+      3214 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2940.Y   
+    176702 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2940.A   
+    176704 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2940.B   
+      3218 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2940.A   
+      4233 Ud      ISA1           CLKAND2X6               COMPACTOR.compressor.g512.A   
+      4239 Ud      ISA1           CLKAND2X6               COMPACTOR.compressor.g513.A   
+      4482 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.C   
+      4490 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.A   
+    176950 cA      OSA1           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.Y   
+      4537 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2907.B   
+      4633 A       OSA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2901.Y   
+    176456 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2901.A   
+    176458 cA      ISA0           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2901.B   
+      4637 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I3_g2901.A   
+      4905 Ud      OSA1           INVX1                   COMPACTOR.compressor.g668.Y   
+    176330 cUd     ISA0           INVX1                   COMPACTOR.compressor.g668.A   
+      5114 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.B   
+      5116 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.A   
+      5121 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2974.B   
+      5137 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2972.A   
+      5273 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.C   
+      5274 A       ISA1           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.B   
+      5517 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I1_g2899.B   
+      5549 A       ISA1           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2894.B   
+      5554 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I1_g2893.A   
+      5561 A       ISA1           CLKAND2X6               inc_cs_registers_i_add_1387_74_I1_g2892.A   
+      5569 A       ISA0           CLKXOR2X2               inc_cs_registers_i_add_1387_74_I1_g2890.B   
+      5978 A       ISA1           AND4X6                  if_stage_i_aligner_i_add_64_26_g1347.A   
+      6271 A       ISA1           AND4X6                  if_stage_i_aligner_i_add_63_26_g1601.C   
+      6272 A       ISA1           AND4X6                  if_stage_i_aligner_i_add_63_26_g1601.B   
+      6352 A       ISA1           AND4X6                  if_stage_i_aligner_i_add_63_26_g1586.B   
+      6490 A       ISA1           CLKAND2X6               if_stage_i_aligner_i_add_63_26_g1561.A   
+      6521 A       OSA1           CLKAND2X6               if_stage_i_add_167_42_g963.Y   
+      6522 A       OSA0           CLKAND2X6               if_stage_i_add_167_42_g963.Y   
+    174378 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g963.A   
+    174380 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g963.B   
+      6523 A       ISA1           CLKAND2X6               if_stage_i_add_167_42_g963.B   
+      6533 A       OSA0           CLKAND2X6               if_stage_i_add_167_42_g961.Y   
+    174366 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g961.A   
+    174368 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g961.B   
+      6536 A       ISA1           CLKAND2X6               if_stage_i_add_167_42_g961.A   
+      6538 A       OSA1           AND2X6                  if_stage_i_add_167_42_g960.Y   
+      6539 A       OSA0           AND2X6                  if_stage_i_add_167_42_g960.Y   
+    174360 cA      ISA0           AND2X6                  if_stage_i_add_167_42_g960.A   
+    174362 cA      ISA0           AND2X6                  if_stage_i_add_167_42_g960.B   
+      6540 A       ISA1           AND2X6                  if_stage_i_add_167_42_g960.B   
+      6541 A       ISA1           AND2X6                  if_stage_i_add_167_42_g960.A   
+      6554 A       ISA1           CLKAND2X6               if_stage_i_add_167_42_g957.B   
+      6557 A       ISA0           NOR2X6                  if_stage_i_add_167_42_g955.B   
+      6560 A       OSA0           AND3X6                  if_stage_i_add_167_42_g953.Y   
+    174328 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g953.A   
+    174330 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g953.B   
+    174332 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g953.C   
+      6562 A       ISA1           AND3X6                  if_stage_i_add_167_42_g953.B   
+      6564 A       ISA1           AND3X6                  if_stage_i_add_167_42_g953.A   
+      6569 A       ISA1           AND3X6                  if_stage_i_add_167_42_g951.C   
+      6570 A       ISA1           AND3X6                  if_stage_i_add_167_42_g951.B   
+      6582 A       ISA1           CLKAND2X6               if_stage_i_add_167_42_g947.B   
+    174320 cA      OSA1           AND3X6                  if_stage_i_add_167_42_g951.Y   
+      6624 A       OSA0           CLKAND2X12              if_stage_i_add_167_42_g930.Y   
+    174242 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g930.A   
+    174244 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g930.B   
+      6628 A       ISA1           CLKAND2X12              if_stage_i_add_167_42_g930.A   
+      6630 A       OSA0           CLKAND2X12              if_stage_i_add_167_42_g928.Y   
+    174232 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g928.A   
+    174234 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g928.B   
+      6651 A       OSA0           AND3X6                  if_stage_i_add_167_42_g922.Y   
+    174198 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g922.A   
+    174200 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g922.B   
+    174202 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g922.C   
+      6656 A       ISA1           AND3X6                  if_stage_i_add_167_42_g922.A   
+      6659 A       OSA0           AND3X6                  if_stage_i_add_167_42_g921.Y   
+    174190 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g921.A   
+    174192 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g921.B   
+    174194 cA      ISA0           AND3X6                  if_stage_i_add_167_42_g921.C   
+      6674 A       OSA0           CLKAND2X12              if_stage_i_add_167_42_g917.Y   
+    174166 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g917.A   
+    174168 cA      ISA0           CLKAND2X12              if_stage_i_add_167_42_g917.B   
+      6677 A       ISA1           CLKAND2X12              if_stage_i_add_167_42_g917.A   
+      6683 A       ISA1           NAND2X8                 if_stage_i_add_167_42_g916.A   
+      6690 A       OSA0           INVX6                   if_stage_i_add_167_42_g912.Y   
+    174144 cA      ISA1           INVX6                   if_stage_i_add_167_42_g912.A   
+      6692 A       ISA0           NOR2X6                  if_stage_i_add_167_42_g911.B   
+      6701 A       ISA1           CLKAND2X12              if_stage_i_add_167_42_g909.B   
+      6702 A       ISA1           CLKAND2X12              if_stage_i_add_167_42_g909.A   
+    174346 cA      OSA1           CLKAND2X6               if_stage_i_add_167_42_g957.Y   
+      6704 A       ISA0           NOR2X6                  if_stage_i_add_167_42_g908.A   
+      6712 A       OSA1           NAND2X8                 if_stage_i_add_167_42_g905.Y   
+    174108 cA      ISA0           NAND2X8                 if_stage_i_add_167_42_g905.A   
+    174110 cA      ISA0           NAND2X8                 if_stage_i_add_167_42_g905.B   
+      6716 A       ISA1           NAND2X8                 if_stage_i_add_167_42_g905.A   
+      6728 A       ISA1           CLKMX2X3                if_stage_i_add_167_42_g901.B   
+      6732 A       ISA0           CLKMX2X3                if_stage_i_add_167_42_g901.A   
+      6736 A       ISA0           OA21X4                  if_stage_i_add_167_42_g900.A1   
+      6740 A       ISA0           OA21X4                  if_stage_i_add_167_42_g899.A1   
+      6744 A       ISA0           NOR2X6                  if_stage_i_add_167_42_g898.B   
+      6749 A       OSA0           NOR2X8                  if_stage_i_add_167_42_g897.Y   
+    174054 cA      ISA1           NOR2X8                  if_stage_i_add_167_42_g897.A   
+    174056 cA      ISA1           NOR2X8                  if_stage_i_add_167_42_g897.B   
+      6754 A       OSA1           NAND2X8                 if_stage_i_add_167_42_g895.Y   
+    174048 cA      ISA0           NAND2X8                 if_stage_i_add_167_42_g895.A   
+    174050 cA      ISA0           NAND2X8                 if_stage_i_add_167_42_g895.B   
+      6757 A       ISA1           NAND2X8                 if_stage_i_add_167_42_g895.A   
+      6758 A       OSA1           INVX6                   if_stage_i_add_167_42_g894.Y   
+    174046 cA      ISA0           INVX6                   if_stage_i_add_167_42_g894.A   
+      6768 A       ISA0           OA21X4                  if_stage_i_add_167_42_g892.A1   
+      6776 A       ISA1           NAND3X8                 if_stage_i_add_167_42_g891.B   
+      6786 A       OSA0           NOR2X8                  if_stage_i_add_167_42_g889.Y   
+    174008 cA      ISA1           NOR2X8                  if_stage_i_add_167_42_g889.A   
+    174010 cA      ISA1           NOR2X8                  if_stage_i_add_167_42_g889.B   
+      6790 A       ISA0           NOR2X8                  if_stage_i_add_167_42_g889.A   
+      6791 A       ISA1           CLKMX2X2                if_stage_i_add_167_42_g888.S0   
+      6796 A       ISA0           CLKMX2X2                if_stage_i_add_167_42_g888.A   
+      6798 A       ISA1           CLKMX2X3                if_stage_i_add_167_42_g887.S0   
+      6804 A       ISA1           CLKMX2X3                if_stage_i_add_167_42_g887.A   
+    174397 cA      OSA1           INVX1                   if_stage_i_add_167_42_g970.Y   
+    174398 cA      ISA0           INVX1                   if_stage_i_add_167_42_g970.A   
+      6812 A       ISA1           OA21X4                  if_stage_i_add_167_42_g884.B0   
+      6820 A       ISA1           AND2X6                  if_stage_i_add_167_42_g883.A   
+      6827 A       ISA1           CLKMX2X3                if_stage_i_add_167_42_g880.S0   
+      6832 A       ISA0           CLKMX2X3                if_stage_i_add_167_42_g880.A   
+    174391 cA      OSA0           INVX1                   if_stage_i_add_167_42_g968.Y   
+    174392 cA      ISA1           INVX1                   if_stage_i_add_167_42_g968.A   
+      6836 A       ISA0           OA21X4                  if_stage_i_add_167_42_g879.A1   
+      6842 A       OSA0           CLKAND2X6               if_stage_i_add_167_42_g878.Y   
+    173938 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g878.A   
+    173940 cA      ISA0           CLKAND2X6               if_stage_i_add_167_42_g878.B   
+      6846 A       OSA1           NAND2X6                 if_stage_i_add_167_42_g877.Y   
+    173932 cA      ISA0           NAND2X6                 if_stage_i_add_167_42_g877.A   
+    173934 cA      ISA0           NAND2X6                 if_stage_i_add_167_42_g877.B   
+      6848 A       ISA1           NAND2X6                 if_stage_i_add_167_42_g877.B   
+      6852 A       ISA0           OA21X1                  if_stage_i_add_167_42_g876.A1   
+      6864 A       ISA1           CLKAND2X6               if_stage_i_add_167_42_g874.A   
+      6865 A       ISA1           CLKXOR2X2               if_stage_i_add_167_42_g872.B   
+      6867 A       ISA1           CLKXOR2X2               if_stage_i_add_167_42_g872.A   
+      6872 A       ISA0           OA21X4                  if_stage_i_add_167_42_g871.A1   
+      6876 A       ISA1           OA21X4                  if_stage_i_add_167_42_g870.B0   
+    174239 cA      OSA1           INVX6                   if_stage_i_add_167_42_g929.Y   
+    174240 cA      ISA0           INVX6                   if_stage_i_add_167_42_g929.A   
+      8695 A       ISA1           AND2X6                  g4317.A   
+      9004 A       ISA1           AO22X4                  g4289__384473.B0   
+      9531 A       ISA0           OR2X6                   DFT_tpi_async_1_node_2_1.DFT__0.B   
+    147148 cA      ISA0           AND3X8                  g383592.A   
+    147150 cA      ISA0           AND3X8                  g383592.B   
+    147152 cA      ISA0           AND3X8                  g383592.C   
+    147153 cA      OSA0           AND3X8                  g383592.Y   
+      9549 A       ISA0           OR2X6                   DFT_tpi_async_1_node_3_0.DFT__0.B   
+    176512 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.A   
+    176514 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.B   
+    176516 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.C   
+    176517 cA      OSA0           AND3X6                  inc_cs_registers_i_add_1387_74_I3_g2910.Y   
+    176942 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.A   
+    176944 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.B   
+    176946 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.C   
+    176948 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.D   
+    176949 cA      OSA0           AND4X6                  inc_cs_registers_i_add_1387_74_I3_g2976.Y   
+      9669 A       ISA0           OR2X6                   DFT_tpi_async_1_node_8_0.DFT__0.B   
+    175854 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.A   
+    175856 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.B   
+    175858 cA      ISA0           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.C   
+    175859 cA      OSA0           AND3X6                  inc_cs_registers_i_add_1387_74_I1_g2945.Y   
+    176054 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.A   
+    176056 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.B   
+    176058 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.C   
+    176060 cA      ISA0           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.D   
+    176061 cA      OSA0           AND4X6                  inc_cs_registers_i_add_1387_74_I1_g2975.Y   
+      9932 A       ISA1           AO22X4                  g4225__363396.B0   
+     10035 A       ISA0           AO22X4                  g4214__404939.B0   
+    171770 cA      ISA0           AO22X4                  g4214__404939.B1   
+     10244 A       ISA1           ACHCONX2                WALLACE_CSA_DUMMY_OP_groupi_g1366.CI   
+     36290 A       ISA0           CLKXOR2X4               g414.B   
+    178046 cA      ISA0           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g357.A   
+    178048 cA      ISA0           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g357.B   
+    178050 cA      ISA0           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g357.C   
+    178052 cA      ISA0           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g357.D   
+    178053 cA      OSA0           AND4X6                  inc_if_stage_i_prefetch_buffer_i_prefetch_controller_i_add_138_56_g357.Y   
+     36530 A       ISA1           AO22X4                  g4116__363860.B0   
+     36556 A       ISA1           AO22X4                  g4113__363390.B0   
+     36568 A       ISA1           AO22X4                  g4112__363614.B0   
+     37676 A       ISA1           NAND2BX1                g405340.B   
+     39180 A       ISA1           AO22X4                  g4042__384488.B0   
+     39568 A       ISA1           CLKAND2X12              g403981.A   
+     39622 A       ISA1           CLKMX2X3                csa_tree_ex_stage_i_mult_i_add_111_42_groupi_g8365.A   
+     41802 A       ISA1           AO22X4                  g4025.B0   
+     41822 A       ISA0           NOR2X8                  g402490.B   
+     43031 A       ISA0           NOR2X8                  g401869.A   
+     43610 A       ISA1           CLKAND2X6               g401380.B   
+     43611 A       ISA1           CLKAND2X6               g401380.A   
+     43614 A       ISA1           CLKAND2X6               g401379.A   
+    164714 cA      OSA1           CLKAND2X6               g401380.Y   
+     43616 A       OSA1           CLKAND2X12              g401378.Y   
+     43618 A       ISA1           CLKAND2X12              g401378.B   
+     43626 A       OSA0           NOR3X8                  g401376.Y   
+    127130 cA      ISA0           NAND2X8                 g365874.A   
+    127132 cA      ISA0           NAND2X8                 g365874.B   
+    127134 cA      OSA1           NAND2X8                 g365874.Y   
+    127136 cA      ISA0           NAND2X8                 g365875.A   
+    127138 cA      ISA0           NAND2X8                 g365875.B   
+    127140 cA      OSA1           NAND2X8                 g365875.Y   
+    164684 cA      ISA1           NOR3X8                  g401376.A   
+    164686 cA      ISA1           NOR3X8                  g401376.B   
+    164688 cA      ISA1           NOR3X8                  g401376.C   
+    164692 cA      ISA0           NAND2X8                 g401377.A   
+    164694 cA      ISA0           NAND2X8                 g401377.B   
+    164696 cA      OSA1           NAND2X8                 g401377.Y   
+    164704 cA      ISA0           CLKAND2X6               g401379.A   
+    164706 cA      ISA0           CLKAND2X6               g401379.B   
+    164707 cA      OSA0           CLKAND2X6               g401379.Y   
+    164710 cA      ISA0           CLKAND2X6               g401380.A   
+    164712 cA      ISA0           CLKAND2X6               g401380.B   
+    164713 cA      OSA0           CLKAND2X6               g401380.Y   
+     44610 A       ISA0           NOR3X8                  g401106.C   
+     48257 A       ISA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_228_5_groupi_g13622.A   
+     48844 A       ISA0           OR3X8                   g399629.A   
+     48962 A       OSA1           NOR3X8                  g399552.Y   
+     48976 A       ISA0           NOR3X8                  g399552.B   
+     49350 A       ISA1           AO22X4                  g3990__363553.B0   
+     49675 A       ISA0           ACHCONX2                csa_tree_ex_stage_i_mult_i_add_228_5_groupi_g13905.A   
+     51664 A       ISA1           AO22X4                  g3968.B0   
+     51668 A       ISA1           AO22X4                  g3968.A0   
+     51702 A       ISA1           AO22X4                  g3966__384477.B0   
+     51782 A       ISA1           AOI21X4                 g396655.A1   
+     53549 A       ISA1           AO21X4                  g395353.A0   
+     58250 A       ISA0           AO22X4                  g3903__370612.B0   
+    154420 cA      ISA0           AO22X4                  g3903__370612.B1   
+     58767 A       ISA1           NAND2X6                 csa_tree_ex_stage_i_mult_i_add_228_5_groupi_g15916.B   
+     59475 A       ISA1           NOR2BX1                 csa_tree_ex_stage_i_mult_i_add_228_5_groupi_g16363.AN   
+     59787 A       ISA1           NAND3X8                 ex_stage_i_alu_i_add_168_54_g3187.B   
+     59836 A       ISA1           AO22X4                  g3886.A0   
+     59840 A       ISA1           AO22X4                  g3885.B0   
+     61120 A       ISA1           AO22X4                  g3868.B0   
+     61464 A       ISA1           AO22X4                  g386314.B1   
+     61629 A       ISA1           AO22X4                  ex_stage_i_alu_i_alu_div_i_gt_105_58_g1335.B0   
+     62093 A       ISA0           NOR2X6                  ex_stage_i_alu_i_alu_div_i_minus_102_33_g1210.A   
+     62155 A       ISA0           NOR4X8                  ex_stage_i_alu_i_alu_div_i_minus_102_33_g1220.B   
+     62313 A       ISA0           OR2X6                   ex_stage_i_alu_i_alu_div_i_minus_102_33_g1245.A   
+     63991 A       ISA0           MX3X2                   ex_stage_i_alu_i_srl_300_44_g2782.S0   
+     64070 A       ISA1           MXI2X6                  ex_stage_i_alu_i_srl_300_44_g2794.S0   
+     64221 A       ISA0           MXI3X2                  ex_stage_i_alu_i_srl_300_44_g2812.B   
+     64249 A       ISA0           MXI3X2                  ex_stage_i_alu_i_srl_300_44_g2814.C   
+     64413 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2839.A   
+     64434 A       ISA1           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2841.S0   
+     64466 A       ISA1           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2845.S0   
+     64497 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2849.S0   
+     64537 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2854.S0   
+     64619 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2866.B   
+     64621 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2866.S0   
+     64675 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2873.B   
+     64707 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2877.B   
+     64911 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2906.A   
+     64915 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2906.S0   
+     65217 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2948.S0   
+     65241 A       OSA0           NAND2X8                 ex_stage_i_alu_i_srl_300_44_g2951.Y   
+     65283 A       ISA0           CLKMX2X3                ex_stage_i_alu_i_srl_300_44_g2957.A   
+     65357 A       ISA1           NAND2X6                 ex_stage_i_alu_i_srl_300_44_g2967.B   
+     67258 A       ISA1           AND3X8                  g383592.B   
+     67260 A       ISA1           AND3X8                  g383592.A   
+     67891 A       ISA1           AND3X6                  g142.C   
+     69241 A       ISA0           OA22X4                  g177.A0   
+     70323 A       ISA0           OR3X6                   g211998.C   
+     70349 A       ISA0           NOR3X8                  g212002.B   
+     70403 A       ISA0           AO21X4                  g212010.B0   
+     70496 A       ISA0           AOI2BB1X1               g382873.A0N   
+     71877 A       ISA1           AO22X4                  g212249.B0   
+     72586 A       ISA0           AO21X4                  g212364.A0   
+    143145 cA      ISA0           AO21X4                  g212364.A1   
+    173901 cA      OSA0           CLKXOR2X2               if_stage_i_add_167_42_g872.Y   
+     72847 A       ISA0           AO21X4                  g212410.B0   
+     72927 A       ISA0           NOR2X8                  g212426.B   
+    142397 cA      OSA0           CLKAND2X6               g212486.Y   
+    142399 cA      ISA0           CLKAND2X6               g212486.B   
+    142403 cA      ISA0           CLKAND2X6               g212486.A   
+     73271 A       ISA1           CLKAND2X6               g212486.A   
+     73337 A       OSA0           CLKAND2X12              g212499.Y   
+    142344 cA      ISA0           CLKAND2X12              g212499.B   
+    142345 cA      ISA0           CLKAND2X12              g212499.A   
+     73387 A       ISA1           NAND2X6                 g378866.A   
+     73433 A       ISA1           NAND2X8                 g212520.A   
+    138608 cA      OSA1           NAND2X6                 g213290.Y   
+    138611 cA      ISA0           NAND2X6                 g213290.B   
+    138612 cA      ISA0           NAND2X6                 g213290.A   
+     74227 Utm     ISA1           NAND2X8                 g212679.A   
+    139415 cUtm    OSA1           NAND2X8                 g213137.Y   
+    139417 cUtm    ISA0           NAND2X8                 g213137.B   
+    139421 cUtm    ISA0           NAND2X8                 g213137.A   
+     74232 Utm     OSA1           NAND2X8                 g212679.Y   
+    139416 cUtm    OSA0           NAND2X8                 g213137.Y   
+    141651 cUtm    ISA0           NAND2X8                 g212679.B   
+    141653 cUtm    ISA0           NAND2X8                 g212679.A   
+     74504 A       ISA0           AO22X4                  g212727.B0   
+    141433 cA      ISA0           AO22X4                  g212727.B1   
+     75007 A       ISA1           NAND2X8                 g212856.A   
+     75436 A       ISA0           NOR2X8                  g3771__2346.A   
+    125144 cA      ISA0           AND2X6                  g363668.A   
+    125146 cA      ISA0           AND2X6                  g363668.B   
+    125147 cA      OSA0           AND2X6                  g363668.Y   
+     75454 A       ISA0           AO22X4                  g212908.B0   
+    140438 cA      ISA0           AO22X4                  g212908.B1   
+     75459 A       ISA1           NAND2X6                 g212909.A   
+    138767 cA      OSA1           NAND2X6                 g213269.Y   
+    138776 cA      ISA0           NAND2X6                 g213269.B   
+    138777 cA      ISA0           NAND2X6                 g213269.A   
+     75598 A       ISA0           AO22X4                  g212925.B0   
+    140308 cA      ISA0           AO22X4                  g212925.B1   
+     75608 A       ISA1           OA22X4                  g212926.B0   
+    140303 cA      ISA1           OA22X4                  g212926.B1   
+     75619 A       ISA0           OR3X6                   g212930.A   
+     75739 A       ISA1           CLKAND2X3               g212981.B   
+     76358 A       ISA0           NOR2X8                  g375601.B   
+     76535 Utm     ISA1           NAND2X8                 g213137.A   
+     76537 Utm     ISA1           NAND2X8                 g213137.B   
+     76897 A       OSA1           INVX6                   g213224.Y   
+    138985 cA      ISA0           INVX6                   g213224.A   
+     77217 A       ISA1           NAND2X8                 g213291.B   
+     77435 A       ISA0           NOR3X8                  g213347.A   
+     78739 A       ISA1           NAND2X6                 g213570.B   
+     78977 A       ISA1           CLKAND2X12              g213620.A   
+    136377 cA      ISA0           INVX6                   g214024.A   
+    136379 cA      OSA1           INVX6                   g214024.Y   
+     79418 A       OSA1           OR2X6                   g213719.Y   
+    136987 cA      ISA1           OR2X6                   g213719.B   
+    136988 cA      ISA1           OR2X6                   g213719.A   
+     81293 A       ISA0           NOR3X8                  g370776.B   
+     81588 A       ISA0           NOR2X8                  g370442.B   
+     81594 A       ISA0           OAI21X4                 g370441.A1   
+     81602 A       ISA1           CLKAND2X6               g370426.B   
+     82204 A       ISA0           AO22X4                  g3699.B0   
+    133432 cA      ISA0           AO22X4                  g3699.B1   
+     82598 A       ISA0           OR4X6                   g369586.B   
+     82621 A       ISA0           OA22XL                  g369576.B0   
+     83298 A       ISA0           NOR2X8                  g369098.B   
+     84609 A       ISA1           AND2X6                  g368053.A   
+     86390 A       ISA1           NAND2X6                 g366842.B   
+     86648 A       ISA0           NOR2X6                  g366674.A   
+    128391 cA      OSA0           CLKINVX6                g366675.Y   
+    128392 cA      ISA1           CLKINVX6                g366675.A   
+     87019 A       ISA1           AO22X4                  g352373.B1   
+     87261 A       ISA0           OR3X6                   g366324.C   
+     87262 A       ISA0           OR3X6                   g366324.B   
+     87341 A       ISA1           AO22X4                  g352407.B1   
+     87712 A       ISA1           NAND2X8                 g366024.A   
+     87738 A       ISA0           AO22X4                  g366016.B0   
+    127280 cA      ISA0           AO22X4                  g366016.B1   
+     87786 A       ISA1           NAND2X6                 g365994.A   
+     87798 A       ISA0           OA21X4                  g365956.A0   
+     87862 A       ISA1           NAND2X8                 g365875.A   
+     87864 A       ISA1           NAND2X8                 g365874.A   
+     88154 A       ISA0           NOR2X8                  g365574.A   
+    124690 cA      ISA0           CLKAND2X6               g362477.A   
+    124692 cA      ISA0           CLKAND2X6               g362477.B   
+    124693 cA      OSA0           CLKAND2X6               g362477.Y   
+     89335 A       ISA1           NAND2X8                 g363663.A   
+     90671 A       ISA1           NAND2X6                 g353162.B   
+     91233 Utm     ISA1           AO21X4                  g353319.A1   
+     91828 A       ISA0           NOR4X8                  g360260.B   
+     91962 A       ISA0           NOR4X8                  g360242.C   
+     91964 A       ISA0           NOR4X8                  g360242.B   
+     91965 A       ISA0           NOR4X8                  g360242.A   
+     92026 A       ISA0           NOR4X8                  g360231.D   
+     92070 A       ISA0           NOR4X8                  g360226.D   
+     92088 A       ISA0           NOR4X8                  g360224.D   
+     92090 A       ISA0           NOR4X8                  g360224.B   
+     92094 A       ISA0           NOR4X8                  g360224.A   
+     92098 A       ISA0           OR4X6                   g360223.B   
+     92140 A       ISA0           NOR4X8                  g360218.D   
+     92144 A       ISA0           NOR4X8                  g360218.A   
+     92384 A       ISA0           OR3X6                   g360190.C   
+     92386 A       ISA0           OR3X6                   g360190.B   
+     92513 A       ISA0           NOR3X6                  g360171.A   
+     93274 Utm     ISA1           NAND2X8                 g359995.B   
+     93571 A       ISA1           AO21X4                  g359947.A0   
+     93752 A       ISA0           NOR4X6                  g359926.A   
+     94973 A       ISA1           AO21X4                  g354526.A0   
+     95589 A       ISA0           CLKMX2X3                g354787.A   
+     95655 A       ISA1           AO21X4                  g354796.A1   
+     95787 A       ISA0           CLKMX2X3                g354815.A   
+     95859 A       ISA1           AO21X4                  g354826.A0   
+     95867 A       ISA1           AO21X4                  g354827.A0   
+     96932 A       ISA1           CLKMX2X3                g354943.A   
+     97427 A       ISA0           CLKMX2X3                g355003.A   
+     97435 A       ISA0           CLKMX2X3                g355004.A   
+     97443 A       ISA0           CLKMX2X3                g355005.A   
+     97451 A       ISA0           CLKMX2X3                g355006.A   
+     97459 A       ISA0           CLKMX2X3                g355007.A   
+     97467 A       ISA0           CLKMX2X3                g355008.A   
+     97483 A       ISA0           CLKMX2X3                g355010.A   
+     97510 A       ISA1           CLKAND2X12              g359456.B   
+     97540 A       ISA1           CLKAND2X12              g359451.B   
+     97552 A       ISA1           CLKAND2X12              g359449.B   
+     97594 A       ISA1           CLKAND2X12              g359441.B   
+     97612 A       ISA1           CLKAND2X12              g359438.B   
+     97630 A       ISA1           CLKAND2X12              g359435.B   
+     97746 A       ISA1           CLKAND2X12              g359420.B   
+     97778 A       ISA1           CLKAND2X12              g359415.B   
+     97790 A       ISA1           CLKAND2X12              g359413.B   
+     97808 A       ISA1           CLKAND2X12              g359410.B   
+     97820 A       ISA1           CLKAND2X12              g359408.B   
+     97898 A       ISA1           CLKAND2X12              g359399.B   
+     97906 A       ISA1           CLKAND2X12              g359398.B   
+     97969 A       OSA0           NOR2X6                  g359386.Y   
+    116452 cA      ISA1           NOR2X6                  g359386.A   
+    116454 cA      ISA1           NOR2X6                  g359386.B   
+     99547 A       ISA0           CLKMX2X3                g355406.A   
+     99555 A       ISA0           CLKMX2X3                g355407.A   
+     99563 A       ISA0           CLKMX2X3                g355408.A   
+    103399 A       ISA0           NOR3X8                  g356359.B   
+    104203 A       ISA1           AO22X4                  g356533.B1   
+    104653 A       ISA0           OR4X6                   g357813.C   
+    104654 A       ISA0           OR4X6                   g357813.B   
+    104993 A       ISA1           AO22X4                  g356612.B1   
+    105073 A       ISA0           AO21X4                  g357675.A0   
+    108880 cA      ISA0           AO21X4                  g357675.A1   
+    105348 A       ISA1           AND3X8                  g357577.A   
+    105627 A       ISA1           CLKAND2X3               g357506.A   
+    106143 A       ISA1           AO22X4                  g356924.B1   
+
+[end TFM_705]
+
+
+INFO (TFM-901): Fault Status Statistics for faults included in this fault list: 
+ Total                 :          459
+ Tested                :            0
+ Possibly Tested       :            0
+ Redundant             :            0
+ Untested (unprocessed):            1
+   C (CSO PTAB)        :            1
+ ATPG Untestable       :           17
+   Ud                  :            4
+   Utm                 :           13
+ ATPG Aborted          :          441
+[end TFM_901]
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           19,265,472  bytes
+
+                      CPU Time =    0:00:00.03
+                  Elapsed Time =    0:00:00.03                    [end TDA_001]
+
+     Date Ended:  Sunday Oct 18 18:05:05 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-705): Testmode: COMPRESSION Experiment: cv32e40p_core_stuck_at Fault List:   
+      1 INFO (TFM-901): Fault Status Statistics for faults included in this fault list: 
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

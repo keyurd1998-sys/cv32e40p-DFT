@@ -4,12 +4,12 @@ INFO (TDA-005): Command Line Invocation:
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_build_model_101726193321-002068000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_build_model_101826172424-346857000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Saturday Oct 17 19:33:21 2026  IST
+            Date Started: Sunday Oct 18 17:24:24 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 47607.
+            This job is process number 620369.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -21,7 +21,7 @@ INFO (TDA-009): Options/Values information.
             -designtop cv32e40p_core
             -TECHLIB /home/admin/DFT/Library/atpg/stdcell.v
             -allowmissingmodules yes
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_build_model_101726193321-002068000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_build_model_101826172424-346857000
             -STDOUT no
             -messagecounteach 100
             -DESIGNSOURCE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/cv32e40p_core.test_netlist.v
@@ -37,7 +37,7 @@ Search Order  2:  "/home/admin/DFT/Library/atpg/stdcell.v"
 
 Reading Verilog data from /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_80/cv32e40p_core.test_netlist.v
 
-Verilog Parser complete - 260 modules, 124 gates, 0 user defined primitives.
+Verilog Parser complete - 260 modules, 125 gates, 0 user defined primitives.
 
 
 Reading Verilog data from /home/admin/DFT/Library/atpg/stdcell.v
@@ -53,9 +53,9 @@ WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connecti
 WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_tlat' has no external net connection for any usage in the design. Cell contents file: '/home/admin/DFT/Library/atpg/stdcell.v'.  [end TEI_110] 
 
 
-Number of blocks in the hierarchical model is: 140,967.
+Number of blocks in the hierarchical model is: 142,375.
 
-Number of technology library cell instances in the hierarchical model is: 23,998.
+Number of technology library cell instances in the hierarchical model is: 24,445.
 
 
 INFO (TEI-197): Build Model - Hierarchical Model Build completed. [end TEI_197] 
@@ -72,9 +72,9 @@ INFO (TLM-055): Design Summary
                 --------------
 
 Hierarchical Model:                  Flattened Model:
-        140,967  Blocks                      80,331  Blocks
-        427,227  Pins                        80,331  Nodes
-        236,963  Nets
+        142,375  Blocks                      81,367  Blocks
+        431,294  Pins                        81,367  Nodes
+        239,473  Nets
 
 Primary Inputs:                      Primary Outputs:
         312  Input Only                       234  Output Only
@@ -83,9 +83,9 @@ Primary Inputs:                      Primary Outputs:
 
 Tied Nets:                           Dotted Nets:
       4,362  Tied to 0                          0  Two-State
-      2,131  Tied to 1                          0  Three-State
+      2,132  Tied to 1                          0  Three-State
           0  Tied to X                          0  Total Dotted Nets
-      6,493  Total Tied Nets
+      6,494  Total Tied Nets
 
 Selected Primitive Functions:
           0  Clock Chopper (CHOP) primitives 
@@ -94,17 +94,17 @@ Selected Primitive Functions:
           0  TSDs
           0  Resistors
           0  Transistors
-      3,299  MUX2s
+      3,302  MUX2s
           3  Latches
 
 
       2,307  Rising  Edge Flop w/Set-Dominant and Reset Port
       2,307  Total Flops
 
-     23,998  Technology Library Cell Instances
+     24,445  Technology Library Cell Instances
 
 [end TLM_055] 
-Optimization removed logic for 7 of 129 cells in this design.
+Optimization removed logic for 7 of 162 cells in this design.
 
 Optimization removed a total of 736 tied Latch Ports.
 Optimization removed a total of 3,034 non-controlling inputs.
@@ -117,10 +117,10 @@ INFO (TEI-199): Build Model - Flat Model Build completed.  [end TEI_199]
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =          135,141,888  bytes
+                  Total Memory =          134,506,720  bytes
 
-                      CPU Time =    0:00:01.81
-                  Elapsed Time =    0:00:02.79                    [end TDA_001]
+                      CPU Time =    0:00:01.82
+                  Elapsed Time =    0:00:02.97                    [end TDA_001]
 
 
 

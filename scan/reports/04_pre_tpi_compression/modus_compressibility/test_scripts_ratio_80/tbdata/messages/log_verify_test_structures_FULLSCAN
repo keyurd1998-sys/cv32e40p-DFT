@@ -4,12 +4,12 @@ INFO (TDA-005): Command Line Invocation:
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_verify_test_structures_FULLSCAN_101726180103-947263000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_verify_test_structures_FULLSCAN_101826160303-160821000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Saturday Oct 17 18:01:03 2026  IST
+            Date Started: Sunday Oct 18 16:03:03 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 3159.
+            This job is process number 563961.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -20,10 +20,10 @@ INFO (TDA-009): Options/Values information.
             -TESTMODE FULLSCAN
 
             -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_verify_test_structures_FULLSCAN_101726180103-947263000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/test_scripts_ratio_80/testresults/logs/log_verify_test_structures_FULLSCAN_101826160303-160821000
             -STDOUT no
 [end TDA_009]
-INFO (TSV-900): verify_test_structures processing has started Sat Oct 17 18:01:03 2026    [end TSV_900] 
+INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 16:03:03 2026    [end TSV_900] 
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 ------------------- verify_test_structures Process Preview ---------------------
   apply constraints ...................................... constraints=yes    
@@ -141,7 +141,7 @@ Analyze feedback loops and keeper devices process has completed.
    Analyze clock choppers                             
 
 Analyze clock choppers process has completed.
-                             CPU time =  0:00:00.02  Elapsed time =  0:00:00.06
+                             CPU time =  0:00:00.03  Elapsed time =  0:00:00.06
   
    Analyze flip-flop and latch scan characteristics   
 INFO (TSV-068): The length of the longest scan chain is 1140 bit positions, which is 100% of the average scan chain length 1140 (based on 2279 total scan chain bits and 2 valid scan chains).   [end TSV_068] 
@@ -155,7 +155,7 @@ WARNING (TSV-163): Scan chain flop or latch block COMPACTOR.compressor.\mreg1_re
 WARNING (TSV-163): Scan chain flop or latch block COMPACTOR.compressor.\mreg0_reg[75].__iNsT0.dff_primitive changes value during the same scan cycle as scan chain flop or latch block \id_stage_i_register_file_i_mem_reg[7][26].__iNsT2.dff_primitive. The upstream and downstream flops or latches are changing on the same scan cycle but the clocks are in different domains which may cause the scan chain to fail to shift properly.  [end TSV_163] 
 
 Analyze flip-flop and latch scan characteristics process has completed.
-                             CPU time =  0:00:00.01  Elapsed time =  0:00:00.02
+                             CPU time =  0:00:00.01  Elapsed time =  0:00:00.03
   
    Analyze explicit fixed value latches 
 
@@ -166,7 +166,7 @@ Analyze explicit fixed value latches process has completed.
    Check for mutually exclusive gating logic (MEG)    
 
 Analyze potential clock signal races process has completed.
-                             CPU time =  0:00:00.05  Elapsed time =  0:00:00.07
+                             CPU time =  0:00:00.04  Elapsed time =  0:00:00.07
   
    Analyze internal scan chains 
 
@@ -183,9 +183,9 @@ INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:
 
                   Total Memory =           25,714,800  bytes
 
-                      CPU Time =    0:00:00.13
+                      CPU Time =    0:00:00.14
                   Elapsed Time =    0:00:00.38                    [end TDA_001]
 
-     Date Ended:  Saturday Oct 17 18:01:04 2026  IST
+     Date Ended:  Sunday Oct 18 16:03:03 2026  IST
 
 
