@@ -6,7 +6,7 @@
 ![Channels](https://img.shields.io/badge/Channels-2-informational)
 
 ## Overview
-The scan flow performs logic synthesis, testability design rule check (TDRC) violation repair, scan flop replacement, ATPG-guided test point insertion (TPI), XOR scan compression insertion, and timing optimization for the CV32E40P RISC-V core using Cadence Genus.
+The scan flow performs logic synthesis, testability design rule check (TDRC) violation repair, scan flop replacement, ATPG-guided test point insertion (TPI), XOR scan compression insertion, and timing optimization for the CV32E40P RISC-V core using Cadence Genus. The design RTL is referenced from the OpenHW Group [cv32e40p repository](https://github.com/openhwfoundation/cv32e40p).
 
 ## Flow Steps
 

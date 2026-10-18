@@ -8,9 +8,16 @@
 ![GLS Verification](https://img.shields.io/badge/GLS%20Status-100%25%20Passed-brightgreen)
 ![Compression](https://img.shields.io/badge/Compression-80x-orange)
 ![Channels](https://img.shields.io/badge/Channels-2-informational)
+![RTL Source](https://img.shields.io/badge/RTL%20Source-OpenHW%20CV32E40P-informational)
 
 ## Overview
 This project implements an end-to-end Design-for-Test (DFT) flow for the CV32E40P RISC-V 32-bit core. The flow covers RTL elaboration, testability design rule check (TDRC) repair, scan flip-flop mapping, ATPG-guided test point insertion (TPI), XOR-based scan compression, ATPG pattern generation, and gate-level pattern simulation using Cadence tools.
+
+## RTL Reference
+The core RTL source is based on the open-source CV32E40P processor core maintained by the OpenHW Group:
+- Upstream Repository: [OpenHW Group CV32E40P](https://github.com/openhwfoundation/cv32e40p)
+- Architecture: 4-stage in-order 32-bit RISC-V CPU core (RV32IM[F]C)
+- RTL Directory: rtl/
 
 ## Tools Used
 - Synthesis & DFT: Cadence Genus 25.10
