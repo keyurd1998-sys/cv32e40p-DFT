@@ -1,0 +1,122 @@
+Starting Command: commit_tests 
+
+INFO (TDA-005): Command Line Invocation: 
+            commit_tests -inexperiment cv32e40p_core_stuck_at -testmode COMPRESSION -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -stdout summary  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_commit_tests_COMPRESSION_cv32e40p_core_stuck_at_101826124514-103288000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Sunday Oct 18 12:45:14 2026  IST
+            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
+            This job is process number 471751.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
+            -TESTMODE COMPRESSION
+
+            -INEXPERIMENT cv32e40p_core_stuck_at
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_commit_tests_COMPRESSION_cv32e40p_core_stuck_at_101826124514-103288000
+            -STDOUT summary
+[end TDA_009]
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+
+INFO (TBD-806): Input test vector File(s) (bytes, name):  [end TBD_806] 
+        2573167 /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/tbdata/TBDbin.COMPRESSION.cv32e40p_core_stuck_at
+
+INFO (TBD-807): Experiment cv32e40p_core_stuck_at odometers prior to commit_tests: 1.1.1.2.1 thru 1.2.1.94.1 (Relative test numbers 1 thru 982).  [end TBD_807] 
+
+Testmode and Global statistics prior to commit_tests
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00   0.00       174570            0            0            0       174570       174627            0            0            0       174627
+Collapsed Static     0.00   0.00       104214            0            0            0       104214       104267            0            0            0       104267
+PI Static            0.00   0.00          488            0            0            0          488          490            0            0            0          490
+PO Static            0.00   0.00          347            0            0            0          347          347            0            0            0          347
+
+Total Dynamic                               0
+
+Parametric        
+
+IDDq                 0.00   0.00       174627            0                                 174627       174627            0                                 174627
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+
+Testmode and Global statistics after commit_tests
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static        95.94  95.91       174570       167219            0          270         7081       174627       167219            0          270         7138
+Collapsed Static    96.02  95.97       104214        99826            0          245         4143       104267        99826            0          245         4196
+PI Static           98.36  97.96          488          480            0            0            8          490          480            0            0           10
+PO Static          100.00 100.00          347          347            0            0            0          347          347            0            0            0
+
+Total Dynamic                               0
+
+Parametric        
+
+IDDq                 0.00   0.00       174627            0                                 174627       174627            0                                 174627
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+INFO (TBD-810): Experiment cv32e40p_core_stuck_at is saved to the master test vectors odometers: 1.1.1.2.1 to 1.2.1.94.1 (Relative test numbers 1 to 982).  [end TBD_810] 
+
+INFO (TBD-809): Master test vector file statistics:  [end TBD_809]   
+  experiments     = 1
+  test sections   = 2
+  tester loops    = 2
+  test procedures = 99
+  test sequence   = 982
+  init sequencess = 2
+
+INFO (TBD-805): File(s) generated (bytes and name):  [end TBD_805] 
+        2573167 /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/tbdata/TBDbin.COMPRESSION 
+         737280 /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/tbdata/faultStatus 
+
+INFO (TBD-831): commit_tests completed successfully.  [end TBD_831] 
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           17,416,640  bytes
+
+                      CPU Time =    0:00:00.08
+                  Elapsed Time =    0:00:00.11                    [end TDA_001]
+
+     Date Ended:  Sunday Oct 18 12:45:14 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TBD-805): File(s) generated (bytes and name):   
+      1 INFO (TBD-806): Input test vector File(s) (bytes, name):   
+      1 INFO (TBD-807): Experiment cv32e40p_core_stuck_at odometers prior to commit_tests: 1.1.1.2.1 thru 1.2.1.94.1 (Relative test numbers 1 thru 982).   
+      1 INFO (TBD-809): Master test vector file statistics:     
+      1 INFO (TBD-810): Experiment cv32e40p_core_stuck_at is saved to the master test vectors odometers: 1.1.1.2.1 to 1.2.1.94.1 (Relative test numbers 1 to 982).   
+      1 INFO (TBD-831): commit_tests completed successfully.   
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
