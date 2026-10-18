@@ -1,5 +1,5 @@
 # ==============================================================================
-# Cadence Modus ATPG Script - Transition Delay (COMPRESSION Mode Only)
+# Cadence Modus ATPG Script - Stuck-At (COMPRESSION Mode Only)
 # Target: cv32e40p_core
 # ==============================================================================
 
@@ -8,6 +8,7 @@
 # ------------------------------------------------------------------------------
 set DESIGN   "cv32e40p_core"
 set TECH_LIB "/home/admin/DFT/Library/atpg/stdcell.v"
+set NETLIST  [file normalize "$WORKDIR/../../scan/netlists/cv32e40p_core_compressed.v"]
 
 set_db workdir .
 set WORKDIR [get_db workdir]
@@ -26,14 +27,19 @@ file mkdir $REPORTS_DIR $LOGS_DIR $TESTRESULTS_DIR
 file delete -force "$WORKDIR/tbdata"
 file delete -force "$WORKDIR/testresults"
 
+if {![file exists $NETLIST]} {
+    puts "ERROR: Gate-level netlist not found at: $NETLIST"
+    exit 1
+}
+
 # ------------------------------------------------------------------------------
 # 2. Build Logic Simulation Model
 # ------------------------------------------------------------------------------
-puts "INFO: Building logic simulation model..."
+puts "INFO: Building logic simulation model using scan netlist: $NETLIST..."
 build_model \
     -cell $DESIGN \
     -techlib $TECH_LIB \
-    -designsource "$WORKDIR/${DESIGN}.test_netlist.v" \
+    -designsource $NETLIST \
     -allowmissingmodules yes \
     -messagecounteach 100
 
@@ -64,29 +70,22 @@ verify_test_structures \
     -testmode COMPRESSION
 
 # ------------------------------------------------------------------------------
-# 5. Build Fault Model (Transition Delay)
+# 5. Build Fault Model (Stuck-At)
 # ------------------------------------------------------------------------------
-puts "INFO: Building Transition Delay fault model (-includedynamic yes)..."
+puts "INFO: Building Stuck-At fault model..."
 build_faultmodel \
-    -includedynamic yes
+    -includedynamic no
 
 puts "INFO: Writing initial fault summary to $REPORTS_DIR/initial_faults.rpt..."
 report_faults -summary > "$REPORTS_DIR/initial_faults.rpt"
 
 # ------------------------------------------------------------------------------
-# 6. ATPG - Transition Delay Test Generation (COMPRESSION)
+# 6. ATPG - Test Generation (COMPRESSION)
 # ------------------------------------------------------------------------------
-puts "INFO: Generating Transition Delay ATPG patterns (LOC/LOS)..."
-create_logic_delay_tests \
-    -experiment cv32e40p_core_compression \
-    -testmode COMPRESSION
-
-puts "INFO: Generating supplementary logic tests for remaining faults..."
+puts "INFO: Generating Stuck-At ATPG test patterns..."
 create_logic_tests \
     -experiment cv32e40p_core_compression \
-    -append yes \
-    -testmode COMPRESSION \
-    -testscan no
+    -testmode COMPRESSION
 
 # ------------------------------------------------------------------------------
 # 7. Export Coverage & Test Summary Reports
@@ -144,7 +143,7 @@ write_vectors \
     -exportdir "$TESTRESULTS_DIR/verilog_parallel"
 
 puts "=================================================================="
-puts " Transition Delay ATPG Completed Successfully!"
+puts " Stuck-At ATPG Completed Successfully!"
 puts " Reports: $REPORTS_DIR/"
 puts " Serial Vectors:   $TESTRESULTS_DIR/verilog/"
 puts " Parallel Vectors: $TESTRESULTS_DIR/verilog_parallel/"

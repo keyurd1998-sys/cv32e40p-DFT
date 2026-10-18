@@ -9,14 +9,12 @@ This directory contains the Automatic Test Pattern Generation (ATPG) flow using 
 ```text
 atpg/
 ├── stuck_at/
-│   ├── runmodus.atpg.tcl            # Stuck-At ATPG (COMPRESSION mode)
-│   ├── cv32e40p_core.COMPRESSION.pinassign
-│   └── cv32e40p_core.test_netlist.v
+│   ├── atpg.tcl                     # Stuck-At ATPG (COMPRESSION mode)
+│   └── cv32e40p_core.COMPRESSION.pinassign
 │
 ├── delay/
-│   ├── runmodus.atpg.tcl            # Transition Delay ATPG (COMPRESSION mode)
-│   ├── cv32e40p_core.COMPRESSION.pinassign
-│   └── cv32e40p_core.test_netlist.v
+│   ├── atpg.tcl                     # Transition Delay ATPG (COMPRESSION mode)
+│   └── cv32e40p_core.COMPRESSION.pinassign
 │
 ├── logs/                            # Central execution logs
 └── reports/                         # Summary reports
@@ -24,19 +22,23 @@ atpg/
 
 ---
 
-## Technology Library & Mode Configuration
+## Configuration
 
 - **Technology Library**: Fixed standard cell Verilog model:
   ```tcl
   set TECH_LIB "/home/admin/DFT/Library/atpg/stdcell.v"
   ```
-- **Test Mode**: Exclusively **COMPRESSION** mode (`cv32e40p_core.COMPRESSION.pinassign`). All Fullscan bypass files and commands are removed.
+- **Netlist Source**: Directly uses the synthesized scan compressed netlist from the `scan/` directory:
+  ```tcl
+  set NETLIST "$WORKDIR/../../scan/netlists/cv32e40p_core_compressed.v"
+  ```
+- **Test Mode**: Exclusively **COMPRESSION** mode (`cv32e40p_core.COMPRESSION.pinassign`).
 
 ---
 
 ## ATPG Execution & Generated Reports
 
-Each `runmodus.atpg.tcl` executes the complete ATPG flow and automatically exports all required reports and vectors:
+Each `atpg.tcl` executes the complete ATPG flow and automatically exports all required reports and vectors:
 
 | Report / Artifact | File Location | Description |
 | :--- | :--- | :--- |
@@ -58,7 +60,7 @@ Each `runmodus.atpg.tcl` executes the complete ATPG flow and automatically expor
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg/stuck_at
 
 # Run Stuck-At ATPG:
-modus -file runmodus.atpg.tcl -log runmodus.log
+modus -file atpg.tcl -log atpg.log
 ```
 
 ### 2. Transition Delay ATPG
@@ -67,5 +69,5 @@ modus -file runmodus.atpg.tcl -log runmodus.log
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg/delay
 
 # Run Transition Delay ATPG:
-modus -file runmodus.atpg.tcl -log runmodus.log
+modus -file atpg.tcl -log atpg.log
 ```
