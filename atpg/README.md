@@ -4,14 +4,39 @@ This directory contains the Automatic Test Pattern Generation (ATPG) flow using 
 
 ---
 
+## Architecture & Responsibilities
+
+- **Shell Runner (`run_atpg.sh`)**:
+  - Initializes directory structure (`stuck_at/` or `delay/`).
+  - Sets up isolated subdirectories (`reports/`, `logs/`, `testresults/`).
+  - Executes Modus inside the mode directory so that all outputs, databases (`tbdata/`), reports, and test vectors are stored separately.
+- **Tcl Script (`runmodus.atpg.tcl`)**:
+  - Contains strictly EDA ATPG command execution.
+  - Zero directory creation or OS environment setup logic.
+
+---
+
 ## Directory Structure
 
 ```text
 atpg/
-├── runmodus.atpg.tcl                # Unified ATPG script (Stuck-At & Delay, COMPRESSION)
+├── run_atpg.sh                      # Runner script: initializes mode workspace & runs Modus
+├── runmodus.atpg.tcl                # Pure command execution ATPG script
 ├── cv32e40p_core.COMPRESSION.pinassign
-├── logs/                            # Execution logs
-└── reports/                         # Summary & coverage reports
+├── stuck_at/                        # Isolated workspace for Stuck-At ATPG
+│   ├── reports/
+│   ├── logs/
+│   ├── testresults/
+│   │   ├── verilog_serial/
+│   │   └── verilog_parallel/
+│   └── tbdata/
+└── delay/                           # Isolated workspace for Transition Delay ATPG
+    ├── reports/
+    ├── logs/
+    ├── testresults/
+    │   ├── verilog_serial/
+    │   └── verilog_parallel/
+    └── tbdata/
 ```
 
 ---
@@ -24,59 +49,16 @@ atpg/
   ```
 - **Netlist Source**: Directly uses the synthesized scan compressed netlist from the `scan/` directory:
   ```tcl
-  set NETLIST "$WORKDIR/../scan/netlists/cv32e40p_core_compressed.v"
+  set NETLIST "../../scan/netlists/cv32e40p_core_compressed.v"
   ```
 - **Test Mode**: Exclusively **COMPRESSION** mode (`cv32e40p_core.COMPRESSION.pinassign`).
 
 ---
 
-## Unified ATPG Flow Execution
-
-Running `runmodus.atpg.tcl` executes both **Stuck-At** and **Transition Delay** ATPG in a single run:
-
-1. **Model Build**: Reads standard cells and scan netlist into Boolean logic model.
-2. **Test Mode**: Loads compression pin assignments and verifies TSV structural DRC rules.
-3. **Part A (Stuck-At ATPG)**:
-   - Builds static fault universe (`build_faultmodel -includedynamic no`).
-   - Generates deterministic compressed test patterns (`create_logic_tests`).
-   - Analyzes switching activity (`write_toggle_gram`).
-   - Exports serial and parallel Verilog vectors.
-   - Commits tests to the database.
-4. **Part B (Transition Delay ATPG)**:
-   - Builds dynamic transition fault universe (`build_faultmodel -includedynamic yes`).
-   - Generates at-speed transition test patterns (`create_logic_delay_tests`).
-   - Generates supplementary logic tests (`create_logic_tests -append yes -testscan no`).
-   - Analyzes switching activity (`write_toggle_gram`).
-   - Exports serial and parallel Verilog vectors.
-   - Commits tests to the database.
-
----
-
-## Generated Reports & Artifacts
-
-| Category | Report / Artifact | File Location | Description |
-| :--- | :--- | :--- | :--- |
-| **Structure** | Scan Structures | `reports/test_structures.rpt` | Scan chains, compression channels, & masking |
-| **Stuck-At** | Initial Faults | `reports/stuck_at_initial_faults.rpt` | Collapsed/uncollapsed static fault universe |
-| **Stuck-At** | Test Summary | `reports/stuck_at_test_summary.rpt` | Pattern count, cycle count, & efficiency |
-| **Stuck-At** | Fault Coverage | `reports/stuck_at_fault_coverage.rpt` | Test coverage & fault classification breakdown |
-| **Stuck-At** | Switching Activity | `reports/stuck_at_toggle_gram.rpt` | Scan shift and capture toggle rates |
-| **Stuck-At** | Serial Vectors | `testresults/stuck_at/verilog_serial/` | Tester-ready serial shift Verilog testbench |
-| **Stuck-At** | Parallel Vectors | `testresults/stuck_at/verilog_parallel/`| Fast register deposit Verilog testbench |
-| **Delay** | Initial Faults | `reports/delay_initial_faults.rpt` | Dynamic transition fault universe |
-| **Delay** | Test Summary | `reports/delay_test_summary.rpt` | Pattern count, cycle count, & efficiency |
-| **Delay** | Fault Coverage | `reports/delay_fault_coverage.rpt` | Test coverage & fault classification breakdown |
-| **Delay** | Switching Activity | `reports/delay_toggle_gram.rpt` | Scan shift and capture toggle rates |
-| **Delay** | Serial Vectors | `testresults/delay/verilog_serial/` | Tester-ready serial shift Verilog testbench |
-| **Delay** | Parallel Vectors | `testresults/delay/verilog_parallel/` | Fast register deposit Verilog testbench |
-
----
-
 ## How to Run
 
-Select either `stuck_at` or `delay` at execution time:
+Execute from `atpg/`:
 
-### Option 1: Using the Runner (`run_atpg.sh`)
 ```bash
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg
 
@@ -89,13 +71,17 @@ cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg
 ./run_atpg.sh delay
 ```
 
-### Option 2: Running Modus Directly
-```bash
-# Pass mode as command line argument:
-modus -file runmodus.atpg.tcl -args stuck_at
-modus -file runmodus.atpg.tcl -args delay
+---
 
-# Or pass via environment variable:
-ATPG_MODE=stuck_at modus -file runmodus.atpg.tcl -log runmodus_stuck.log
-ATPG_MODE=delay modus -file runmodus.atpg.tcl -log runmodus_delay.log
-```
+## Generated Reports & Outputs (Inside `stuck_at/` or `delay/`)
+
+| Report / Artifact | File Location | Description |
+| :--- | :--- | :--- |
+| **Scan Structures** | `reports/test_structures.rpt` | Scan chains, compression channels, & masking |
+| **Initial Faults** | `reports/<mode>_initial_faults.rpt` | Initial collapsed/uncollapsed fault universe |
+| **Test Summary** | `reports/<mode>_test_summary.rpt` | Pattern count, cycle count, & efficiency |
+| **Fault Coverage** | `reports/<mode>_fault_coverage.rpt` | Test coverage & fault classification breakdown |
+| **Switching Activity** | `reports/<mode>_toggle_gram.rpt` | Scan shift and capture toggle rates |
+| **Serial Vectors** | `testresults/verilog_serial/` | Tester-ready serial shift Verilog testbench |
+| **Parallel Vectors** | `testresults/verilog_parallel/` | Fast register deposit Verilog testbench |
+| **Execution Log** | `logs/runmodus_<mode>.log` | Complete Modus ATPG run log |
