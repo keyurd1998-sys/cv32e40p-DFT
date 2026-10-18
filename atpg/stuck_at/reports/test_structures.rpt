@@ -7,7 +7,7 @@ INFO (TDA-009): Options/Values information.
             -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
             -TESTMODE COMPRESSION
 
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_test_structures_COMPRESSION_101826115702-439587000
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_test_structures_COMPRESSION_101826123505-834247000
             -STDOUT summary
             -reportchannelmaskchain yes
             -reportchannelmaskstate yes
