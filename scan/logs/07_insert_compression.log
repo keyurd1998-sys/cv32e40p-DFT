@@ -1,0 +1,564 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[20:57:12.455561] Configured Lic search path (25.01-s002): 5280@pine-server
+
+Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
+Options: -overwrite -files 07_insert_compression.tcl -log logs/07_insert_compression.log 
+Date:    Sat Oct 17 20:57:12 2026
+Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
+PID:     82132
+OS:      Red Hat Enterprise Linux 9.7 (Plow)
+
+Checking out license: Genus_Synthesis
+[20:57:12.483674] Periodic Lic check successful
+[20:57:12.483697] Feature usage summary:
+[20:57:12.483698] Genus_Synthesis  
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (3 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (16 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source 07_insert_compression.tcl
+#@ Begin verbose source ./07_insert_compression.tcl
+@file(07_insert_compression.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
+@file(07_insert_compression.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 20:57:29 IST 2026)...
+#@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
+@file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
+@file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
+@file(00_setup_env.tcl) 4: set ROOT_DIR     [file normalize "$SCAN_DIR/.."]
+@file(00_setup_env.tcl) 5: set BLOCK_DIR    $ROOT_DIR
+@file(00_setup_env.tcl) 7: set DBS_DIR      "$SCAN_DIR/dbs"
+@file(00_setup_env.tcl) 8: set REPORTS_DIR  "$SCAN_DIR/reports"
+@file(00_setup_env.tcl) 9: set NETLISTS_DIR "$SCAN_DIR/netlists"
+@file(00_setup_env.tcl) 10: set LOGS_DIR     "$SCAN_DIR/logs"
+@file(00_setup_env.tcl) 12: set ATPG_DIR     "$ROOT_DIR/atpg"
+@file(00_setup_env.tcl) 13: set GLS_DIR      "$ROOT_DIR/gls"
+@file(00_setup_env.tcl) 15: set LIB_DIR "/home/admin/DFT/Library"
+@file(00_setup_env.tcl) 16: set TIMING_LIB "$LIB_DIR/timing/slow.lib"
+@file(00_setup_env.tcl) 17: set LEF_FILE   "$LIB_DIR/lef/all.lef"
+@file(00_setup_env.tcl) 18: set ATPG_LIB   "$LIB_DIR/atpg/stdcell.v"
+@file(00_setup_env.tcl) 20: set FLIST    "$BLOCK_DIR/filelists/cv32e40p_core.flist"
+@file(00_setup_env.tcl) 21: set SDC_FILE "$BLOCK_DIR/constraints/cv32e40p_core.sdc"
+@file(00_setup_env.tcl) 23: set RTL_DIR  "$BLOCK_DIR/rtl"
+@file(00_setup_env.tcl) 24: set BHV_DIR  "$BLOCK_DIR/bhv"
+@file(00_setup_env.tcl) 26: if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
+    puts "ERROR: CV32E40P RTL source files not found under $RTL_DIR."
+    exit 1
+}
+@file(00_setup_env.tcl) 31: puts "=================================================================="
+==================================================================
+@file(00_setup_env.tcl) 32: puts " DFT Environment Setup:"
+ DFT Environment Setup:
+@file(00_setup_env.tcl) 33: puts "   Target Design:  $DESIGN"
+   Target Design:  cv32e40p_core
+@file(00_setup_env.tcl) 34: puts "   Scan Directory: $SCAN_DIR"
+   Scan Directory: /home/admin/DFT/cv32e40p-DFT/scan
+@file(00_setup_env.tcl) 35: puts "   Library:        $TIMING_LIB"
+   Library:        /home/admin/DFT/Library/timing/slow.lib
+@file(00_setup_env.tcl) 36: puts "=================================================================="
+==================================================================
+#@ End verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
+@file(07_insert_compression.tcl) 4: set STEP_RPT_DIR [file normalize "$REPORTS_DIR/07_compression"]
+@file(07_insert_compression.tcl) 5: file mkdir $STEP_RPT_DIR
+@file(07_insert_compression.tcl) 6: file mkdir $DBS_DIR
+@file(07_insert_compression.tcl) 8: read_db "$DBS_DIR/05_tpi.db"
+Reading database file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/05_tpi.db'.
+
+  Message Summary for Library slow.lib:
+  *************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  Missing library level attribute. [LBR-516]: 1
+  *************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.080000, 125.000000) in library 'slow.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX2'.  Ignoring the test_cell.
+        : Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRXL'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX1'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX4'.  Ignoring the test_cell.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX2' is assumed to be ' CKN'.
+        : The tool derives the clock polarity from the sequential timing arcs specified through the Liberty 'timing_type' attribute. For the positive-edge triggered cells a positive value is expected for the 'clocked_on' or 'enable' attribute while an inverted value is expected for the negative-edge triggered sequential cells.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRXL' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX1' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX4' is assumed to be ' CKN'.
+
+  According to lef_library, there are total 6 routing layers [ V(3) / H(3) ]
+
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND2X6' cannot be found. The cell will not be marked as 'avoid'.
+        : Set attribute 'avoid' to true on this cell or set attribute 'lib_lef_consistency_check_enable' to 'true'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND3X8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND4X8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21XL' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22XL' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKAND2X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKAND2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKBUFX6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKINVX6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKMX2X12' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKXOR2X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKXOR2X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFSHQX8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DLY1X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DLY2X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DLY3X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'EDFFHQX2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MDFFHQX8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MX2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MX3X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MX3X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MX3X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MXI2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MXI3X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'MXI3X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'NAND2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'NAND3X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'NAND4X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'NOR2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'NOR4X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'OA21X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'OA22X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'OA22X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '40' reached for message 'PHYS-104'.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL8 cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL64 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL32 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL16 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell RF2R1WX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell RF1R1WX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNRXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNRX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNRX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNRX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TTLATXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TTLATX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TTLATX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TTLATX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX8 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX3 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX20 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX16 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TBUFIX12 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell SEDFFHQXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell SDFFSRHQXL cannot be found in library.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '40' reached for message 'PHYS-279'.
+Warning : Relaxing an attribute value in the library. [LBR-39]
+        : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
+        : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
+Checking out license: Modus_DFT_Opt
+[20:57:30.135152] Periodic Lic check successful
+[20:57:30.659459] Feature usage summary:
+[20:57:30.659459] Genus_Synthesis  
+[20:57:30.659464] Modus_DFT_Opt  
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+        : This attribute does not affect the tool behavior and will be removed in next major release. Remove all usages.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Obsolete attribute. [TUI-30]
+        : Attribute 'dft_testpoint_type' will be obsolete from future releases. Please use 'dft_testpoint_type_flop' instead.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'TUI-30'.
+@file(07_insert_compression.tcl) 11: define_test_mode -name test_mode -active high -create_port test_mode
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+        : This command is obsolete and the new command define_test_signal should be used.
+Warning : Ignored option. [DFT-127]
+        : Specified source 'test_mode' matched an existing port/pin; ignoring option '-create_port'.
+        : A given option can be safely ignored.
+Warning : Ignored test signal definition. [DFT-104]
+        : A test mode signal 'test_mode' with active value 'high' was already associated with port 'port:cv32e40p_core/test_mode'.
+        : A test signal definition can be safely ignored if another signal with same name, port and active value already exists.
+@file(07_insert_compression.tcl) 12: set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
+  Setting attribute of design 'cv32e40p_core': 'dft_mix_clock_edges_in_scan_chains' = true
+@file(07_insert_compression.tcl) 13: set_db [current_design] .dft_lockup_element_type preferred_level_sensitive
+  Setting attribute of design 'cv32e40p_core': 'dft_lockup_element_type' = preferred_level_sensitive
+@file(07_insert_compression.tcl) 16: puts "INFO: Defining 2 scan channels (chain0: scan_in_0/scan_out_0, chain1: scan_in_1/scan_out_1)..."
+INFO: Defining 2 scan channels (chain0: scan_in_0/scan_out_0, chain1: scan_in_1/scan_out_1)...
+@file(07_insert_compression.tcl) 17: define_scan_chain -name chain0 -sdi scan_in_0 -sdo scan_out_0 -create_ports -shift_enable scan_en
+@file(07_insert_compression.tcl) 18: define_scan_chain -name chain1 -sdi scan_in_1 -sdo scan_out_1 -create_ports -shift_enable scan_en
+@file(07_insert_compression.tcl) 21: connect_scan_chains -auto_create_chains
+Info    : Initiating DFT command. [DFT-145]
+        : Started connect_scan_chains.
+  Starting DFT Scan Configuration for module 'cv32e40p_core' in 'normal' mode, with physical flow OFF 
+  Configuring 2 chains for 2153 scan f/f 
+  Configured 2 chains for Domain: 'scan_clk', edge: 'mixed'
+  	 chain0 (scan_in_0 -> scan_out_0) has 1077 registers; Domain:scan_clk, edge: mixed
+  	 chain1 (scan_in_1 -> scan_out_1) has 1076 registers; Domain:scan_clk, edge: mixed
+  Processing 2 scan chains in 'muxed_scan' style.
+  Default shift enable signal is 'scan_en': 'port:cv32e40p_core/SCAN_ENABLE' active high.
+Mapping DFT logic introduced by scan chain connection...
+Mapping DFT logic done.
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for connect_scan_chains is 0 second(s).
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed connect_scan_chains command.
+  =================
+   Message Summary
+  =================
+--------------------------------------------------------
+|  Id   |Sev |Count|           Message Text            |
+--------------------------------------------------------
+|DFT-145|Info|    1|Initiating DFT command.            |
+|DFT-146|Info|    1|Successfully completed DFT command.|
+|DFT-147|Info|    1|Reporting runtime for DFT command. |
+--------------------------------------------------------
+@file(07_insert_compression.tcl) 24: puts "INFO: Inserting Scan Compression on 2 channels (Ratio 80)..."
+INFO: Inserting Scan Compression on 2 channels (Ratio 80)...
+@file(07_insert_compression.tcl) 25: compress_scan_chains \
+    -ratio 80 \
+    -compressor xor \
+    -decompressor broadcast \
+    -mask wide1 \
+    -auto_create
+Info    : Initiating DFT command. [DFT-145]
+        : Started compress_scan_chains.
+
+Compressing scan chains...
+Will create a test port for 'compression_enable'
+Will create a test port for 'mask_enable'
+Will create a test port for 'mask_clock'
+WARNING: Using existing directory '.' for compress_scan_chains.
+
+
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'XOR_COMPRESSION_154_2_1x2_20100110' from file '././tmpCompression'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'XOR_COMPRESSION_154_2_1x2_20100110'.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'INVX6' have zero area.
+        : To prevent this, add physical information for this library cell to LEF, or set 'use_area_from_lef' attribute to false.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKINVX6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'DLY4X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'BUFX6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR3X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKMX2X3' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'AO21X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NAND2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NAND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'AND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X12' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'SDFFRHQX8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKXOR2X2' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OA21X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR3X6' have zero area.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-141'.
+  Setting attribute of root '/': 'boundary_opto_internal_assert' = false
+  Setting attribute of module 'decomp_154_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'decomp_154_2_1x2_20100110': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_154_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_154_2_1x2_20100110': 'boundary_opto' = strict_no
+Info    : Skipping 'boundary_opto' = false setting since set on an internal created hierarchy. [GLO-52]
+        : The module is 'bmux'.
+        : User is not allowed and should not need to disable boundary optimization on internal created hierarchies.
+  Setting attribute of module 'bmux': 'boundary_opto' = true
+  Setting attribute of module 'decomp_154_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'decomp_154_2_1x2_20100110': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_154_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_154_2_1x2_20100110': 'boundary_opto' = strict_no
+Info    : Skipping 'boundary_opto' = false setting since set on an internal created hierarchy. [GLO-52]
+        : The module is 'bmux'.
+  Setting attribute of module 'bmux': 'boundary_opto' = true
+  Setting attribute of root '/': 'boundary_opto_internal_assert' = true
+INFO: Mapping compression macro with a target period of 20000.0 ps
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Connecting the compression_enable signal test_signal:cv32e40p_core/DFT_compression_enable ...
+Connecting the scan inputs to the compression macro...
+Connecting port:cv32e40p_core/scan_in_0 to {hpin:cv32e40p_core/COMPACTOR/RSI_SI[0]}
+Connecting port:cv32e40p_core/scan_in_1 to {hpin:cv32e40p_core/COMPACTOR/RSI_SI[1]}
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Connecting the scan outputs to the compression macro...
+Connecting the internal scan chains to the compression macro...
+Connecting the mask_enable signal test_signal:cv32e40p_core/DFT_mask_enable ...
+Connecting the mask clock port:cv32e40p_core/DFT_mask_clk ...
+Info    : Marking instance as dft_abstract_dont_scan as an abstract segment is being defined on it. [DFT-163]
+        : Setting dft_abstract_dont_scan attribute to true for instance 'COMPACTOR'
+        : Abstract segments are considered to have a complete dft configuration and scan synthesis that must not be changed during subsequent scan insertion steps. Scan and test signal connections may be made on the pins defined on the design hierarchy of the respective abstract segment, to include the segment in higher hierarchy scan chains.
+
+  Setting attribute of design 'cv32e40p_core': 'dft_mv_clock_invalidates_clock_domain' = false
+Prepending 'chain1' with segment 'scan_segment:cv32e40p_core/DFT_segment_1'
+Prepending 'chain0' with segment 'scan_segment:cv32e40p_core/DFT_segment_2'
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+  Number of Abstract Segment non-Scan registers: 154
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2307
+  Percentage of total registers that are scannable: 100%
+  Percentage of abstract segment flops that are scannable: 100%
+
+Mapping compression logic ...
+Done mapping compression logic..
+Info    : The given (sub)design is already uniquified. [TUI-296]
+        : module:cv32e40p_core/XOR_COMPRESSION_154_2_1x2_20100110.
+        : Try running the 'edit_netlist uniquify' command on the parent hierarchy of this (sub)design, if there exists any.
+
+Starting DFT Scan Compression for module 'cv32e40p_core' in 'xor' mode.
+Building the compression logic to include 'broadcast' decompression and 'XOR' compression  with wide1 masking.
+Prepending the mask registers to the actual scan chains.
+
+Actual Scan Chain Summary
+-------------------------
+   The number of actual fullscan chains in the design is: 2
+   The number of actual fullscan chains in the design which are favorable for compression is: 2
+   The number of actual fullscan chains which can be prepended to is: 2
+   The number of actual fullscan chains which are not favorable for prepend is: 0
+
+Number of Internal Scan Channels
+--------------------------------
+   User requested ratio: 80
+   Tool achieved ratio: 76.9
+   The maximum original scan chain length: 1077
+   The number of internal scan channels is: 154
+   The maximum internal scan channel length is: 14
+   The maximum length of the mask register channels is: 77
+   The total number of mask registers added is: 154
+   The final maximum fullscan chain length (including mask and/or misr registers) is: 1154
+   This is 100.0% of the average fullscan chain length of 1153.5
+
+Tester Cycle Statistics
+-----------------------
+   The number of tester cycles required to load a scan pattern in compression mode is: 14
+   The number of tester cycles required to load a scan pattern in fullscan mode is: 1154
+   The number of tester cycles required to load a channel mask shift register chain is: 77
+
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for compress_scan_chains is 12 second(s).
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed compress_scan_chains.
+  =================
+   Message Summary
+  =================
+-----------------------------------------------------------------------------------------------------------------------------------------
+|  Id   |  Sev  |Count|                                                  Message Text                                                   |
+-----------------------------------------------------------------------------------------------------------------------------------------
+|MESG-11|Warning|    1|Maximum message print count reached.                                                                             |
+|TUI-296|Info   |    1|The given (sub)design is already uniquified.                                                                     |
+|       |       |     |Try running the 'edit_netlist uniquify' command on the parent hierarchy of this (sub)design, if there exists any.|
+-----------------------------------------------------------------------------------------------------------------------------------------
+@file(07_insert_compression.tcl) 33: check_dft_rules    > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+Info    : Initiating DFT command. [DFT-145]
+        : Initiating check_dft_rules command.
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+  Number of Abstract Segment non-Scan registers: 154
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2307
+  Percentage of total registers that are scannable: 100%
+  Percentage of abstract segment flops that are scannable: 100%
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for check_dft_rules is 0.076000 seconds.
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed check_dft_rules command.
+@file(07_insert_compression.tcl) 34: report_scan_chains > "$STEP_RPT_DIR/${DESIGN}_scan_chains.rpt"
+@file(07_insert_compression.tcl) 37: set DB_FILE [file normalize "$DBS_DIR/07_compressed.db"]
+@file(07_insert_compression.tcl) 38: write_db -all_root_attributes -to_file $DB_FILE
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/07_compressed.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:01, real = 00:02).
+@file(07_insert_compression.tcl) 40: puts "INFO: Step 7 compression insertion (Ratio 80, 2 Channels) completed. Checkpoint saved: $DB_FILE"
+INFO: Step 7 compression insertion (Ratio 80, 2 Channels) completed. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/07_compressed.db
+@file(07_insert_compression.tcl) 41: exit
+
+Lic Summary:
+[20:57:46.203641] Cdslmd servers: pine-server
+[20:57:46.203667] Feature usage summary:
+[20:57:46.203667] Genus_Synthesis  
+[20:57:46.203667] Modus_DFT_Opt  
+Normal exit.

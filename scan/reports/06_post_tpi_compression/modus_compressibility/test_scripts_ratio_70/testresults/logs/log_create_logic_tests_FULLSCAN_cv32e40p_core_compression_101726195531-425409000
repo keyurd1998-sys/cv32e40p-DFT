@@ -1,0 +1,147 @@
+
+INFO (TDA-005): Command Line Invocation: 
+            create_logic_tests -testscan no -testmode FULLSCAN -experiment cv32e40p_core_compression -workdir /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70 -stdout no  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_create_logic_tests_FULLSCAN_cv32e40p_core_compression_101726195531-425409000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Saturday Oct 17 19:55:31 2026  IST
+            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
+            This job is process number 57788.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70
+            -TESTMODE FULLSCAN
+            -EXPERIMENT cv32e40p_core_compression
+
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/testresults/logs/log_create_logic_tests_FULLSCAN_cv32e40p_core_compression_101726195531-425409000
+            -STDOUT no
+            -testscan no
+[end TDA_009]
+
+
+WARNING (TTC-018): verify_test_structures issued Warning messages related to Stored Pattern tests.  Poor test coverage may result.  [end TTC_018] 
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+****************************************************************************************************
+Coverage Definitions:
+ #Faults  : Number of Active Faults (observable).
+ #Tested  : Number of Active Faults marked tested.
+ #Possibly: Number of Active Faults marked possibly tested
+            (good value is 0 or 1; fault value is X).
+ #Redund  : Number of Active Faults untestable due to redundancy.
+ #Untested: Number of Active Faults untested.
+ %TCov  (%Test Coverage)                      : #Tested / #Faults
+ %ATCov (%Adjusted TCov)                      : #Tested / (#Faults-#Redund)
+****************************************************************************************************
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                173912       165461            0          249         8202  95.14  95.28
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                173969       165461            0          249         8259  95.11  95.25
+****************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Reset/Set Test Generation                                              [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       0          0    95.28%   95.25%         8202           00:00.34    [end TDA_220] 
+INFO (TDA-220):      2       0          0    95.28%   95.25%         8202           00:00.34    [end TDA_220] 
+INFO (TTC-110): Ending Reset/Set Test Generation                                                [end TTC_110] 
+*************************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Static Logic Test generation                                           [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):     16      16       3634    97.37%   97.34%         4568           00:02.13    [end TDA_220] 
+INFO (TDA-220):     32      32       1291    98.11%   98.08%         3277           00:03.16    [end TDA_220] 
+INFO (TDA-220):     48      48        879    98.62%   98.59%         2398           00:03.89    [end TDA_220] 
+INFO (TDA-220):     64      64        795    99.08%   99.04%         1603           00:04.46    [end TDA_220] 
+INFO (TDA-220):     80      80        366    99.29%   99.26%         1237           00:05.00    [end TDA_220] 
+INFO (TDA-220):     96      96        347    99.49%   99.45%          890           00:05.58    [end TDA_220] 
+INFO (TDA-220):    112     112        187    99.60%   99.56%          703           00:05.80    [end TDA_220] 
+INFO (TDA-220):    128     128        148    99.68%   99.65%          555           00:05.93    [end TDA_220] 
+INFO (TDA-220):    144     144        118    99.75%   99.72%          437           00:06.03    [end TDA_220] 
+INFO (TDA-220):    160     160         39    99.77%   99.74%          398           00:06.10    [end TDA_220] 
+INFO (TDA-220):    176     176         42    99.80%   99.76%          356           00:06.17    [end TDA_220] 
+INFO (TDA-220):    192     192         60    99.83%   99.80%          296           00:06.21    [end TDA_220] 
+INFO (TDA-220):    208     208         56    99.86%   99.83%          240           00:06.26    [end TDA_220] 
+INFO (TDA-220):    217     216        217    99.99%   99.95%           23           00:06.28    [end TDA_220] 
+INFO (TDA-220):    218     217          2    99.99%   99.96%           21           00:06.30    [end TDA_220] 
+INFO (TDA-220):    219     217          0    99.99%   99.96%           21           00:06.30    [end TDA_220] 
+INFO (TDA-221):    219     217          0    99.99%   99.96%           21           00:06.30    [end TDA_221] 
+INFO (TDA-220):    225     223         10    99.99%   99.96%           11           00:06.47    [end TDA_220] 
+INFO (TTC-110): Ending Static Logic Test generation                                             [end TTC_110] 
+*************************************************************************************************************
+
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                173912       173652            0          249           11  99.85  99.99
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                173969       173652            0          249           68  99.82  99.96
+****************************************************************************************************
+
+
+              ----Final Pattern Statistics----
+
+ Test Section Type                       # Test Sequences
+----------------------------------------------------------
+ Logic                                          223
+----------------------------------------------------------
+ Total                                          223
+
+(I) File(s) generated (bytes and name):
+
+         405504 /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/tbdata/faultStatus.FULLSCAN.cv32e40p_core_compression
+         503163 /home/admin/DFT/cv32e40p-DFT/scan/reports/06_post_tpi_compression/modus_compressibility/test_scripts_ratio_70/tbdata/TBDbin.FULLSCAN.cv32e40p_core_compression
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =           32,094,448  bytes
+
+                      CPU Time =    0:00:06.41
+                  Elapsed Time =    0:00:06.65                    [end TDA_001]
+
+     Date Ended:  Saturday Oct 17 19:55:38 2026  IST
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+     23 INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -   
+      1 INFO (TDA-221):    219     217          0    99.99%   99.96%           21           00:06.30     
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+      4 INFO (TTC-110): Starting Reset/Set Test Generation                                               
+
+  WARNING Messages...
+      1 WARNING (TTC-018): verify_test_structures issued Warning messages related to Stored Pattern tests.  Poor test coverage may result.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

@@ -1,0 +1,134 @@
+
+Compressing scan chains...
+Will create a test port for 'compression_enable'
+Will create a test port for 'mask_enable'
+Will create a test port for 'mask_clock'
+WARNING: Using existing directory '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility' for compress_scan_chains.
+
+
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'XOR_COMPRESSION_134_2_1x2_20100110' from file '/home/admin/DFT/cv32e40p-DFT/scan/reports/04_pre_tpi_compression/modus_compressibility/tmpCompression'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'XOR_COMPRESSION_134_2_1x2_20100110'.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'INVX6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKINVX6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'DLY4X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'BUFX6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR3X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKMX2X3' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'AO21X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NAND2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NAND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'AND2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKAND2X12' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR2X6' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'SDFFRHQX8' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'CLKXOR2X2' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'OA21X4' have zero area.
+Warning : Netlist has library cells with no physical information in LEF. This may lead to incorrect area calculation. [PHYS-141]
+        : Instances of the library cell 'NOR3X6' have zero area.
+  Setting attribute of root '/': 'boundary_opto_internal_assert' = false
+  Setting attribute of module 'decomp_134_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'decomp_134_2_1x2_20100110': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_134_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_134_2_1x2_20100110': 'boundary_opto' = strict_no
+Info    : Skipping 'boundary_opto' = false setting since set on an internal created hierarchy. [GLO-52]
+        : The module is 'bmux'.
+  Setting attribute of module 'bmux': 'boundary_opto' = true
+  Setting attribute of module 'decomp_134_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'decomp_134_2_1x2_20100110': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_134_2_1x2_20100110_gate': 'boundary_opto' = strict_no
+  Setting attribute of module 'comp_134_2_1x2_20100110': 'boundary_opto' = strict_no
+Info    : Skipping 'boundary_opto' = false setting since set on an internal created hierarchy. [GLO-52]
+        : The module is 'bmux'.
+  Setting attribute of module 'bmux': 'boundary_opto' = true
+  Setting attribute of root '/': 'boundary_opto_internal_assert' = true
+INFO: Mapping compression macro with a target period of 20000.0 ps
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Connecting the compression_enable signal test_signal:cv32e40p_core/DFT_compression_enable ...
+Connecting the scan inputs to the compression macro...
+Connecting port:cv32e40p_core/scan_in_0 to {hpin:cv32e40p_core/COMPACTOR/RSI_SI[0]}
+Connecting port:cv32e40p_core/scan_in_1 to {hpin:cv32e40p_core/COMPACTOR/RSI_SI[1]}
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+Connecting the scan outputs to the compression macro...
+Connecting the internal scan chains to the compression macro...
+Connecting the mask_enable signal test_signal:cv32e40p_core/DFT_mask_enable ...
+Connecting the mask clock port:cv32e40p_core/DFT_mask_clk ...
+Info    : Marking instance as dft_abstract_dont_scan as an abstract segment is being defined on it. [DFT-163]
+        : Setting dft_abstract_dont_scan attribute to true for instance 'COMPACTOR'
+
+  Setting attribute of design 'cv32e40p_core': 'dft_mv_clock_invalidates_clock_domain' = false
+Prepending 'chain1' with segment 'scan_segment:cv32e40p_core/DFT_segment_1'
+Prepending 'chain0' with segment 'scan_segment:cv32e40p_core/DFT_segment_2'
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+  Number of Abstract Segment non-Scan registers: 134
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2261
+  Percentage of total registers that are scannable: 100%
+  Percentage of abstract segment flops that are scannable: 100%
+
+Mapping compression logic ...
+Done mapping compression logic..
+Info    : The given (sub)design is already uniquified. [TUI-296]
+        : module:cv32e40p_core/XOR_COMPRESSION_134_2_1x2_20100110.
+
+Starting DFT Scan Compression for module 'cv32e40p_core' in 'xor' mode.
+Building the compression logic to include 'broadcast' decompression and 'XOR' compression  with wide1 masking.
+Prepending the mask registers to the actual scan chains.
+
+Actual Scan Chain Summary
+-------------------------
+   The number of actual fullscan chains in the design is: 2
+   The number of actual fullscan chains in the design which are favorable for compression is: 2
+   The number of actual fullscan chains which can be prepended to is: 2
+   The number of actual fullscan chains which are not favorable for prepend is: 0
+
+Number of Internal Scan Channels
+--------------------------------
+   User requested ratio: 70
+   Tool achieved ratio: 66.5
+   The maximum original scan chain length: 1064
+   The number of internal scan channels is: 134
+   The maximum internal scan channel length is: 16
+   The maximum length of the mask register channels is: 67
+   The total number of mask registers added is: 134
+   The final maximum fullscan chain length (including mask and/or misr registers) is: 1131
+   This is 100.0% of the average fullscan chain length of 1130.5
+
+Tester Cycle Statistics
+-----------------------
+   The number of tester cycles required to load a scan pattern in compression mode is: 16
+   The number of tester cycles required to load a scan pattern in fullscan mode is: 1131
+   The number of tester cycles required to load a channel mask shift register chain is: 67
+

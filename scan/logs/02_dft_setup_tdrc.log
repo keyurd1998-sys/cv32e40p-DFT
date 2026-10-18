@@ -1,0 +1,294 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[17:32:29.455617] Configured Lic search path (25.01-s002): 5280@pine-server
+
+Version: 25.10-p002_1, built Thu Apr 17 03:05:38 PDT 2025
+Options: -overwrite -files 02_dft_setup_tdrc.tcl -log logs/02_dft_setup_tdrc.log 
+Date:    Sat Oct 17 17:32:29 2026
+Host:    Pine-06 (x86_64 w/Linux 5.14.0-611.30.1.el9_7.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz 9216KB) (7671680KB)
+PID:     4180293
+OS:      Red Hat Enterprise Linux 9.7 (Plow)
+
+Checking out license: Genus_Synthesis
+[17:32:29.503192] Periodic Lic check successful
+[17:32:29.503208] Feature usage summary:
+[17:32:29.503208] Genus_Synthesis  
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (3 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (16 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source 02_dft_setup_tdrc.tcl
+#@ Begin verbose source ./02_dft_setup_tdrc.tcl
+@file(02_dft_setup_tdrc.tcl) 1: set SCRIPT_DIR [file dirname [file normalize [info script]]]
+@file(02_dft_setup_tdrc.tcl) 2: source "$SCRIPT_DIR/00_setup_env.tcl"
+Sourcing '/home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl' (Sat Oct 17 17:32:46 IST 2026)...
+#@ Begin verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
+@file(00_setup_env.tcl) 1: set DESIGN "cv32e40p_core"
+@file(00_setup_env.tcl) 3: set SCAN_DIR     [file dirname [file normalize [info script]]]
+@file(00_setup_env.tcl) 4: set ROOT_DIR     [file normalize "$SCAN_DIR/.."]
+@file(00_setup_env.tcl) 5: set BLOCK_DIR    $ROOT_DIR
+@file(00_setup_env.tcl) 7: set DBS_DIR      "$SCAN_DIR/dbs"
+@file(00_setup_env.tcl) 8: set REPORTS_DIR  "$SCAN_DIR/reports"
+@file(00_setup_env.tcl) 9: set NETLISTS_DIR "$SCAN_DIR/netlists"
+@file(00_setup_env.tcl) 10: set LOGS_DIR     "$SCAN_DIR/logs"
+@file(00_setup_env.tcl) 12: set ATPG_DIR     "$ROOT_DIR/atpg"
+@file(00_setup_env.tcl) 13: set GLS_DIR      "$ROOT_DIR/gls"
+@file(00_setup_env.tcl) 15: set LIB_DIR "/home/admin/DFT/Library"
+@file(00_setup_env.tcl) 16: set TIMING_LIB "$LIB_DIR/timing/slow.lib"
+@file(00_setup_env.tcl) 17: set LEF_FILE   "$LIB_DIR/lef/all.lef"
+@file(00_setup_env.tcl) 18: set ATPG_LIB   "$LIB_DIR/atpg/stdcell.v"
+@file(00_setup_env.tcl) 20: set FLIST    "$BLOCK_DIR/filelists/cv32e40p_core.flist"
+@file(00_setup_env.tcl) 21: set SDC_FILE "$BLOCK_DIR/constraints/cv32e40p_core.sdc"
+@file(00_setup_env.tcl) 23: set RTL_DIR  "$BLOCK_DIR/rtl"
+@file(00_setup_env.tcl) 24: set BHV_DIR  "$BLOCK_DIR/bhv"
+@file(00_setup_env.tcl) 26: if {![file exists "$RTL_DIR/cv32e40p_core.sv"]} {
+    puts "ERROR: CV32E40P RTL source files not found under $RTL_DIR."
+    exit 1
+}
+@file(00_setup_env.tcl) 31: puts "=================================================================="
+==================================================================
+@file(00_setup_env.tcl) 32: puts " DFT Environment Setup:"
+ DFT Environment Setup:
+@file(00_setup_env.tcl) 33: puts "   Target Design:  $DESIGN"
+   Target Design:  cv32e40p_core
+@file(00_setup_env.tcl) 34: puts "   Scan Directory: $SCAN_DIR"
+   Scan Directory: /home/admin/DFT/cv32e40p-DFT/scan
+@file(00_setup_env.tcl) 35: puts "   Library:        $TIMING_LIB"
+   Library:        /home/admin/DFT/Library/timing/slow.lib
+@file(00_setup_env.tcl) 36: puts "=================================================================="
+==================================================================
+#@ End verbose source /home/admin/DFT/cv32e40p-DFT/scan/00_setup_env.tcl
+@file(02_dft_setup_tdrc.tcl) 4: set STEP_RPT_DIR "$REPORTS_DIR/02_tdrc"
+@file(02_dft_setup_tdrc.tcl) 5: file mkdir $STEP_RPT_DIR
+@file(02_dft_setup_tdrc.tcl) 6: file mkdir $DBS_DIR
+@file(02_dft_setup_tdrc.tcl) 8: read_db "$DBS_DIR/01_elaborated.db"
+Reading database file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/01_elaborated.db'.
+
+  Message Summary for Library slow.lib:
+  *************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  Missing library level attribute. [LBR-516]: 1
+  *************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.080000, 125.000000) in library 'slow.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX2'.  Ignoring the test_cell.
+        : Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRXL'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX1'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX4'.  Ignoring the test_cell.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX2' is assumed to be ' CKN'.
+        : The tool derives the clock polarity from the sequential timing arcs specified through the Liberty 'timing_type' attribute. For the positive-edge triggered cells a positive value is expected for the 'clocked_on' or 'enable' attribute while an inverted value is expected for the negative-edge triggered sequential cells.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRXL' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX1' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX4' is assumed to be ' CKN'.
+
+  According to lef_library, there are total 6 routing layers [ V(3) / H(3) ]
+
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND2X6' cannot be found. The cell will not be marked as 'avoid'.
+        : Set attribute 'avoid' to true on this cell or set attribute 'lib_lef_consistency_check_enable' to 'true'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND3X8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AND4X8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO21XL' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'AO22XL' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKAND2X2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKAND2X6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKBUFX6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKINVX6' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKMX2X12' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKXOR2X1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'CLKXOR2X4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX1' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX2' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFQX4' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Cannot find physical definition. [PHYS-104]
+        : The physical definition of library cell 'DFFSHQX8' cannot be found. The cell will not be marked as 'avoid'.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-104'.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL8 cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL64 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL32 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL16 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell RF2R1WX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell RF1R1WX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATSX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATRX1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSXL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSX4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell TLATNSX2 cannot be found in library.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-279'.
+Warning : Relaxing an attribute value in the library. [LBR-39]
+        : Overriding the avoid (ie. dont_use) attribute for library-cell 'HOLDX1'.
+        : Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute) should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file) is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's why when the tool makes them usable (avoid = false), these warnings are flagged.
+@file(02_dft_setup_tdrc.tcl) 11: read_sdc $SDC_FILE
+Statistics for commands executed by read_sdc:
+ "all_inputs"               - successful      1 , failed      0 (runtime  0.00)
+ "all_outputs"              - successful      1 , failed      0 (runtime  0.00)
+ "create_clock"             - successful      1 , failed      0 (runtime  0.04)
+ "get_ports"                - successful     24 , failed      0 (runtime  0.01)
+ "remove_from_collection"   - successful      3 , failed      0 (runtime  0.00)
+ "set_input_delay"          - successful      9 , failed      0 (runtime  0.01)
+ "set_output_delay"         - successful     10 , failed      0 (runtime  0.00)
+read_sdc completed in 00:00:00 (hh:mm:ss)
+@file(02_dft_setup_tdrc.tcl) 14: set_db root: .dft_scan_style muxed_scan
+  Setting attribute of root '/': 'dft_scan_style' = muxed_scan
+@file(02_dft_setup_tdrc.tcl) 15: set_db root: .dft_prefix DFT_
+  Setting attribute of root '/': 'dft_prefix' = DFT_
+@file(02_dft_setup_tdrc.tcl) 16: set_db root: .dft_identify_top_level_test_clocks true
+  Setting attribute of root '/': 'dft_identify_top_level_test_clocks' = true
+@file(02_dft_setup_tdrc.tcl) 17: set_db root: .dft_identify_test_signals true
+  Setting attribute of root '/': 'dft_identify_test_signals' = true
+@file(02_dft_setup_tdrc.tcl) 18: set_db root: .dft_identify_internal_test_clocks false
+  Setting attribute of root '/': 'dft_identify_internal_test_clocks' = false
+@file(02_dft_setup_tdrc.tcl) 19: set_db root: .use_scan_seqs_for_non_dft false
+  Setting attribute of root '/': 'use_scan_seqs_for_non_dft' = false
+@file(02_dft_setup_tdrc.tcl) 22: define_test_clock -name scan_clk -period 20000 [get_ports clk_i]
+@file(02_dft_setup_tdrc.tcl) 23: define_test_mode -name scan_rst -active high -scan_shift -shared_input [get_ports rst_ni]
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+        : This command is obsolete and the new command define_test_signal should be used.
+@file(02_dft_setup_tdrc.tcl) 24: define_test_mode -name scan_cg_en -active high -shared_input [get_ports scan_cg_en_i]
+Warning : This command will be obsolete in a next major release. [TUI-37]
+        : command: 'define_test_mode'
+@file(02_dft_setup_tdrc.tcl) 25: define_test_signal -function shift_enable -name scan_en -active high -ideal -create_port SCAN_ENABLE
+@file(02_dft_setup_tdrc.tcl) 28: check_dft_rules       > "$STEP_RPT_DIR/${DESIGN}_dft_rules_pre_syn.rpt"
+  =================
+   Message Summary
+  =================
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|   Id   |  Sev  |Count|                                                                          Message Text                                                                          |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|LBR-39  |Warning|    1|Relaxing an attribute value in the library.                                                                                                                     |
+|        |       |     |Relaxing one of the library's attribute value (for example, a library-cell's dont_use or dont_touch attribute)                                                  |
+|        |       |     | should be done with caution. This warning means that a dont_use or dont_touch attribute defined for a library cell (in liberty file)                           |
+|        |       |     | is overridden by the user in the run. When you do 'read_cpf -library' in a CPF based flow, apart from loading libraries, this command automatically marks low  |
+|        |       |     | power standard cells as usable. So that the synthesis can use them. These low power standard cells are usually marked 'dont_use true' in the liberty. That's   |
+|        |       |     | why when the tool makes them usable (avoid = false), these warnings are flagged.                                                                               |
+|LBR-64  |Warning|    4|Malformed test_cell.                                                                                                                                            |
+|        |       |     |Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.                           |
+|LBR-409 |Info   |    4|Found conflicting clock polarity information.                                                                                                                   |
+|        |       |     |The tool derives the clock polarity from the sequential timing arcs specified through the Liberty 'timing_type' attribute. For the positive-edge triggered cells|
+|        |       |     | a positive value is expected for the 'clocked_on' or 'enable' attribute while an inverted value is expected for the negative-edge triggered sequential cells.  |
+|LBR-412 |Info   |    1|Created nominal operating condition.                                                                                                                            |
+|        |       |     |The nominal operating condition is represented, either by the nominal PVT values specified in the library source                                                |
+|        |       |     | (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).                                                    |
+|MESG-11 |Warning|    2|Maximum message print count reached.                                                                                                                            |
+|PHYS-104|Warning|   20|Cannot find physical definition.                                                                                                                                |
+|        |       |     |Set attribute 'avoid' to true on this cell or set attribute 'lib_lef_consistency_check_enable' to 'true'.                                                       |
+|PHYS-279|Warning|   20|Physical cell not defined in library.                                                                                                                           |
+|        |       |     |Ensure that the proper library files are available and have been imported.                                                                                      |
+|TUI-37  |Warning|    2|This command will be obsolete in a next major release.                                                                                                          |
+|        |       |     |This command is obsolete and the new command define_test_signal should be used.                                                                                 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Info    : Initiating DFT command. [DFT-145]
+        : Initiating check_dft_rules command.
+  Checking DFT rules for 'cv32e40p_core' module under 'muxed_scan' style
+
+Detected 0 DFT rule violation(s)
+    ... see the log file for more details
+  Number of user specified non-Scan registers:   0
+      Number of registers that fail DFT rules:   0
+      Number of registers that pass DFT rules: 2612
+  Percentage of total registers that are scannable: 100%
+Info    : Reporting runtime for DFT command. [DFT-147]
+        : Runtime for check_dft_rules is 0.132000 seconds.
+Info    : Successfully completed DFT command. [DFT-146]
+        : Successfully completed check_dft_rules command.
+  =================
+   Message Summary
+  =================
+--------------------------------------------------------
+|  Id   |Sev |Count|           Message Text            |
+--------------------------------------------------------
+|DFT-145|Info|    1|Initiating DFT command.            |
+|DFT-146|Info|    1|Successfully completed DFT command.|
+|DFT-147|Info|    1|Reporting runtime for DFT command. |
+--------------------------------------------------------
+@file(02_dft_setup_tdrc.tcl) 29: report_dft_violations > "$STEP_RPT_DIR/${DESIGN}_dft_violations_pre_syn.rpt"
+@file(02_dft_setup_tdrc.tcl) 32: set DB_FILE "$DBS_DIR/02_tdrc.db"
+@file(02_dft_setup_tdrc.tcl) 33: write_db -all_root_attributes -to_file $DB_FILE
+Finished exporting design database to file '/home/admin/DFT/cv32e40p-DFT/scan/dbs/02_tdrc.db' for 'cv32e40p_core' (command execution time mm:ss cpu = 00:02, real = 00:03).
+@file(02_dft_setup_tdrc.tcl) 35: puts "INFO: Step 2 DFT setup & pre-DFT TDRC completed successfully. Checkpoint saved: $DB_FILE"
+INFO: Step 2 DFT setup & pre-DFT TDRC completed successfully. Checkpoint saved: /home/admin/DFT/cv32e40p-DFT/scan/dbs/02_tdrc.db
+@file(02_dft_setup_tdrc.tcl) 36: exit
+
+Lic Summary:
+[17:32:51.230505] Cdslmd servers: pine-server
+[17:32:51.230513] Feature usage summary:
+[17:32:51.230513] Genus_Synthesis  
+Normal exit.
