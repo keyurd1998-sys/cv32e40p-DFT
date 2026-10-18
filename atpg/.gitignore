@@ -1,0 +1,11 @@
+# Modus dynamic run databases, test results, and patterns
+tbdata/
+testresults/
+logs/
+patterns/
+*/tbdata/
+*/testresults/
+*/logs/
+*/patterns/
+qaLog.txt
+*/qaLog.txt

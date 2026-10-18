@@ -29,12 +29,13 @@ set EXPERIMENT "${DESIGN}_${ATPG_MODE}"
 # 2. Database Configuration
 # ------------------------------------------------------------------------------
 set_db workdir .
-set_option stdout summary
+set_option stdout all
 set ::env(CDS_LIC_REPORT) yes
 set_db stop_on_severity error
 
 file delete -force ./tbdata
 file delete -force ./testresults
+file delete -force ./patterns
 
 # ------------------------------------------------------------------------------
 # 3. Build Logic Simulation Model
@@ -61,8 +62,9 @@ report_test_structures \
     -testmode COMPRESSION \
     -reportscanchain all \
     -reportchannelio yes \
-    -reportchannelmaskscanchain yes \
+    -reportchannelmaskchain yes \
     -reportchannelmaskstate yes \
+    -stdout all \
     > "./reports/test_structures.rpt"
 
 verify_test_structures \
@@ -82,6 +84,7 @@ if {$ATPG_MODE == "delay"} {
 
 report_fault_statistics \
     -testmode COMPRESSION \
+    -stdout all \
     > "./reports/${ATPG_MODE}_initial_faults.rpt"
 
 # ------------------------------------------------------------------------------
@@ -104,31 +107,57 @@ if {$ATPG_MODE == "delay"} {
 }
 
 # ------------------------------------------------------------------------------
-# 8. Export Summary, Coverage, and Switching Activity Reports
+# 8. Export Summary, Coverage, and Vector Reports
 # ------------------------------------------------------------------------------
+# Pattern & Vector Template Summary
 report_vector_summary \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
-    > "./reports/${ATPG_MODE}_test_summary.rpt"
+    -summary yes \
+    -vectors yes \
+    -key yes \
+    -stdout all \
+    > "./reports/${ATPG_MODE}_pattern_summary.rpt"
 
+# Tester Cycle & Timing Statistics
+report_vector_statistics \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    -reportcounts yes \
+    -reportcovpercycle yes \
+    -stdout all \
+    > "./reports/${ATPG_MODE}_cycle_statistics.rpt"
+
+# Full Fault Coverage Summary Table (TCov, ATCov, Tested, Untested, Effectiveness)
 report_fault_statistics \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
-    >> "./reports/${ATPG_MODE}_test_summary.rpt"
+    -effectiveness yes \
+    -reportpiporows yes \
+    -stdout all \
+    > "./reports/${ATPG_MODE}_fault_summary.rpt"
 
-report_fault_statistics \
-    -experiment $EXPERIMENT \
-    -testmode COMPRESSION \
-    > "./reports/${ATPG_MODE}_fault_coverage.rpt"
-
+# Detailed Untested Faults List (For DFT Coverage Debug)
 report_faults \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
-    > "./reports/${ATPG_MODE}_fault_list.rpt"
+    -faultstatus untested \
+    -stdout all \
+    > "./reports/${ATPG_MODE}_untested_faults.rpt"
 
+# Detailed Redundant Faults List (Tie-offs, redundant logic)
+report_faults \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    -faultstatus redundant \
+    -stdout all \
+    > "./reports/${ATPG_MODE}_redundant_faults.rpt"
+
+# Switching Activity (Toggle Gram) Report
 write_toggle_gram \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
+    -stdout all \
     > "./reports/${ATPG_MODE}_toggle_gram.rpt"
 
 # ------------------------------------------------------------------------------
@@ -139,14 +168,14 @@ write_vectors \
     -testmode COMPRESSION \
     -language verilog \
     -scanformat serial \
-    -exportdir "./testresults/verilog_serial"
+    -exportdir "./patterns/verilog_serial"
 
 write_vectors \
     -inexperiment $EXPERIMENT \
     -testmode COMPRESSION \
     -language verilog \
     -scanformat parallel \
-    -exportdir "./testresults/verilog_parallel"
+    -exportdir "./patterns/verilog_parallel"
 
 # ------------------------------------------------------------------------------
 # 10. Commit Tests to Database
