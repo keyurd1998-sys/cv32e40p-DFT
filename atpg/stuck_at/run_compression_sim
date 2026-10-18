@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/usr/bin/env bash
  
 # Template script for running Cadence Xcelium simulator (XMCSIM) on Cadence Modus DFT Software Solution generated test vectors.
  
