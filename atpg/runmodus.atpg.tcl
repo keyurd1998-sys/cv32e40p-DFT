@@ -80,7 +80,9 @@ if {$ATPG_MODE == "delay"} {
         -includedynamic no
 }
 
-report_faults -summary > "./reports/${ATPG_MODE}_initial_faults.rpt"
+report_fault_statistics \
+    -testmode COMPRESSION \
+    > "./reports/${ATPG_MODE}_initial_faults.rpt"
 
 # ------------------------------------------------------------------------------
 # 7. Generate Test Patterns
@@ -104,17 +106,25 @@ if {$ATPG_MODE == "delay"} {
 # ------------------------------------------------------------------------------
 # 8. Export Summary, Coverage, and Switching Activity Reports
 # ------------------------------------------------------------------------------
-report_tests \
+report_vector_summary \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
     > "./reports/${ATPG_MODE}_test_summary.rpt"
 
-report_faults -summary >> "./reports/${ATPG_MODE}_test_summary.rpt"
+report_fault_statistics \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    >> "./reports/${ATPG_MODE}_test_summary.rpt"
+
+report_fault_statistics \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    > "./reports/${ATPG_MODE}_fault_coverage.rpt"
 
 report_faults \
     -experiment $EXPERIMENT \
     -testmode COMPRESSION \
-    > "./reports/${ATPG_MODE}_fault_coverage.rpt"
+    > "./reports/${ATPG_MODE}_fault_list.rpt"
 
 write_toggle_gram \
     -experiment $EXPERIMENT \
