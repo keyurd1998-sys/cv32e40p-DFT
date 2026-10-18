@@ -1,15 +1,15 @@
 
 INFO (TDA-005): Command Line Invocation: 
-            verify_test_structures -testmode COMPRESSION -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10 -stdout summary  [end TDA_005]
+            verify_test_structures -testmode COMPRESSION -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10  [end TDA_005]
 
 INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
 
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_verify_test_structures_COMPRESSION_101826123505-989011000 [end TDA_015]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_verify_test_structures_COMPRESSION_101826130156-619285000 [end TDA_015]
 
 INFO (TDA-007): Job Information:
-            Date Started: Sunday Oct 18 12:35:06 2026  IST
+            Date Started: Sunday Oct 18 13:01:56 2026  IST
             Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 467928.
+            This job is process number 479835.
 [end TDA_007]
 
 INFO (TDA-009): Options/Values information.
@@ -20,10 +20,9 @@ INFO (TDA-009): Options/Values information.
             -TESTMODE COMPRESSION
 
             -messagecount TSV-016=10,TSV-024=10,TSV-315=10,TSV-027=10
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_verify_test_structures_COMPRESSION_101826123505-989011000
-            -STDOUT summary
+            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_verify_test_structures_COMPRESSION_101826130156-619285000
 [end TDA_009]
-INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 12:35:06 2026    [end TSV_900] 
+INFO (TSV-900): verify_test_structures processing has started Sun Oct 18 13:01:56 2026    [end TSV_900] 
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 ------------------- verify_test_structures Process Preview ---------------------
   apply constraints ...................................... constraints=yes    
@@ -131,7 +130,7 @@ Test Function Pin Information for Test Mode:  COMPRESSION
    Analyze test clocks' control of memory elements    
 
 Analyze test clocks' control of memory elements process has completed.
-                             CPU time =  0:00:00.00  Elapsed time =  0:00:00.02
+                             CPU time =  0:00:00.01  Elapsed time =  0:00:00.02
   
    Analyze three-state drivers for contention 
 
@@ -146,7 +145,7 @@ Analyze feedback loops and keeper devices process has completed.
    Analyze clock choppers                             
 
 Analyze clock choppers process has completed.
-                             CPU time =  0:00:00.02  Elapsed time =  0:00:00.05
+                             CPU time =  0:00:00.02  Elapsed time =  0:00:00.06
   
    Analyze flip-flop and latch scan characteristics   
 INFO (TSV-068): The length of the longest scan chain is 14 bit positions, which is 101% of the average scan chain length 14 (based on 2153 total scan chain bits and 154 valid scan chains).   [end TSV_068] 
@@ -478,7 +477,7 @@ Analyze explicit fixed value latches process has completed.
    Check for mutually exclusive gating logic (MEG)    
 
 Analyze potential clock signal races process has completed.
-                             CPU time =  0:00:00.06  Elapsed time =  0:00:00.08
+                             CPU time =  0:00:00.06  Elapsed time =  0:00:00.09
   
    Ensure X-sources cannot be observed 
 WARNING (TSV-101): [Severe] Unpredictable signal value (X) from  Channel Masking Scan Register block COMPACTOR.compressor.\mreg0_reg[76].__iNsT0.dff_primitive may be observed at block \id_stage_i_register_file_i_mem_reg[7][13].__iNsT2.dff_primitive.   [end TSV_101] 
@@ -487,7 +486,7 @@ WARNING (TSV-101): [Severe] Unpredictable signal value (X) from  Channel Masking
 INFO (TSV-107): X source summary for  Channel Masking Scan Register block COMPACTOR.compressor.\mreg1_reg[76].__iNsT0.dff_primitive : Total Observe Points: 1 : Safe Observe Points: 0, Unsafe Observe Points: 1, Unverified Observed Points: 0  [end TSV_107] 
 
 Analyze X-sources to ensure they cannot be observed process has completed.
-                             CPU time =  0:00:00.04  Elapsed time =  0:00:00.09
+                             CPU time =  0:00:00.06  Elapsed time =  0:00:00.11
   
    Analyze internal scan chains 
 
@@ -502,11 +501,11 @@ INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119]
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =           34,896,176  bytes
+                  Total Memory =           34,896,208  bytes
 
-                      CPU Time =    0:00:00.19
-                  Elapsed Time =    0:00:00.49                    [end TDA_001]
+                      CPU Time =    0:00:00.20
+                  Elapsed Time =    0:00:00.52                    [end TDA_001]
 
-     Date Ended:  Sunday Oct 18 12:35:06 2026  IST
+     Date Ended:  Sunday Oct 18 13:01:57 2026  IST
 
 

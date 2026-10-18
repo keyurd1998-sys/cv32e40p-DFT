@@ -1,46 +1,25 @@
 Starting Command: report_fault_statistics 
 
-INFO (TDA-005): Command Line Invocation: 
-            report_fault_statistics -testmode COMPRESSION -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -stdout summary  [end TDA_005]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/delay/testresults/logs/log_report_fault_statistics_COMPRESSION_101826132318-878840000 [end TDA_015]
 
-INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
-
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_101826123509-004884000 [end TDA_015]
-
-INFO (TDA-007): Job Information:
-            Date Started: Sunday Oct 18 12:35:09 2026  IST
-            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 467976.
-[end TDA_007]
-
-INFO (TDA-009): Options/Values information.
-            (options marked with '*' have program generated values,
-             options marked with '+' were specified to default.)
-
-            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
-            -TESTMODE COMPRESSION
-
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_101826123509-004884000
-            -STDOUT summary
-[end TDA_009]
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 Logic Model(GM)   10/18/26
-                  07:05:02
+                  07:53:12
 
 
 File Id     faultModel        faultStatus
 Created (GM)  10/18/26           10/18/26
-              07:05:07           07:05:07
+              07:53:17           07:53:17
 Modified(GM)  10/18/26           10/18/26
-              07:05:07           07:05:07
+              07:53:17           07:53:17
 Code Level        2025.0             2025.0            
-Max Fault Id        174894
+Max Fault Id        349788
 
 Fault Model Type:   Cell Boundary
 
 
 Global Ignored Static Fault Count               267
-Global Ignored Dynamic Fault Count                0
+Global Ignored Dynamic Fault Count              394
 
 
 INFO (TFM-701):  Fault Statistics for Testmode:  COMPRESSION  : 
@@ -54,7 +33,10 @@ Collapsed Static     0.00   0.00       104214            0            0         
 PI Static            0.00   0.00          488            0            0            0          488          490            0            0            0          490
 PO Static            0.00   0.00          347            0            0            0          347          347            0            0            0          347
 
-Total Dynamic                               0
+Total Dynamic        0.00   0.00       165182            0            0            0       165182       174500            0            0            0       174500
+Collapsed Dynamic    0.00   0.00       128614            0            0            0       128614       137926            0            0            0       137926
+PI Dynamic           0.00   0.00          480            0            0            0          480          490            0            0            0          490
+PO Dynamic           0.00   0.00          226            0            0            0          226          226            0            0            0          226
 
 Parametric        
 
@@ -72,9 +54,9 @@ INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:
                   Total Memory =           31,761,680  bytes
 
                       CPU Time =    0:00:00.00
-                  Elapsed Time =    0:00:00.00                    [end TDA_001]
+                  Elapsed Time =    0:00:00.01                    [end TDA_001]
 
-     Date Ended:  Sunday Oct 18 12:35:09 2026  IST
+     Date Ended:  Sunday Oct 18 13:23:18 2026  IST
 
 INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
 

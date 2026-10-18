@@ -1,39 +1,17 @@
 Starting Command: report_fault_statistics 
 
-INFO (TDA-005): Command Line Invocation: 
-            report_fault_statistics -testmode COMPRESSION -experiment cv32e40p_core_stuck_at -workdir /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at -stdout summary  [end TDA_005]
+INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_cv32e40p_core_stuck_at_101826131204-466408000 [end TDA_015]
 
-INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 25.10-p027_1, built Mar 13 2025 (linux26_64) [end TDA_014]
-
-INFO (TDA-015): Log File: /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_cv32e40p_core_stuck_at_101826124509-456725000 [end TDA_015]
-
-INFO (TDA-007): Job Information:
-            Date Started: Sunday Oct 18 12:45:09 2026  IST
-            Host machine is Pine-06, x86_64 running Linux 5.14.0-611.30.1.el9_7.x86_64.
-            This job is process number 471651.
-[end TDA_007]
-
-INFO (TDA-009): Options/Values information.
-            (options marked with '*' have program generated values,
-             options marked with '+' were specified to default.)
-
-            -WORKDIR /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at
-            -TESTMODE COMPRESSION
-            -EXPERIMENT cv32e40p_core_stuck_at
-
-            -LOGFILE /home/admin/DFT/cv32e40p-DFT/atpg/stuck_at/testresults/logs/log_report_fault_statistics_COMPRESSION_cv32e40p_core_stuck_at_101826124509-456725000
-            -STDOUT summary
-[end TDA_009]
 INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
 Logic Model(GM)   10/18/26
-                  07:05:02
+                  07:31:53
 
 
 File Id     faultModel        faultStatus         experiment
 Created (GM)  10/18/26           10/18/26           10/18/26
-              07:05:07           07:05:07           07:05:09
+              07:31:58           07:31:58           07:32:00
 Modified(GM)  10/18/26           10/18/26           10/18/26
-              07:05:07           07:05:07           07:15:07
+              07:31:58           07:31:58           07:42:02
 Code Level        2025.0             2025.0             2025.0            
 Max Fault Id        174894
 
@@ -65,17 +43,25 @@ Path                 0.00   0.00            0            0                      
 
 
 
+                             #Faults      #Tested    #Possibly      #Redund    #Untested
+Static Testmode               174570       167219            0          270         7081
+Static Global                 174627       167219            0          270         7138
+
+Static Test Coverage        95.94% 
+Static Fault Coverage       95.76% 
+Static ATPG Effectiveness   95.96% 
+
 [end TFM_701]
 
 
 INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
 
-                  Total Memory =           31,771,792  bytes
+                  Total Memory =           31,773,456  bytes
 
-                      CPU Time =    0:00:00.00
-                  Elapsed Time =    0:00:00.00                    [end TDA_001]
+                      CPU Time =    0:00:00.01
+                  Elapsed Time =    0:00:00.01                    [end TDA_001]
 
-     Date Ended:  Sunday Oct 18 12:45:09 2026  IST
+     Date Ended:  Sunday Oct 18 13:12:04 2026  IST
 
 INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
 
