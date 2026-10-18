@@ -22,12 +22,7 @@ set TESTRESULTS_DIR "$WORKDIR/testresults"
 
 file mkdir $REPORTS_DIR $LOGS_DIR $TESTRESULTS_DIR
 
-# Safely back up existing test database if present
-if {[file exists "$WORKDIR/tbdata"]} {
-    file delete -force "$WORKDIR/tbdata.bak"
-    file copy "$WORKDIR/tbdata" "$WORKDIR/tbdata.bak"
-    puts "INFO: Previous database backed up to $WORKDIR/tbdata.bak"
-}
+# Delete previous database for a clean build
 file delete -force "$WORKDIR/tbdata"
 file delete -force "$WORKDIR/testresults"
 
