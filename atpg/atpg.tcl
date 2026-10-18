@@ -10,7 +10,7 @@
 set DESIGN    "cv32e40p_core"
 set TECH_LIB  "/home/admin/DFT/Library/atpg/stdcell.v"
 set NETLIST   "../../scan/netlists/cv32e40p_core_compressed.v"
-set PINASSIGN "../cv32e40p_core.COMPRESSION.pinassign"
+set PINASSIGN "../../scan/atpg_script/cv32e40p_core.COMPRESSION.pinassign"
 
 # Select ATPG mode ("stuck_at" or "delay")
 if {[info exists argv] && [llength $argv] > 0} {

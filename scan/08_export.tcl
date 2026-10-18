@@ -2,7 +2,9 @@ set SCRIPT_DIR [file dirname [file normalize [info script]]]
 source "$SCRIPT_DIR/00_setup_env.tcl"
 
 set STEP_RPT_DIR [file normalize "$REPORTS_DIR/08_export"]
+set EXPORT_DIR atpg_script
 
+file mkdir $EXPORT_DIR
 file mkdir $STEP_RPT_DIR
 file mkdir $NETLISTS_DIR
 file mkdir $DBS_DIR
@@ -68,7 +70,7 @@ puts "INFO: Exported SCANDEF file: $SCANDEF_FILE"
 # ==============================================================================
 puts "INFO: Generating Modus Compressed Stuck-At ATPG workspace..."
 write_dft_atpg \
-    -directory $ATPG_DIR \
+    -directory $EXPORT_DIR \
     -library $ATPG_LIB \
     -compression \
     -build_model_options "-allowmissingmodules yes" \
