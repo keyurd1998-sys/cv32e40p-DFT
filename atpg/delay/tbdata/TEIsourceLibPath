@@ -1,0 +1,3 @@
+SOURCE=../../scan/netlists/cv32e40p_core_compressed.v
+TECHLIB=/home/admin/DFT/Library/atpg/stdcell.v
+RUNDIR=/home/admin/DFT/cv32e40p-DFT/atpg/delay/
