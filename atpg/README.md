@@ -74,20 +74,19 @@ Running `runmodus.atpg.tcl` executes both **Stuck-At** and **Transition Delay** 
 
 ## How to Run
 
-You can select the mode at execution time using either the shell runner or directly with Modus:
+Select either `stuck_at` or `delay` at execution time:
 
 ### Option 1: Using the Runner (`run_atpg.sh`)
 ```bash
 cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg
 
-# Run only Stuck-At ATPG:
+# Run Stuck-At ATPG (default):
 ./run_atpg.sh stuck_at
+# or simply:
+./run_atpg.sh
 
-# Run only Transition Delay ATPG:
+# Run Transition Delay ATPG:
 ./run_atpg.sh delay
-
-# Run both Stuck-At and Delay ATPG (default):
-./run_atpg.sh both
 ```
 
 ### Option 2: Running Modus Directly
@@ -95,10 +94,8 @@ cd /home/vlsi/keyurd1998-sys/cv32e40p-DFT/atpg
 # Pass mode as command line argument:
 modus -file runmodus.atpg.tcl -args stuck_at
 modus -file runmodus.atpg.tcl -args delay
-modus -file runmodus.atpg.tcl -args both
 
 # Or pass via environment variable:
 ATPG_MODE=stuck_at modus -file runmodus.atpg.tcl -log runmodus_stuck.log
 ATPG_MODE=delay modus -file runmodus.atpg.tcl -log runmodus_delay.log
-ATPG_MODE=both modus -file runmodus.atpg.tcl -log runmodus_both.log
 ```

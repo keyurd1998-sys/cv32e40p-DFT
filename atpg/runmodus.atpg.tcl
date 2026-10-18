@@ -1,16 +1,16 @@
 # ==============================================================================
 # Cadence Modus ATPG Script (COMPRESSION Mode Only)
-# Reusable Flow for Stuck-At and Transition Delay ATPG
 # Target Design: cv32e40p_core
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# 1. ATPG Mode Selection: "stuck_at", "delay", or "both"
-# Selectable via command line argument, environment variable, or default:
+# 1. ATPG Mode Selection: "stuck_at" or "delay" (Default: "stuck_at")
+# Selectable via command line argument or environment variable:
 #   Example: modus -file runmodus.atpg.tcl -args stuck_at
-#   Example: ATPG_MODE=stuck_at modus -file runmodus.atpg.tcl
+#   Example: modus -file runmodus.atpg.tcl -args delay
+#   Example: ATPG_MODE=delay modus -file runmodus.atpg.tcl
 # ------------------------------------------------------------------------------
-set ATPG_MODE "both"
+set ATPG_MODE "stuck_at"
 
 # Check if passed via command line argv
 if {[info exists argv] && [llength $argv] > 0} {
@@ -21,12 +21,11 @@ if {[info exists argv] && [llength $argv] > 0} {
 
 # Normalize input (e.g. "stuck" -> "stuck_at", "transition" -> "delay")
 switch -nocase -- $ATPG_MODE {
-    "stuck" - "stuckat" - "stuck_at" { set ATPG_MODE "stuck_at" }
     "delay" - "transition"           { set ATPG_MODE "delay" }
-    "both" - "all"                   { set ATPG_MODE "both" }
+    "stuck" - "stuckat" - "stuck_at" { set ATPG_MODE "stuck_at" }
     default {
-        puts "WARNING: Unknown ATPG mode '$ATPG_MODE'. Defaulting to 'both'."
-        set ATPG_MODE "both"
+        puts "WARNING: Unknown ATPG mode '$ATPG_MODE'. Defaulting to 'stuck_at'."
+        set ATPG_MODE "stuck_at"
     }
 }
 
@@ -105,104 +104,95 @@ verify_test_structures \
     -testmode COMPRESSION
 
 # ------------------------------------------------------------------------------
-# 6. Reusable ATPG Execution Loop (Stuck-At / Transition Delay)
+# 6. ATPG Execution ($ATPG_MODE: "stuck_at" or "delay")
 # ------------------------------------------------------------------------------
-if {$ATPG_MODE == "both"} {
-    set MODES {stuck_at delay}
+set EXPERIMENT "${DESIGN}_${ATPG_MODE}"
+puts "\n=================================================================="
+puts " Running ATPG for Mode: $ATPG_MODE ($EXPERIMENT)"
+puts "=================================================================="
+
+# 6.1 Build Fault Model
+if {$ATPG_MODE == "delay"} {
+    puts "INFO: Building Transition Delay fault model (-includedynamic yes)..."
+    build_faultmodel \
+        -includedynamic yes
 } else {
-    set MODES [list $ATPG_MODE]
+    puts "INFO: Building Stuck-At fault model (-includedynamic no)..."
+    build_faultmodel \
+        -includedynamic no
 }
 
-foreach mode $MODES {
-    set EXPERIMENT "${DESIGN}_${mode}"
-    puts "\n=================================================================="
-    puts " Running ATPG for Mode: $mode ($EXPERIMENT)"
-    puts "=================================================================="
+puts "INFO: Writing initial fault summary to $REPORTS_DIR/${ATPG_MODE}_initial_faults.rpt..."
+report_faults -summary > "$REPORTS_DIR/${ATPG_MODE}_initial_faults.rpt"
 
-    # 6.1 Build Fault Model
-    if {$mode == "delay"} {
-        puts "INFO: Building Transition Delay fault model (-includedynamic yes)..."
-        build_faultmodel \
-            -includedynamic yes \
-            -overwrite yes
-    } else {
-        puts "INFO: Building Stuck-At fault model (-includedynamic no)..."
-        build_faultmodel \
-            -includedynamic no
-    }
-
-    puts "INFO: Writing initial fault summary to $REPORTS_DIR/${mode}_initial_faults.rpt..."
-    report_faults -summary > "$REPORTS_DIR/${mode}_initial_faults.rpt"
-
-    # 6.2 Generate Test Patterns
-    if {$mode == "delay"} {
-        puts "INFO: Generating Transition Delay ATPG patterns (LOC/LOS)..."
-        create_logic_delay_tests \
-            -experiment $EXPERIMENT \
-            -testmode COMPRESSION
-
-        puts "INFO: Generating supplementary logic tests..."
-        create_logic_tests \
-            -experiment $EXPERIMENT \
-            -append yes \
-            -testmode COMPRESSION \
-            -testscan no
-    } else {
-        puts "INFO: Generating Stuck-At ATPG test patterns..."
-        create_logic_tests \
-            -experiment $EXPERIMENT \
-            -testmode COMPRESSION
-    }
-
-    # 6.3 Export Summary and Coverage Reports
-    puts "INFO: Writing test summary and fault coverage reports..."
-    report_tests \
+# 6.2 Generate Test Patterns
+if {$ATPG_MODE == "delay"} {
+    puts "INFO: Generating Transition Delay ATPG patterns (LOC/LOS)..."
+    create_logic_delay_tests \
         -experiment $EXPERIMENT \
-        -testmode COMPRESSION \
-        > "$REPORTS_DIR/${mode}_test_summary.rpt"
+        -testmode COMPRESSION
 
-    report_faults -summary >> "$REPORTS_DIR/${mode}_test_summary.rpt"
-
-    report_faults \
+    puts "INFO: Generating supplementary logic tests..."
+    create_logic_tests \
         -experiment $EXPERIMENT \
+        -append yes \
         -testmode COMPRESSION \
-        > "$REPORTS_DIR/${mode}_fault_coverage.rpt"
-
-    # 6.4 Power / Switching Activity Analysis
-    puts "INFO: Writing switching activity (toggle-gram) report..."
-    write_toggle_gram \
+        -testscan no
+} else {
+    puts "INFO: Generating Stuck-At ATPG test patterns..."
+    create_logic_tests \
         -experiment $EXPERIMENT \
-        -testmode COMPRESSION \
-        > "$REPORTS_DIR/${mode}_toggle_gram.rpt"
-
-    # 6.5 Export Test Vectors (Serial & Parallel)
-    puts "INFO: Exporting serial Verilog vectors to $TESTRESULTS_DIR/${mode}/verilog_serial..."
-    write_vectors \
-        -inexperiment $EXPERIMENT \
-        -testmode COMPRESSION \
-        -language verilog \
-        -scanformat serial \
-        -exportdir "$TESTRESULTS_DIR/${mode}/verilog_serial"
-
-    puts "INFO: Exporting parallel Verilog vectors to $TESTRESULTS_DIR/${mode}/verilog_parallel..."
-    write_vectors \
-        -inexperiment $EXPERIMENT \
-        -testmode COMPRESSION \
-        -language verilog \
-        -scanformat parallel \
-        -exportdir "$TESTRESULTS_DIR/${mode}/verilog_parallel"
-
-    # 6.6 Commit Tests to Master Database
-    puts "INFO: Committing experiment $EXPERIMENT to master database..."
-    commit_tests \
-        -inexperiment $EXPERIMENT \
         -testmode COMPRESSION
 }
+
+# 6.3 Export Summary and Coverage Reports
+puts "INFO: Writing test summary and fault coverage reports..."
+report_tests \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    > "$REPORTS_DIR/${ATPG_MODE}_test_summary.rpt"
+
+report_faults -summary >> "$REPORTS_DIR/${ATPG_MODE}_test_summary.rpt"
+
+report_faults \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    > "$REPORTS_DIR/${ATPG_MODE}_fault_coverage.rpt"
+
+# 6.4 Power / Switching Activity Analysis
+puts "INFO: Writing switching activity (toggle-gram) report..."
+write_toggle_gram \
+    -experiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    > "$REPORTS_DIR/${ATPG_MODE}_toggle_gram.rpt"
+
+# 6.5 Export Test Vectors (Serial & Parallel)
+puts "INFO: Exporting serial Verilog vectors to $TESTRESULTS_DIR/${ATPG_MODE}/verilog_serial..."
+write_vectors \
+    -inexperiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    -language verilog \
+    -scanformat serial \
+    -exportdir "$TESTRESULTS_DIR/${ATPG_MODE}/verilog_serial"
+
+puts "INFO: Exporting parallel Verilog vectors to $TESTRESULTS_DIR/${ATPG_MODE}/verilog_parallel..."
+write_vectors \
+    -inexperiment $EXPERIMENT \
+    -testmode COMPRESSION \
+    -language verilog \
+    -scanformat parallel \
+    -exportdir "$TESTRESULTS_DIR/${ATPG_MODE}/verilog_parallel"
+
+# 6.6 Commit Tests to Master Database
+puts "INFO: Committing experiment $EXPERIMENT to master database..."
+commit_tests \
+    -inexperiment $EXPERIMENT \
+    -testmode COMPRESSION
 
 puts "\n=================================================================="
 puts " Modus ATPG ($ATPG_MODE) Completed Successfully!"
 puts " Reports:  $REPORTS_DIR/"
-puts " Results:  $TESTRESULTS_DIR/"
+puts " Results:  $TESTRESULTS_DIR/${ATPG_MODE}/"
 puts "=================================================================="
 
 exit
