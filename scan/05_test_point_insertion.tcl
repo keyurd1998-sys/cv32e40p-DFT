@@ -53,9 +53,15 @@ if {[file exists $TP_FILE]} {
     puts "WARNING: Test point file $TP_FILE not found! Skipping test point insertion."
 }
 
-# Post-TPI DFT DRC and test point reports
-check_dft_rules                 > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
-report_dft_analyzed_test_points > "$STEP_RPT_DIR/${DESIGN}_test_points.rpt"
+# Post-TPI logic and timing optimization
+puts "INFO: Running post-TPI optimization (syn_opt)..."
+syn_opt
+
+# Post-TPI DFT DRC, test points, and timing reports
+check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules.rpt"
+report_dft_analyzed_test_points  > "$STEP_RPT_DIR/${DESIGN}_test_points.rpt"
+report_timing -path_type summary > "$STEP_RPT_DIR/${DESIGN}_timing_summary.rpt"
+report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
 
 # Save checkpoint database
 set DB_FILE [file normalize "$DBS_DIR/05_tpi.db"]

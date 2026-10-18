@@ -19,10 +19,6 @@ set_db [current_design] .dft_mix_clock_edges_in_scan_chains true
 # Technology mapping with scan flop replacement
 syn_map
 
-# Initial logic and timing optimization
-puts "INFO: Running post-mapping optimization (syn_opt)..."
-syn_opt
-
 # Post-mapping DRC and reports
 check_dft_rules                  > "$STEP_RPT_DIR/${DESIGN}_dft_rules_post_map.rpt"
 report_gates                     > "$STEP_RPT_DIR/${DESIGN}_gates.rpt"
