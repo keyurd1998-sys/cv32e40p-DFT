@@ -23,6 +23,7 @@ if {[info exists argv] && [llength $argv] > 0} {
     set ATPG_MODE "stuck_at"
 }
 
+set ATPG_MODE [string trimright [string trim $ATPG_MODE] "/"]
 set EXPERIMENT "${DESIGN}_${ATPG_MODE}"
 
 # ------------------------------------------------------------------------------

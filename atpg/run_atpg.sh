@@ -2,6 +2,7 @@
 set -e
 
 MODE="${1:-stuck_at}"
+MODE="${MODE%/}"
 
 rm -rf "$MODE/logs" "$MODE/reports" "$MODE/patterns" "$MODE/testresults" "$MODE/tbdata"
 mkdir -p "$MODE/reports" "$MODE/logs" "$MODE/patterns" "$MODE/testresults"
