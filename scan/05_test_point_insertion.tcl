@@ -25,7 +25,7 @@ write_dft_compression_test_points \
     -library $ATPG_LIB \
     -build_model_options "-allowmissingmodules yes" \
     -min_slack_for_no_tp_file 100 \
-    -compression_testpoints_options "-maxtestpts 100" \
+    -compression_testpoints_options "-maxtestpts 200" \
     -force
 
 # Run Modus ATPG test point analysis
@@ -67,5 +67,5 @@ report_qor                       > "$STEP_RPT_DIR/${DESIGN}_qor.rpt"
 set DB_FILE [file normalize "$DBS_DIR/05_tpi.db"]
 write_db -all_root_attributes -to_file $DB_FILE
 
-puts "INFO: Step 5 Test Point Insertion (max 100 TPs) completed. Checkpoint saved: $DB_FILE"
+puts "INFO: Step 5 Test Point Insertion (max 200 TPs) completed. Checkpoint saved: $DB_FILE"
 exit

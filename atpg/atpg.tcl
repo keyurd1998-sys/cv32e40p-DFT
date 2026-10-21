@@ -94,17 +94,26 @@ report_fault_statistics \
 if {$ATPG_MODE == "delay"} {
     create_logic_delay_tests \
         -experiment $EXPERIMENT \
-        -testmode COMPRESSION
+        -testmode COMPRESSION \
+        -effort high \
+        -exhaustivetg yes \
+        -resolveuntestables all
 
     create_logic_tests \
         -experiment $EXPERIMENT \
         -append yes \
         -testmode COMPRESSION \
-        -testscan no
+        -testscan no \
+        -effort high \
+        -exhaustivetg yes \
+        -resolveuntestables all
 } else {
     create_logic_tests \
         -experiment $EXPERIMENT \
-        -testmode COMPRESSION
+        -testmode COMPRESSION \
+        -effort high \
+        -exhaustivetg yes \
+        -resolveuntestables all
 }
 
 # ------------------------------------------------------------------------------
